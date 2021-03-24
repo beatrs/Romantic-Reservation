@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html lang="en"><!-- Basic -->
 <head>
-	<meta charset="utf-8">
+	<meta charset="utf-8"> 
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
     <!-- Mobile Metas -->
@@ -41,7 +41,7 @@
 	<header class="top-navbar">
 		<nav class="navbar navbar-expand-lg navbar-light bg-light">
 			<div class="container">
-				<a class="navbar-brand" href="index.html">
+				<a class="navbar-brand" href="index.php">
 					<img src="images/logo.png" alt="" />
 				</a>
 				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbars-rs-food" aria-controls="navbars-rs-food" aria-expanded="false" aria-label="Toggle navigation">
@@ -49,27 +49,8 @@
 				</button>
 				<div class="collapse navbar-collapse" id="navbars-rs-food">
 					<ul class="navbar-nav ml-auto">
-						<li class="nav-item active"><a class="nav-link" href="index.php">Home</a></li>
 						<li class="nav-item"><a class="nav-link" href="menu.php">Menu</a></li>
-						<li class="nav-item"><a class="nav-link" href="about.php">About</a></li>
-						<li class="nav-item dropdown">
-							<a class="nav-link dropdown-toggle" href="#" id="dropdown-a" data-toggle="dropdown">Pages</a>
-							<div class="dropdown-menu" aria-labelledby="dropdown-a">
-								<a class="dropdown-item" href="reservation.php">Reservation</a>
-								<a class="dropdown-item" href="stuff.php">Stuff</a>
-								<a class="dropdown-item" href="gallery.php">Gallery</a>
-							</div>
-						</li>
-						<li class="nav-item dropdown">
-<!--							<a class="nav-link dropdown-toggle" href="#" id="dropdown-a" data-toggle="dropdown">Blog</a>
-							<div class="dropdown-menu" aria-labelledby="dropdown-a">
-								<a class="dropdown-item" href="blog.php">blog</a>
-								<a class="dropdown-item" href="blog-details.php">blog Single</a>
-							</div>-->
-						</li>
-						<li class="nav-item"><a class="nav-link" href="contact.php">Contact</a></li>
-
-						<li class="nav-item"><a class="nav-link" href="my_acc.php">My Account</a></li>
+                        <li class="nav-item"><a class="nav-link" href="reservation.php">Reservation</a></li>
 						<?php if (!empty($_SESSION['user'])) {?>
 						<div class='acc-container'>
 							<li class="nav-item"><a class="nav-link" href=""><?php $details = $_SESSION['user']; echo $details['first_name'] ?></a></li>
@@ -79,8 +60,11 @@
 
 						echo "<li class='nav-item'><a class='nav-link' href='register.php'>Register</a></li>";
 							//echo var_dump($_SESSION['user']);
-							//echo isset($_SESSION['login']);
+							echo isset($_SESSION['login']);
 							} ?>
+                        <li class="nav-item"><a class="nav-link" href="my_acc.php">My Account</a></li>
+                        <li class="nav-item"><a class="nav-link" href="contact.php">Contact</a></li>
+						<li class="nav-item"><a class="nav-link" href="about.php">About</a></li>
 					</ul>
 				</div>
 			</div>
@@ -199,9 +183,9 @@
 					<div class="gallery-single fix">
 						<img src="images/img-01.jpg" class="img-fluid" alt="Image">
 						<div class="why-text">
-							<h4>Special Drinks 1</h4>
-							<p>Sed id magna vitae eros sagittis euismod.</p>
-							<h5> ₱117.79</h5>
+							<h4>Fresh Fruit Smoothies</h4>
+							<p>drink made from pureed raw fruit</p>
+							<h5> ₱120.00</h5>
 						</div>
 					</div>
 				</div>
@@ -210,9 +194,9 @@
 					<div class="gallery-single fix">
 						<img src="images/img-02.jpg" class="img-fluid" alt="Image">
 						<div class="why-text">
-							<h4>Special Drinks 2</h4>
-							<p>Sed id magna vitae eros sagittis euismod.</p>
-							<h5> ₱119.79</h5>
+							<h4>Soju</h4>
+							<p>clear, colorless distilled alcoholic beverage of Korean origin</p>
+							<h5> ₱250.00</h5>
 						</div>
 					</div>
 				</div>
@@ -221,9 +205,9 @@
 					<div class="gallery-single fix">
 						<img src="images/img-03.jpg" class="img-fluid" alt="Image">
 						<div class="why-text">
-							<h4>Special Drinks 3</h4>
-							<p>Sed id magna vitae eros sagittis euismod.</p>
-							<h5> ₱110.79</h5>
+							<h4>Iced Tea</h4>
+							<p>cold lemon tea sweetened with sugar, syrup and/or apple slices</p>
+							<h5> ₱80.00</h5>
 						</div>
 					</div>
 				</div>
@@ -232,9 +216,9 @@
 					<div class="gallery-single fix">
 						<img src="images/img-04.jpg" class="img-fluid" alt="Image">
 						<div class="why-text">
-							<h4>Special Lunch 1</h4>
-							<p>Sed id magna vitae eros sagittis euismod.</p>
-							<h5> ₱115.79</h5>
+							<h4>Woo Samgyup</h4>
+							<p>thin slice of beef brisket</p>
+							<h5> ₱330.00</h5>
 						</div>
 					</div>
 				</div>
@@ -243,9 +227,9 @@
 					<div class="gallery-single fix">
 						<img src="images/img-05.jpg" class="img-fluid" alt="Image">
 						<div class="why-text">
-							<h4>Special Lunch 2</h4>
-							<p>Sed id magna vitae eros sagittis euismod.</p>
-							<h5> ₱118.79</h5>
+							<h4>Spicy Beef / Curry Beef</h4>
+							<p>thin sliced beef dipped in curry or spicy sauce</p>
+							<h5> ₱340.00</h5>
 						</div>
 					</div>
 				</div>
@@ -254,9 +238,9 @@
 					<div class="gallery-single fix">
 						<img src="images/img-06.jpg" class="img-fluid" alt="Image">
 						<div class="why-text">
-							<h4>Special Lunch 3</h4>
-							<p>Sed id magna vitae eros sagittis euismod.</p>
-							<h5> ₱120.79</h5>
+							<h4>Romantic Bulgogi</h4>
+							<p>sweet marinated korean-style beef</p>
+							<h5> ₱340.00</h5>
 						</div>
 					</div>
 				</div>
@@ -265,9 +249,9 @@
 					<div class="gallery-single fix">
 						<img src="images/img-07.jpg" class="img-fluid" alt="Image">
 						<div class="why-text">
-							<h4>Special Dinner 1</h4>
-							<p>Sed id magna vitae eros sagittis euismod.</p>
-							<h5> ₱225.79</h5>
+							<h4>Kimchi</h4>
+							<p>spicy fermented cabbage dish</p>
+							<h5> ₱120.00</h5>
 						</div>
 					</div>
 				</div>
@@ -276,9 +260,9 @@
 					<div class="gallery-single fix">
 						<img src="images/img-08.jpg" class="img-fluid" alt="Image">
 						<div class="why-text">
-							<h4>Special Dinner 2</h4>
-							<p>Sed id magna vitae eros sagittis euismod.</p>
-							<h5> ₱122.79</h5>
+							<h4>Fish Cakes</h4>
+							<p>made of ground white fish, potato starch, sugar and vegetables</p>
+							<h5> ₱150.00</h5>
 						</div>
 					</div>
 				</div>
@@ -287,9 +271,9 @@
 					<div class="gallery-single fix">
 						<img src="images/img-09.jpg" class="img-fluid" alt="Image">
 						<div class="why-text">
-							<h4>Special Dinner 3</h4>
-							<p>Sed id magna vitae eros sagittis euismod.</p>
-							<h5> ₱144.79</h5>
+							<h4>Romantic Cheese</h4>
+							<p>melted cheese for dipping kbbq</p>
+							<h5> ₱120.00</h5>
 						</div>
 					</div>
 				</div>
@@ -369,7 +353,7 @@
 								</div>
 								<h5 class="mt-4 mb-0"><strong class="text-warning text-uppercase">Angielyn Morales</strong></h5>
 								<h6 class="text-dark m-0">Customer</h6>
-								<p class="m-0 pt-3">Yaaaay. My first korean bbq experience after quarantine (though it is not really over yet hehe) went here for lunch! Romantic baboy is one of my favorite korean bbq & grill and during our visit, some meats weren’t available but it’s okay, we just tried the other options. My family and I always have korean bbq at home but it really feels different when you’re in a restaurant hehe. Would love to dine again soon!.</p>
+								<p class="m-0 pt-3">Yaaaay. My first korean bbq experience after quarantine (though it is not really over yet hehe) went here for lunch! Romantic baboy is one of my favorite korean bbq & grill and during our visit, some meats weren’t available but it’s okay, we just tried the other options. My family and I always have korean bbq at home but it really feels different when you’re in a restaurant hehe. Would love to dine again soon!</p>
 							</div>
 							<div class="carousel-item text-center">
 								<div class="img-box p-1 border rounded-circle m-auto">
@@ -459,8 +443,8 @@ The place is also neat.</p>
 				<div class="col-lg-3 col-md-6">
 					<h3>Contact information</h3>
 					<p class="lead">Ground Level, Double Dragon Plaza, Pasay, Metro Manila</p>
-					<p class="lead"><a href="#">(02) 8374 7948</a></p>
-					<p><a href="#"> romanticbaboy@gmail.ph</a></p>
+					<p class="lead"><a href="contact.php">(02) 8374 7948</a></p>
+					<p><a href="contact.php"> romanticbaboy@gmail.ph</a></p>
 				</div>
 				<div class="col-lg-3 col-md-6">
 					<h3>Subscribe</h3>
@@ -472,11 +456,7 @@ The place is also neat.</p>
 						</form>
 					</div>
 					<ul class="list-inline f-social">
-						<li class="list-inline-item"><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-						<li class="list-inline-item"><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-						<li class="list-inline-item"><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
-						<li class="list-inline-item"><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
-						<li class="list-inline-item"><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+						<li class="list-inline-item"><a href="https://web.facebook.com/RomanticBaboy/?_rdc=1&_rdr"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
 					</ul>
 				</div>
 			</div>
@@ -486,7 +466,7 @@ The place is also neat.</p>
 			<div class="container">
 				<div class="row">
 					<div class="col-lg-12">
-						<p class="company-name">All Rights Reserved. &copy; 2018 <a href="#">Romantic Baboy Restaurant</a></p>
+						<p class="company-name">All Rights Reserved. &copy; 2018 <a href="https://web.facebook.com/RomanticBaboy/?_rdc=1&_rdr">Romantic Baboy Restaurant</a></p>
 					</div>
 				</div>
 			</div>

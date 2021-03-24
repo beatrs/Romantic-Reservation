@@ -11,7 +11,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
  
      <!-- Site Metas -->
-    <title>Yamifood Restaurant - Responsive HTML5 Template</title>  
+    <title>Romantic Baboy Restaurant</title>  
     <meta name="keywords" content="">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -41,7 +41,7 @@
 	<header class="top-navbar">
 		<nav class="navbar navbar-expand-lg navbar-light bg-light">
 			<div class="container">
-				<a class="navbar-brand" href="index.html">
+				<a class="navbar-brand" href="index.php">
 					<img src="images/logo.png" alt="" />
 				</a>
 				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbars-rs-food" aria-controls="navbars-rs-food" aria-expanded="false" aria-label="Toggle navigation">
@@ -49,27 +49,8 @@
 				</button>
 				<div class="collapse navbar-collapse" id="navbars-rs-food">
 					<ul class="navbar-nav ml-auto">
-						<li class="nav-item"><a class="nav-link" href="index.php">Home</a></li>
 						<li class="nav-item active"><a class="nav-link" href="menu.php">Menu</a></li>
-						<li class="nav-item"><a class="nav-link" href="about.php">About</a></li>
-						<li class="nav-item dropdown">
-							<a class="nav-link dropdown-toggle" href="#" id="dropdown-a" data-toggle="dropdown">Pages</a>
-							<div class="dropdown-menu" aria-labelledby="dropdown-a">
-								<a class="dropdown-item" href="reservation.php">Reservation</a>
-								<a class="dropdown-item" href="stuff.php">Stuff</a>
-								<a class="dropdown-item" href="gallery.php">Gallery</a>
-							</div>
-						</li>
-						<li class="nav-item dropdown">
-							<a class="nav-link dropdown-toggle" href="#" id="dropdown-a" data-toggle="dropdown">Blog</a>
-							<div class="dropdown-menu" aria-labelledby="dropdown-a">
-								<a class="dropdown-item" href="blog.php">blog</a>
-								<a class="dropdown-item" href="blog-details.php">blog Single</a>
-							</div>
-						</li>
-						<li class="nav-item"><a class="nav-link" href="contact.php">Contact</a></li>
-
-						<li class="nav-item"><a class="nav-link" href="my_acc.php">My Account</a></li>
+                        <li class="nav-item"><a class="nav-link" href="reservation.php">Reservation</a></li>
 						<?php if (!empty($_SESSION['user'])) {?>
 						<div class='acc-container'>
 							<li class="nav-item"><a class="nav-link" href=""><?php $details = $_SESSION['user']; echo $details['first_name'] ?></a></li>
@@ -81,6 +62,9 @@
 							//echo var_dump($_SESSION['user']);
 							echo isset($_SESSION['login']);
 							} ?>
+                        <li class="nav-item"><a class="nav-link" href="my_acc.php">My Account</a></li>
+                        <li class="nav-item"><a class="nav-link" href="contact.php">Contact</a></li>
+						<li class="nav-item"><a class="nav-link" href="about.php">About</a></li>
 					</ul>
 				</div>
 			</div>
@@ -107,7 +91,7 @@
 				<div class="col-lg-12">
 					<div class="heading-title text-center">
 						<h2>Special Menu</h2>
-						<p>Lorem Ipsum is simply dummy text of the printing and typesetting</p>
+						<p>Many options to choose from!</p>
 					</div>
 				</div>
 			</div>
@@ -117,8 +101,8 @@
 						<div class="button-group filter-button-group">
 							<button class="active" data-filter="*">All</button>
 							<button data-filter=".drinks">Drinks</button>
-							<button data-filter=".lunch">Lunch</button>
-							<button data-filter=".dinner">Dinner</button>
+							<button data-filter=".lunch">BBQ</button>
+							<button data-filter=".dinner">Others</button>
 						</div>
 					</div>
 				</div>
@@ -129,9 +113,9 @@
 					<div class="gallery-single fix">
 						<img src="images/img-01.jpg" class="img-fluid" alt="Image">
 						<div class="why-text">
-							<h4>Special Drinks 1</h4>
-							<p>Sed id magna vitae eros sagittis euismod.</p>
-							<h5> $7.79</h5>
+							<h4>Fresh Fruit Smoothies</h4>
+							<p>drink made from pureed raw fruit</p>
+							<h5> ₱120.00</h5>
 						</div>
 					</div>
 				</div>
@@ -140,9 +124,9 @@
 					<div class="gallery-single fix">
 						<img src="images/img-02.jpg" class="img-fluid" alt="Image">
 						<div class="why-text">
-							<h4>Special Drinks 2</h4>
-							<p>Sed id magna vitae eros sagittis euismod.</p>
-							<h5> $9.79</h5>
+							<h4>Soju</h4>
+							<p>cold lemon tea sweetened with sugar, syrup and/or apple slices</p>
+							<h5> ₱250.00</h5>
 						</div>
 					</div>
 				</div>
@@ -151,9 +135,9 @@
 					<div class="gallery-single fix">
 						<img src="images/img-03.jpg" class="img-fluid" alt="Image">
 						<div class="why-text">
-							<h4>Special Drinks 3</h4>
-							<p>Sed id magna vitae eros sagittis euismod.</p>
-							<h5> $10.79</h5>
+							<h4>Iced Tea</h4>
+							<p>cold lemon tea sweetened with sugar, syrup and/or apple slices</p>
+							<h5> ₱80.00</h5>
 						</div>
 					</div>
 				</div>
@@ -162,9 +146,9 @@
 					<div class="gallery-single fix">
 						<img src="images/img-04.jpg" class="img-fluid" alt="Image">
 						<div class="why-text">
-							<h4>Special Lunch 1</h4>
-							<p>Sed id magna vitae eros sagittis euismod.</p>
-							<h5> $15.79</h5>
+							<h4>Woo Samgyup</h4>
+							<p>thin slice of beef brisket</p>
+							<h5> ₱330.00</h5>
 						</div>
 					</div>
 				</div>
@@ -173,9 +157,9 @@
 					<div class="gallery-single fix">
 						<img src="images/img-05.jpg" class="img-fluid" alt="Image">
 						<div class="why-text">
-							<h4>Special Lunch 2</h4>
-							<p>Sed id magna vitae eros sagittis euismod.</p>
-							<h5> $18.79</h5>
+							<h4>Spicy Beef / Curry Beef</h4>
+							<p>thin sliced beef dipped in curry or spicy sauce</p>
+							<h5> ₱340.00</h5>
 						</div>
 					</div>
 				</div>
@@ -184,9 +168,9 @@
 					<div class="gallery-single fix">
 						<img src="images/img-06.jpg" class="img-fluid" alt="Image">
 						<div class="why-text">
-							<h4>Special Lunch 3</h4>
-							<p>Sed id magna vitae eros sagittis euismod.</p>
-							<h5> $20.79</h5>
+							<h4>Romantic Bulgogi</h4>
+							<p>sweet marinated korean-style beef</p>
+							<h5> ₱340.00</h5>
 						</div>
 					</div>
 				</div>
@@ -195,9 +179,9 @@
 					<div class="gallery-single fix">
 						<img src="images/img-07.jpg" class="img-fluid" alt="Image">
 						<div class="why-text">
-							<h4>Special Dinner 1</h4>
-							<p>Sed id magna vitae eros sagittis euismod.</p>
-							<h5> $25.79</h5>
+							<h4>Kimchi</h4>
+							<p>spicy fermented cabbage dish</p>
+							<h5> ₱120.00</h5>
 						</div>
 					</div>
 				</div>
@@ -206,9 +190,9 @@
 					<div class="gallery-single fix">
 						<img src="images/img-08.jpg" class="img-fluid" alt="Image">
 						<div class="why-text">
-							<h4>Special Dinner 2</h4>
-							<p>Sed id magna vitae eros sagittis euismod.</p>
-							<h5> $22.79</h5>
+							<h4>Fish Cakes</h4>
+							<p>made of ground white fish, potato starch, sugar and vegetables</p>
+							<h5> ₱150.00</h5>
 						</div>
 					</div>
 				</div>
@@ -217,9 +201,9 @@
 					<div class="gallery-single fix">
 						<img src="images/img-09.jpg" class="img-fluid" alt="Image">
 						<div class="why-text">
-							<h4>Special Dinner 3</h4>
-							<p>Sed id magna vitae eros sagittis euismod.</p>
-							<h5> $24.79</h5>
+							<h4>Romantic Cheese</h4>
+							<p>melted cheese for dipping kbbq</p>
+							<h5> ₱120.00</h5>
 						</div>
 					</div>
 				</div>
@@ -235,9 +219,9 @@
 			<div class="row">
 				<div class="col-md-8 ml-auto mr-auto text-left">
 					<p class="lead ">
-						" If you're not the one cooking, stay out of the way and compliment the chef. "
+						" You don't think about Diet once you step in here. "
 					</p>
-					<span class="lead">Michael Strahan</span>
+					<span class="lead">- Founder of Romantic Baboy</span>
 				</div>
 			</div>
 		</div>
@@ -251,7 +235,7 @@
 				<div class="col-lg-12">
 					<div class="heading-title text-center">
 						<h2>Customer Reviews</h2>
-						<p>Lorem Ipsum is simply dummy text of the printing and typesetting</p>
+						<p>We want to hear from you!</p>
 					</div>
 				</div>
 			</div>
@@ -263,25 +247,28 @@
 								<div class="img-box p-1 border rounded-circle m-auto">
 									<img class="d-block w-100 rounded-circle" src="images/profile-1.jpg" alt="">
 								</div>
-								<h5 class="mt-4 mb-0"><strong class="text-warning text-uppercase">Paul Mitchel</strong></h5>
-								<h6 class="text-dark m-0">Web Developer</h6>
-								<p class="m-0 pt-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam eu sem tempor, varius quam at, luctus dui. Mauris magna metus, dapibus nec turpis vel, semper malesuada ante. Idac bibendum scelerisque non non purus. Suspendisse varius nibh non aliquet.</p>
+								<h5 class="mt-4 mb-0"><strong class="text-warning text-uppercase">Angielyn Morales</strong></h5>
+								<h6 class="text-dark m-0">Customer</h6>
+								<p class="m-0 pt-3">Yaaaay. My first korean bbq experience after quarantine (though it is not really over yet hehe) went here for lunch! Romantic baboy is one of my favorite korean bbq & grill and during our visit, some meats weren’t available but it’s okay, we just tried the other options. My family and I always have korean bbq at home but it really feels different when you’re in a restaurant hehe. Would love to dine again soon!</p>
 							</div>
 							<div class="carousel-item text-center">
 								<div class="img-box p-1 border rounded-circle m-auto">
 									<img class="d-block w-100 rounded-circle" src="images/profile-3.jpg" alt="">
 								</div>
-								<h5 class="mt-4 mb-0"><strong class="text-warning text-uppercase">Steve Fonsi</strong></h5>
-								<h6 class="text-dark m-0">Web Designer</h6>
-								<p class="m-0 pt-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam eu sem tempor, varius quam at, luctus dui. Mauris magna metus, dapibus nec turpis vel, semper malesuada ante. Idac bibendum scelerisque non non purus. Suspendisse varius nibh non aliquet.</p>
+								<h5 class="mt-4 mb-0"><strong class="text-warning text-uppercase">Rochkirstin Sioco</strong></h5>
+								<h6 class="text-dark m-0">Customer</h6>
+								<p class="m-0 pt-3">Romantic Baboy plies quite an extensive menu of traditional Korean grill barbecue meat (pork and beef) in a no-frills atmosphere. Seats aren’t cramped but rather comfortable for large groups. Rightly so, each table is fitted with an exhaust grill hood. The restaurant looks spacious despite being packed, and the vibe exudes a feel-good facotor where everything feels right. Casual, convenient, and friendly, this is the spot to be.</p>
 							</div>
 							<div class="carousel-item text-center">
 								<div class="img-box p-1 border rounded-circle m-auto">
 									<img class="d-block w-100 rounded-circle" src="images/profile-7.jpg" alt="">
 								</div>
-								<h5 class="mt-4 mb-0"><strong class="text-warning text-uppercase">Daniel vebar</strong></h5>
-								<h6 class="text-dark m-0">Seo Analyst</h6>
-								<p class="m-0 pt-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam eu sem tempor, varius quam at, luctus dui. Mauris magna metus, dapibus nec turpis vel, semper malesuada ante. Idac bibendum scelerisque non non purus. Suspendisse varius nibh non aliquet.</p>
+								<h5 class="mt-4 mb-0"><strong class="text-warning text-uppercase">Symon Chan</strong></h5>
+								<h6 class="text-dark m-0">Customer</h6>
+								<p class="m-0 pt-3">We went there friday lunch time that's why we got seats but when you go there during weekends or dinner time, there are a lot of people.
+Service was good, they were very attentive.
+Meat was good and well prepared.
+The place is also neat.</p>
 							</div>
 						</div>
 						<a class="carousel-control-prev" href="#reviews" role="button" data-slide="prev">
@@ -298,7 +285,6 @@
 		</div>
 	</div>
 	<!-- End Customer Reviews -->
-	
 	<!-- Start Contact info -->
 	<div class="contact-imfo-box">
 		<div class="container">
@@ -308,7 +294,7 @@
 					<div class="overflow-hidden">
 						<h4>Phone</h4>
 						<p class="lead">
-							+01 123-456-4590
+							+02 8374 7948
 						</p>
 					</div>
 				</div>
@@ -317,7 +303,7 @@
 					<div class="overflow-hidden">
 						<h4>Email</h4>
 						<p class="lead">
-							yourmail@gmail.com
+							romanticbaboy@gmail.ph
 						</p>
 					</div>
 				</div>
@@ -326,7 +312,7 @@
 					<div class="overflow-hidden">
 						<h4>Location</h4>
 						<p class="lead">
-							800, Lorem Street, US
+							Double Dragon Plaza, Pasay, Metro Manila
 						</p>
 					</div>
 				</div>
@@ -341,20 +327,19 @@
 			<div class="row">
 				<div class="col-lg-3 col-md-6">
 					<h3>About Us</h3>
-					<p>Integer cursus scelerisque ipsum id efficitur. Donec a dui fringilla, gravida lorem ac, semper magna. Aenean rhoncus ac lectus a interdum. Vivamus semper posuere dui, at ornare turpis ultrices sit amet. Nulla cursus lorem ut nisi porta, ac eleifend arcu ultrices.</p>
+					<p>Romantic Baboy is a restaurant chain in Metro Manila that serves unlimited Korean BBQ since 2019. Their main menu includes ready-to-grill meats and assorted side dishes!</p>
 				</div>
 				<div class="col-lg-3 col-md-6">
 					<h3>Opening hours</h3>
-					<p><span class="text-color">Monday: </span>Closed</p>
-					<p><span class="text-color">Tue-Wed :</span> 9:Am - 10PM</p>
-					<p><span class="text-color">Thu-Fri :</span> 9:Am - 10PM</p>
-					<p><span class="text-color">Sat-Sun :</span> 5:PM - 10PM</p>
+					<p><span class="text-color">Monday - Sunday : </span>OPEN</p>
+					<p><span class="text-color">Hours :</span> 11:00 AM - 2:00 AM</p>
+
 				</div>
 				<div class="col-lg-3 col-md-6">
 					<h3>Contact information</h3>
-					<p class="lead">Ipsum Street, Lorem Tower, MO, Columbia, 508000</p>
-					<p class="lead"><a href="#">+01 2000 800 9999</a></p>
-					<p><a href="#"> info@admin.com</a></p>
+					<p class="lead">Ground Level, Double Dragon Plaza, Pasay, Metro Manila</p>
+					<p class="lead"><a href="contact.php">(02) 8374 7948</a></p>
+					<p><a href="contact.php"> romanticbaboy@gmail.ph</a></p>
 				</div>
 				<div class="col-lg-3 col-md-6">
 					<h3>Subscribe</h3>
@@ -366,27 +351,23 @@
 						</form>
 					</div>
 					<ul class="list-inline f-social">
-						<li class="list-inline-item"><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-						<li class="list-inline-item"><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-						<li class="list-inline-item"><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
-						<li class="list-inline-item"><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
-						<li class="list-inline-item"><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+						<li class="list-inline-item"><a href="https://web.facebook.com/RomanticBaboy/?_rdc=1&_rdr"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+						
 					</ul>
 				</div>
 			</div>
 		</div>
-		
+
 		<div class="copyright">
 			<div class="container">
 				<div class="row">
 					<div class="col-lg-12">
-						<p class="company-name">All Rights Reserved. &copy; 2018 <a href="#">Yamifood Restaurant</a> Design By : 
-					<a href="https://html.design/">html design</a></p>
+						<p class="company-name">All Rights Reserved. &copy; 2018 <a href="https://web.facebook.com/RomanticBaboy/?_rdc=1&_rdr">Romantic Baboy Restaurant</a></p>
 					</div>
 				</div>
 			</div>
 		</div>
-		
+
 	</footer>
 	<!-- End Footer -->
 	
