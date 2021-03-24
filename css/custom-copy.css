@@ -1,0 +1,16 @@
+
+/** ADD YOUR AWESOME CODES HERE **/
+
+.form-container {
+    border: 1px solid black;
+    width: 500px;
+    margin: auto;
+    margin-top: 40px;
+}
+#form-info {
+    padding: 20px;
+}
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
