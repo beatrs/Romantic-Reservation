@@ -16,7 +16,7 @@
         "</script>";
     } */
     
-    $show = false;
+    //$show = false;
     //see available tables
     if (isset($_POST['see'])) {
         /**get from db */
@@ -31,10 +31,10 @@
         while(($row =  mysqli_fetch_assoc($res))) {
             $types[] = $row['table_id'];
         }
-        //echo var_dump($types);
+        echo var_dump($types);
         for ($i = 0; $i < count($types); $i++) {
             $arg_table = $types[$i];
-            echo $arg_table;
+            //echo $arg_table;
             echo "<script type='text/javascript'>",
             "change_color('$arg_table');",
             "</script>";
@@ -50,7 +50,7 @@
             echo "empty";
         }
         //$res_date = $_POST['res_date'];
-        echo $res;
+        //echo $res;
         #echo isset($_SESSION['user']);
         $details = $_SESSION['user'];
         $user_id = $details['id'];
@@ -62,7 +62,7 @@
         //$arr_tables = array_reverse($arr_tables);
         //$res_date = array_pop($arr_tables);
         //$res_time = array_pop($arr_tables);
-        echo var_dump($arr_tables); 
+        //echo var_dump($arr_tables); 
         
         $res_date = $_SESSION['set-date'];
         $res_time = $_SESSION['set-time'];
@@ -78,7 +78,7 @@
                     $sql = "INSERT INTO users_reservations (user_id, table_id, reserve_date, reserve_time, status) VALUES ('$user_id', '$arr_tables[$i]', '$res_date', '$res_time', 1)";
                     $res = mysqli_query($conn, $sql);
                     if ($res) {
-                        echo "<p>successfully inserted</p>";
+                        //echo "<p>successfully inserted</p>";
                         
                     } else {
                         $sql = "UPDATE users_reservations SET status=1 WHERE user_id='$user_id' AND table_id='$arr_tables[$i]' AND reserve_date='$res_date' AND status=0 ";

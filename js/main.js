@@ -46,8 +46,8 @@ function change_color(seat_taken) {
     for (var i = 0; i < allSeats.length; i++) {
         seat = allSeats[i];
         var x = seat.getAttribute('value')
-        /* console.log("x value: " + x);
-        console.log("seat_taken value: " + seat_taken); */
+        console.log("x value: " + x);
+        console.log("seat_taken value: " + seat_taken); 
         if (x == seat_taken) {
             seat.style.backgroundColor = 'gray'
         }

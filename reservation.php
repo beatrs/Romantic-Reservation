@@ -40,10 +40,7 @@
     <![endif]-->
 
 </head>
-<?php
-	include 'php/reserve.php';
-	//include 'php/functions.php';
-?>
+
 <body id="override">
 	<!-- Start header -->
 	<header class="top-navbar">
@@ -116,17 +113,17 @@
 										<div class="form-group">
 											<!-- <input id="input_date" class="datepicker picker__input form-control" name="res_date" type="date" value="" required data-error="Please enter Date"> -->
 											
-    										<input type='date' id='date' name='res_date' required>
+    										<input type='date' id='date' name='res_date' value="<?php echo $_SESSION['set-date'];?>" required>
 											<div class="help-block with-errors"></div>
 										</div>
 									</div>
 									<!-- lunch/dinner -->
 									<div class="col-md-12">
 										<div class="form-group">
-											<select class="custom-select d-block form-control" id="time" name='time'  data-error="Please select time">
-												<option disabled selected>Select Time*</option>
-												<option value="lunch">Lunch</option>
-												<option value="dinner">Dinner</option>
+											<select class="custom-select d-block form-control" id="time" name='time' selected="" data-error="Please select time">
+												<option disabled selected><?php if(!empty($_SESSION['set-time'])) {echo $_SESSION['set-time'];} else {echo "Select Time*";}?></option>
+												<option value="Lunch">Lunch</option>
+												<option value="Dinner">Dinner</option>
 											</select>
 											<div class="help-block with-errors"></div>
 										</div>
@@ -139,7 +136,6 @@
 									</div>
 								</div>
 						</form>
-								<?php if($show) { ?>
 								<div class="col-md-6">
 									<div style="border:1px solid gray; width:130px;">
 										<table>
@@ -223,7 +219,6 @@
 										<div class="clearfix"></div>
 									</div>
 								</div>
-								<?php } else{} ?>
 							</div>
 					</div>
 				</div>
@@ -400,7 +395,9 @@ The place is also neat.</p>
 	<script src="js/form-validator.min.js"></script>
     <script src="js/contact-form-script.js"></script>
     <script src="js/custom.js"></script>
-    <script src="js/main.js"></script>
+	<script src="js/main.js"></script>
 </body>
-
+<?php
+	include 'php/reserve.php';
+?>
 </html>
