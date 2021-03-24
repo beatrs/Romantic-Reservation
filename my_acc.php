@@ -107,6 +107,8 @@
                 <label for="password">Password</label>
                 <input type="password" name="password" required>
             </div>
+			<input type="checkbox" name="remember" id="remember">
+			<label for="remember-me">Remember me</label>
             <p>Don't have an account yet? Register <a href="register.php">here</a></p>
             <button type="submit" class="btn" name="login">Login</button>
             </fieldset>
