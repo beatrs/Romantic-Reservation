@@ -40,7 +40,10 @@
     <![endif]-->
 
 </head>
-
+<?php
+	include 'php/reserve.php';
+	//include 'php/functions.php';
+?>
 <body id="override">
 	<!-- Start header -->
 	<header class="top-navbar">
@@ -107,6 +110,8 @@
 							<div class="row">
 								<div class="col-md-6">
 									<h3>Book a table</h3>
+									<form id='see-tables' method='post' action=''>
+									<!-- PICK DATE -->
 									<div class="col-md-12">
 										<div class="form-group">
 											<!-- <input id="input_date" class="datepicker picker__input form-control" name="res_date" type="date" value="" required data-error="Please enter Date"> -->
@@ -115,23 +120,26 @@
 											<div class="help-block with-errors"></div>
 										</div>
 									</div>
-									<div class="col-md-12">
-										<div class="form-group">
-											<input id="input_time" class="time form-control picker__input"  data-error="Please enter time">
-											<div class="help-block with-errors"></div>
-										</div>
-									</div>
+									<!-- lunch/dinner -->
 									<div class="col-md-12">
 										<div class="form-group">
 											<select class="custom-select d-block form-control" id="time" name='time'  data-error="Please select time">
-											  <option disabled selected>Select Time*</option>
-											  <option value="lunch">Lunch</option>
-											  <option value="dinner">Dinner</option>
+												<option disabled selected>Select Time*</option>
+												<option value="lunch">Lunch</option>
+												<option value="dinner">Dinner</option>
 											</select>
 											<div class="help-block with-errors"></div>
 										</div>
 									</div>
+									<!-- SEE AVAILABLE SEATS -->
+									<div class="submit-button text-center">
+										<button class="btn btn-gray" id="see" type="submit" name='see'>See Available Tables</button>
+										<div id="msgSubmit" class="h3 text-center hidden"></div>
+										<div class="clearfix"></div>
+									</div>
 								</div>
+						</form>
+								<?php if($show) { ?>
 								<div class="col-md-6">
 									<div style="border:1px solid gray; width:130px;">
 										<table>
@@ -215,8 +223,8 @@
 										<div class="clearfix"></div>
 									</div>
 								</div>
+								<?php } else{} ?>
 							</div>
-						</form>
 					</div>
 				</div>
 			</div>
@@ -394,7 +402,5 @@ The place is also neat.</p>
     <script src="js/custom.js"></script>
     <script src="js/main.js"></script>
 </body>
-<?php
-	include 'php/reserve.php';
-?>
+
 </html>

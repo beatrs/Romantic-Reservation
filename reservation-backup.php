@@ -1,17 +1,18 @@
 <?php
     session_start();
+	include 'php/config.php';
 ?>
 <!DOCTYPE html>
 <html lang="en"><!-- Basic -->
 <head>
 	<meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">   
-   
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
     <!-- Mobile Metas -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
- 
+
      <!-- Site Metas -->
-    <title>Yamifood Restaurant - Responsive HTML5 Template</title>  
+    <title>Romantic Baboy Restaurant</title>
     <meta name="keywords" content="">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -21,13 +22,13 @@
     <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="css/bootstrap.min.css">    
+    <link rel="stylesheet" href="css/bootstrap.min.css">
 	<!-- Site CSS -->
-    <link rel="stylesheet" href="css/style.css">    
+    <link rel="stylesheet" href="css/style.css">
 	<!-- Pickadate CSS -->
-    <link rel="stylesheet" href="css/classic.css">    
-	<link rel="stylesheet" href="css/classic.date.css">    
-	<link rel="stylesheet" href="css/classic.time.css">    
+    <link rel="stylesheet" href="css/classic.css">
+	<link rel="stylesheet" href="css/classic.date.css">
+	<link rel="stylesheet" href="css/classic.time.css">
     <!-- Responsive CSS -->
     <link rel="stylesheet" href="css/responsive.css">
     <!-- Custom CSS -->
@@ -40,12 +41,12 @@
 
 </head>
 
-<body>
+<body id="override">
 	<!-- Start header -->
 	<header class="top-navbar">
 		<nav class="navbar navbar-expand-lg navbar-light bg-light">
 			<div class="container">
-				<a class="navbar-brand" href="index.html">
+				<a class="navbar-brand" href="index.php">
 					<img src="images/logo.png" alt="" />
 				</a>
 				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbars-rs-food" aria-controls="navbars-rs-food" aria-expanded="false" aria-label="Toggle navigation">
@@ -53,27 +54,8 @@
 				</button>
 				<div class="collapse navbar-collapse" id="navbars-rs-food">
 					<ul class="navbar-nav ml-auto">
-						<li class="nav-item"><a class="nav-link" href="index.php">Home</a></li>
 						<li class="nav-item"><a class="nav-link" href="menu.php">Menu</a></li>
-						<li class="nav-item"><a class="nav-link" href="about.php">About</a></li>
-						<li class="nav-item dropdown">
-							<a class="nav-link active dropdown-toggle" href="#" id="dropdown-a" data-toggle="dropdown">Pages</a>
-							<div class="dropdown-menu" aria-labelledby="dropdown-a">
-								<a class="dropdown-item" href="reservation.php">Reservation</a>
-								<a class="dropdown-item" href="stuff.php">Stuff</a>
-								<a class="dropdown-item" href="gallery.php">Gallery</a>
-							</div>
-						</li>
-						<li class="nav-item dropdown">
-							<a class="nav-link dropdown-toggle" href="#" id="dropdown-a" data-toggle="dropdown">Blog</a>
-							<div class="dropdown-menu" aria-labelledby="dropdown-a">
-								<a class="dropdown-item" href="blog.php">blog</a>
-								<a class="dropdown-item" href="blog-details.php">blog Single</a>
-							</div>
-						</li>
-						<li class="nav-item"><a class="nav-link" href="contact.php">Contact</a></li>
-
-						<li class="nav-item"><a class="nav-link" href="my_acc.php">My Account</a></li>
+                        <li class="nav-item active"><a class="nav-link" href="reservation.php">Reservation</a></li>
 						<?php if (!empty($_SESSION['user'])) {?>
 						<div class='acc-container'>
 							<li class="nav-item"><a class="nav-link" href=""><?php $details = $_SESSION['user']; echo $details['first_name'] ?></a></li>
@@ -85,13 +67,16 @@
 							//echo var_dump($_SESSION['user']);
 							echo isset($_SESSION['login']);
 							} ?>
+                        <li class="nav-item"><a class="nav-link" href="my_acc.php">My Account</a></li>
+                        <li class="nav-item"><a class="nav-link" href="contact.php">Contact</a></li>
+						<li class="nav-item"><a class="nav-link" href="about.php">About</a></li>
 					</ul>
 				</div>
 			</div>
 		</nav>
 	</header>
 	<!-- End header -->
-	
+
 	<!-- Start All Pages -->
 	<div class="all-page-title page-breadcrumb">
 		<div class="container text-center">
@@ -103,7 +88,7 @@
 		</div>
 	</div>
 	<!-- End All Pages -->
-	
+
 	<!-- Start Reservation -->
 	<div class="reservation-box">
 		<div class="container">
@@ -111,82 +96,147 @@
 				<div class="col-lg-12">
 					<div class="heading-title text-center">
 						<h2>Reservation</h2>
-						<p>Lorem Ipsum is simply dummy text of the printing and typesetting</p>
+						<p>We want to hear from you!</p>
 					</div>
 				</div>
 			</div>
 			<div class="row">
 				<div class="col-lg-12 col-sm-12 col-xs-12">
 					<div class="contact-block">
-						<form id="contactForm">
 							<div class="row">
 								<div class="col-md-6">
 									<h3>Book a table</h3>
+									<form id='see-tables' method='' action=''>
+									<!-- PICK DATE -->
 									<div class="col-md-12">
 										<div class="form-group">
-											<input id="input_date" class="datepicker picker__input form-control" name="date" type="text" value="" equired data-error="Please enter Date">
+											<!-- <input id="input_date" class="datepicker picker__input form-control" name="res_date" type="date" value="" required data-error="Please enter Date"> -->
+											
+    										<input type='date' id='date' name='res_date' required>
 											<div class="help-block with-errors"></div>
-										</div>                                 
+										</div>
 									</div>
+									<!-- lunch/dinner -->
 									<div class="col-md-12">
 										<div class="form-group">
-											<input id="input_time" class="time form-control picker__input" required data-error="Please enter time">
-											<div class="help-block with-errors"></div>
-										</div>                                 
-									</div>
-									<div class="col-md-12">
-										<div class="form-group">
-											<select class="custom-select d-block form-control" id="person" required data-error="Please select Person">
-											  <option disabled selected>Select Person*</option>
-											  <option value="1">1</option>
-											  <option value="2">2</option>
-											  <option value="3">3</option>
-											  <option value="4">4</option>
-											  <option value="5">5</option>
-											  <option value="6">6</option>
-											  <option value="7">7</option>
+											<select class="custom-select d-block form-control" id="time" name='time'  data-error="Please select time">
+												<option disabled selected>Select Time*</option>
+												<option value="lunch">Lunch</option>
+												<option value="dinner">Dinner</option>
 											</select>
 											<div class="help-block with-errors"></div>
-										</div> 
+										</div>
 									</div>
+
+									<!-- SEE AVAILABLE SEATS -->
+									<div class="submit-button text-center">
+										<button class="btn btn-gray" id="see" type="submit" name='see'>See Available Tables</button>
+										<div id="msgSubmit" class="h3 text-center hidden"></div>
+										<div class="clearfix"></div>
+									</div>
+									</form>
 								</div>
+								<form id='book-table' method='post' action=''>
 								<div class="col-md-6">
-									<h3>Contact Details</h3>
-									<div class="col-md-12">
-										<div class="form-group">
-											<input type="text" class="form-control" id="name" name="name" placeholder="Your Name" required data-error="Please enter your name">
-											<div class="help-block with-errors"></div>
-										</div>                                 
+									<div style="border:1px solid gray; width:130px;">
+										<table>
+											<tr>
+												<td colspan="4"></td>
+												<td align="right"> <div id="driver"></div> </td>
+											</tr>
+											<tr>
+												<td><div class="seat"></div> </td>
+												<td><div class="seat"></div></td>
+												<td class="walk">  </td>
+												<td><div class="seat"></div></td>
+												<td><div class="seat"></div></td>
+											</tr>
+											<tr>
+												<td><div class="seat"></div> </td>
+												<td><div class="seat"></div></td>
+												<td class="walk">  </td>
+												<td><div class="seat"></div></td>
+												<td><div class="seat"></div></td>
+											</tr>
+											<tr>
+												<td><div class="seat"></div> </td>
+												<td><div class="seat"></div></td>
+												<td class="walk">  </td>
+												<td><div class="seat"></div></td>
+												<td><div class="seat"></div></td>
+											</tr>
+											<tr>
+												<td><div class="seat"></div> </td>
+												<td><div class="seat"></div></td>
+												<td class="walk">  </td>
+												<td><div class="seat"></div></td>
+												<td><div class="seat"></div></td>
+											</tr>
+											<tr>
+												<td><div class="seat"></div> </td>
+												<td><div class="seat"></div></td>
+												<td class="walk">  </td>
+												<td><div class="seat"></div></td>
+												<td><div class="seat"></div></td>
+											</tr>
+											<tr>
+												<td><div class="seat"></div> </td>
+												<td><div class="seat"></div></td>
+												<td class="walk">  </td>
+												<td><div class="seat"></div></td>
+												<td><div class="seat"></div></td>
+											</tr>
+											<tr>
+												<td><div class="seat"></div> </td>
+												<td><div class="seat"></div></td>
+												<td class="walk">  </td>
+												<td><div class="seat"></div></td>
+												<td><div class="seat"></div></td>
+											</tr>
+											<tr>
+												<td><div class="seat"></div> </td>
+												<td><div class="seat"></div></td>
+												<td class="walk">  </td>
+												<td><div class="seat"></div></td>
+												<td><div class="seat"></div></td>
+											</tr>
+											<tr>
+												<td><div class="seat" value='b1'></div> </td>
+												<td><div class="seat" value='b2'></div></td>
+												<td class="walk">  </td>
+												<td><div class="seat" value='b3'></div></td>
+												<td><div class="seat" value='b4'></div></td>
+											</tr>
+										</table>
 									</div>
-									<div class="col-md-12">
-										<div class="form-group">
-											<input type="text" placeholder="Your Email" id="email" class="form-control" name="email" required data-error="Please enter your email">
-											<div class="help-block with-errors"></div>
-										</div> 
-									</div>
-									<div class="col-md-12">
-										<div class="form-group">
-											<input type="text" placeholder="Your Numbar" id="phone" class="form-control" name="phone" required data-error="Please enter your Numbar">
-											<div class="help-block with-errors"></div>
-										</div> 
-									</div>
+									<input type='text' id='seats' value='' name='reserved' style="display:block;">
+									<!-- <input type='date' id='date' name='res_date' required>
+									<button type="submit" id="save" name="save">Reserve seats</button> -->
 								</div>
 								<div class="col-md-12">
 									<div class="submit-button text-center">
-										<button class="btn btn-common" id="submit" type="submit">Book Table</button>
-										<div id="msgSubmit" class="h3 text-center hidden"></div> 
-										<div class="clearfix"></div> 
+										<button class="btn btn-common" id="save" type="submit" name='save'>Book Table</button>
+										<div id="msgSubmit" class="h3 text-center hidden"></div>
+										<div class="clearfix"></div>
 									</div>
 								</div>
-							</div>            
-						</form>
+								</form>
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
+
 	</div>
 	<!-- End Reservation -->
-	
+
+	<!--popup warning -->
+	<div class="popup warning">
+		<button type="button" class="close" id="btn_close su">&times;</button>
+		<p>Please <a href="register.php">sign up</a> or <a href="my_acc.php">sign in</a> to make a reservation.</p>
+	</div>
+	<!--popup warning -->
+
 	<!-- Start Customer Reviews -->
 	<div class="customer-reviews-box">
 		<div class="container">
@@ -194,7 +244,7 @@
 				<div class="col-lg-12">
 					<div class="heading-title text-center">
 						<h2>Customer Reviews</h2>
-						<p>Lorem Ipsum is simply dummy text of the printing and typesetting</p>
+						<p>We want to hear from you!</p>
 					</div>
 				</div>
 			</div>
@@ -206,25 +256,28 @@
 								<div class="img-box p-1 border rounded-circle m-auto">
 									<img class="d-block w-100 rounded-circle" src="images/profile-1.jpg" alt="">
 								</div>
-								<h5 class="mt-4 mb-0"><strong class="text-warning text-uppercase">Paul Mitchel</strong></h5>
-								<h6 class="text-dark m-0">Web Developer</h6>
-								<p class="m-0 pt-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam eu sem tempor, varius quam at, luctus dui. Mauris magna metus, dapibus nec turpis vel, semper malesuada ante. Idac bibendum scelerisque non non purus. Suspendisse varius nibh non aliquet.</p>
+								<h5 class="mt-4 mb-0"><strong class="text-warning text-uppercase">Angielyn Morales</strong></h5>
+								<h6 class="text-dark m-0">Customer</h6>
+								<p class="m-0 pt-3">Yaaaay. My first korean bbq experience after quarantine (though it is not really over yet hehe) went here for lunch! Romantic baboy is one of my favorite korean bbq & grill and during our visit, some meats weren’t available but it’s okay, we just tried the other options. My family and I always have korean bbq at home but it really feels different when you’re in a restaurant hehe. Would love to dine again soon!</p>
 							</div>
 							<div class="carousel-item text-center">
 								<div class="img-box p-1 border rounded-circle m-auto">
 									<img class="d-block w-100 rounded-circle" src="images/profile-3.jpg" alt="">
 								</div>
-								<h5 class="mt-4 mb-0"><strong class="text-warning text-uppercase">Steve Fonsi</strong></h5>
-								<h6 class="text-dark m-0">Web Designer</h6>
-								<p class="m-0 pt-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam eu sem tempor, varius quam at, luctus dui. Mauris magna metus, dapibus nec turpis vel, semper malesuada ante. Idac bibendum scelerisque non non purus. Suspendisse varius nibh non aliquet.</p>
+								<h5 class="mt-4 mb-0"><strong class="text-warning text-uppercase">Rochkirstin Sioco</strong></h5>
+								<h6 class="text-dark m-0">Customer</h6>
+								<p class="m-0 pt-3">Romantic Baboy plies quite an extensive menu of traditional Korean grill barbecue meat (pork and beef) in a no-frills atmosphere. Seats aren’t cramped but rather comfortable for large groups. Rightly so, each table is fitted with an exhaust grill hood. The restaurant looks spacious despite being packed, and the vibe exudes a feel-good facotor where everything feels right. Casual, convenient, and friendly, this is the spot to be.</p>
 							</div>
 							<div class="carousel-item text-center">
 								<div class="img-box p-1 border rounded-circle m-auto">
 									<img class="d-block w-100 rounded-circle" src="images/profile-7.jpg" alt="">
 								</div>
-								<h5 class="mt-4 mb-0"><strong class="text-warning text-uppercase">Daniel vebar</strong></h5>
-								<h6 class="text-dark m-0">Seo Analyst</h6>
-								<p class="m-0 pt-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam eu sem tempor, varius quam at, luctus dui. Mauris magna metus, dapibus nec turpis vel, semper malesuada ante. Idac bibendum scelerisque non non purus. Suspendisse varius nibh non aliquet.</p>
+								<h5 class="mt-4 mb-0"><strong class="text-warning text-uppercase">Symon Chan</strong></h5>
+								<h6 class="text-dark m-0">Customer</h6>
+								<p class="m-0 pt-3">We went there friday lunch time that's why we got seats but when you go there during weekends or dinner time, there are a lot of people.
+Service was good, they were very attentive.
+Meat was good and well prepared.
+The place is also neat.</p>
 							</div>
 						</div>
 						<a class="carousel-control-prev" href="#reviews" role="button" data-slide="prev">
@@ -241,7 +294,7 @@
 		</div>
 	</div>
 	<!-- End Customer Reviews -->
-	
+
 	<!-- Start Contact info -->
 	<div class="contact-imfo-box">
 		<div class="container">
@@ -251,7 +304,7 @@
 					<div class="overflow-hidden">
 						<h4>Phone</h4>
 						<p class="lead">
-							+01 123-456-4590
+							+02 8374 7948
 						</p>
 					</div>
 				</div>
@@ -260,7 +313,7 @@
 					<div class="overflow-hidden">
 						<h4>Email</h4>
 						<p class="lead">
-							yourmail@gmail.com
+							romanticbaboy.ph
 						</p>
 					</div>
 				</div>
@@ -269,7 +322,7 @@
 					<div class="overflow-hidden">
 						<h4>Location</h4>
 						<p class="lead">
-							800, Lorem Street, US
+							Double Dragon Plaza, Pasay, Metro Manila
 						</p>
 					</div>
 				</div>
@@ -277,27 +330,25 @@
 		</div>
 	</div>
 	<!-- End Contact info -->
-	
+
 	<!-- Start Footer -->
 	<footer class="footer-area bg-f">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-3 col-md-6">
 					<h3>About Us</h3>
-					<p>Integer cursus scelerisque ipsum id efficitur. Donec a dui fringilla, gravida lorem ac, semper magna. Aenean rhoncus ac lectus a interdum. Vivamus semper posuere dui, at ornare turpis ultrices sit amet. Nulla cursus lorem ut nisi porta, ac eleifend arcu ultrices.</p>
+					<p>Romantic Baboy is a restaurant chain in Metro Manila that serves unlimited Korean BBQ since 2019. Their main menu includes ready-to-grill meats and assorted side dishes!</p>
 				</div>
 				<div class="col-lg-3 col-md-6">
 					<h3>Opening hours</h3>
-					<p><span class="text-color">Monday: </span>Closed</p>
-					<p><span class="text-color">Tue-Wed :</span> 9:Am - 10PM</p>
-					<p><span class="text-color">Thu-Fri :</span> 9:Am - 10PM</p>
-					<p><span class="text-color">Sat-Sun :</span> 5:PM - 10PM</p>
+					<p><span class="text-color">Monday - Sunday :  </span>Closed</p>
+					<p><span class="text-color">Hours :</span> 11:00 AM - 2:00 AM</p>
 				</div>
 				<div class="col-lg-3 col-md-6">
 					<h3>Contact information</h3>
-					<p class="lead">Ipsum Street, Lorem Tower, MO, Columbia, 508000</p>
-					<p class="lead"><a href="#">+01 2000 800 9999</a></p>
-					<p><a href="#"> info@admin.com</a></p>
+					<p class="lead">Ground Level, Double Dragon Plaza, Pasay, Metro Manila</p>
+					<p class="lead"><a href="contact.php">(02) 8374 7948</a></p>
+					<p><a href="contact.php"> romanticbaboy.ph</a></p>
 				</div>
 				<div class="col-lg-3 col-md-6">
 					<h3>Subscribe</h3>
@@ -309,30 +360,25 @@
 						</form>
 					</div>
 					<ul class="list-inline f-social">
-						<li class="list-inline-item"><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-						<li class="list-inline-item"><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-						<li class="list-inline-item"><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
-						<li class="list-inline-item"><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
-						<li class="list-inline-item"><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+						<li class="list-inline-item"><a href="https://web.facebook.com/RomanticBaboy/?_rdc=1&_rdr"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
 					</ul>
 				</div>
 			</div>
 		</div>
-		
+
 		<div class="copyright">
 			<div class="container">
 				<div class="row">
 					<div class="col-lg-12">
-						<p class="company-name">All Rights Reserved. &copy; 2018 <a href="#">Yamifood Restaurant</a> Design By : 
-					<a href="https://html.design/">html design</a></p>
+						<p class="company-name">All Rights Reserved. &copy; 2018 <a href="https://web.facebook.com/RomanticBaboy/?_rdc=1&_rdr">Romantic Baboy Restaurant</a></p>
 					</div>
 				</div>
 			</div>
 		</div>
-		
+
 	</footer>
 	<!-- End Footer -->
-	
+
 	<a href="#" id="back-to-top" title="Back to top" style="display: none;">&uarr;</a>
 
 	<!-- ALL JS FILES -->
@@ -351,5 +397,10 @@
 	<script src="js/form-validator.min.js"></script>
     <script src="js/contact-form-script.js"></script>
     <script src="js/custom.js"></script>
+    <script src="js/main.js"></script>
 </body>
+<?php
+	include 'php/reserve.php';
+	include 'php/functions.php';
+?>
 </html>

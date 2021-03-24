@@ -1,6 +1,6 @@
 <?php
-    /**get from db */
-    $sql = "SELECT * FROM users_reservations WHERE status=1";
+    
+   /*  $sql = "SELECT * FROM users_reservations WHERE status=1";
     $res = mysqli_query($conn, $sql);
     $types = array();
 
@@ -14,6 +14,32 @@
         echo "<script type='text/javascript'>",
         "change_color('$arg_table');",
         "</script>";
+    } */
+    
+    $show = false;
+    //see available tables
+    if (isset($_POST['see'])) {
+        /**get from db */
+        $res_date = $_POST['res_date'];
+        $res_time = $_POST['time'];
+        $_SESSION['set-date'] = $res_date;
+        $_SESSION['set-time'] = $res_time;
+        $sql = "SELECT * FROM users_reservations WHERE reserve_date='$res_date' AND reserve_time='$res_time' AND status=1";
+        $res = mysqli_query($conn, $sql);
+        $types = array();
+
+        while(($row =  mysqli_fetch_assoc($res))) {
+            $types[] = $row['table_id'];
+        }
+        //echo var_dump($types);
+        for ($i = 0; $i < count($types); $i++) {
+            $arg_table = $types[$i];
+            echo $arg_table;
+            echo "<script type='text/javascript'>",
+            "change_color('$arg_table');",
+            "</script>";
+        }
+        $show = true;
     }
 
     /** submit reservation */
@@ -23,17 +49,23 @@
         if (empty($res)) {
             echo "empty";
         }
-        $res_date = $_POST['res_date'];
+        //$res_date = $_POST['res_date'];
         echo $res;
         #echo isset($_SESSION['user']);
         $details = $_SESSION['user'];
         $user_id = $details['id'];
-        $res_time = $_POST['time'];
+        //$res_time = $_POST['time'];
         #echo $username;
         #echo var_dump($details);
         #print_r(explode(" ", $res));
         $arr_tables = explode(" ", $res);
-        #echo var_dump($arr_seats); 
+        //$arr_tables = array_reverse($arr_tables);
+        //$res_date = array_pop($arr_tables);
+        //$res_time = array_pop($arr_tables);
+        echo var_dump($arr_tables); 
+        
+        $res_date = $_SESSION['set-date'];
+        $res_time = $_SESSION['set-time'];
         #echo count($arr_seats);
 
         
