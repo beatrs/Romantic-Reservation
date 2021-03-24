@@ -113,7 +113,7 @@
 										<div class="form-group">
 											<!-- <input id="input_date" class="datepicker picker__input form-control" name="res_date" type="date" value="" required data-error="Please enter Date"> -->
 											
-    										<input type='date' id='date' name='res_date' value="<?php echo $_SESSION['set-date'];?>" required>
+    										<input type='date' id='date' name='res_date' value="<?php if(isset($_POST['res_date'])) {echo $_POST['res_date'];} else {echo "";}?>" required>
 											<div class="help-block with-errors"></div>
 										</div>
 									</div>
@@ -121,7 +121,7 @@
 									<div class="col-md-12">
 										<div class="form-group">
 											<select class="custom-select d-block form-control" id="time" name='time' selected="" data-error="Please select time">
-												<option disabled selected><?php if(!empty($_SESSION['set-time'])) {echo $_SESSION['set-time'];} else {echo "Select Time*";}?></option>
+												<option disabled selected><?php if(isset($_POST['time'])) {echo $_POST['time'];} else {echo "Select Time*";}?></option>
 												<option value="Lunch">Lunch</option>
 												<option value="Dinner">Dinner</option>
 											</select>
