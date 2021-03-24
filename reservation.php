@@ -41,7 +41,7 @@
 
 </head>
 
-<body>
+<body id="override">
 	<!-- Start header -->
 	<header class="top-navbar">
 		<nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -123,15 +123,10 @@
 									</div>
 									<div class="col-md-12">
 										<div class="form-group">
-											<select class="custom-select d-block form-control" id="person"  data-error="Please select Person">
-											  <option disabled selected>Select Person*</option>
-											  <option value="1">1</option>
-											  <option value="2">2</option>
-											  <option value="3">3</option>
-											  <option value="4">4</option>
-											  <option value="5">5</option>
-											  <option value="6">6</option>
-											  <option value="7">7</option>
+											<select class="custom-select d-block form-control" id="time" name='time'  data-error="Please select time">
+											  <option disabled selected>Select Time*</option>
+											  <option value="lunch">Lunch</option>
+											  <option value="dinner">Dinner</option>
 											</select>
 											<div class="help-block with-errors"></div>
 										</div>
@@ -226,8 +221,16 @@
 				</div>
 			</div>
 		</div>
+
 	</div>
 	<!-- End Reservation -->
+
+	<!--popup warning -->
+	<div class="popup warning">
+		<button type="button" class="close" id="btn_close su">&times;</button>
+		<p>Please <a href="register.php">sign up</a> or <a href="my_acc.php">sign in</a> to make a reservation.</p>
+	</div>
+	<!--popup warning -->
 
 	<!-- Start Customer Reviews -->
 	<div class="customer-reviews-box">

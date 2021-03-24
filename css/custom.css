@@ -41,3 +41,18 @@
     padding: 10px;
 }
 
+/** popup warning **/
+#override .popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    height: 200px;
+    padding: 20px;
+    box-shadow: 0 0 8px rgba(0,0,0,0.1);
+    background: white;
+    z-index: 5;
+    border: 1px solid gray;
+}

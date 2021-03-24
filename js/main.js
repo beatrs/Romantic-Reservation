@@ -50,3 +50,9 @@ function reload_page() {
     //location.reload();
     window.location.assign(document.URL);
 }
+
+
+function show_warning() {
+    document.querySelector(".popup.warning").style.display = "block";
+    console.log('js found');
+}
