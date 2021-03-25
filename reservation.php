@@ -123,7 +123,10 @@
 									<div class="col-md-12">
 										<div class="form-group">
 											<select class="custom-select d-block form-control" id="time" name='time' selected="" data-error="Please select time">
-												<option disabled selected><?php if(isset($_POST['time'])) {echo $_POST['time'];} else {echo "Select Time*";}?></option>
+												<?php if(isset($_POST['time'])) {echo "<option selected>".$_POST['time']."</option>";} else { ?>
+												<option disabled selected>Select Time*</option>
+												<?php }?>
+
 												<option value="Lunch">Lunch</option>
 												<option value="Dinner">Dinner</option>
 											</select>
@@ -210,13 +213,13 @@
 											</tr>
 										</table>
 									</div>
-									<input type='text' id='seats' value='' name='reserved' style="display:none;">
 									<!-- <input type='date' id='date' name='res_date' required>
 									<button type="submit" id="save" name="save">Reserve seats</button> -->
 									
 								</div>
 								<?php if(isset($_POST['see'])) {?>
 								<div class="col-md-12">
+									<input type='text' id='seats' value='' name='reserved' style="display:none;">
 									<div class="submit-button text-center">
 										<button class="btn btn-common" id="save" type="submit" name='save' onclick='book_table()'>Book Table</button>
 										<div id="msgSubmit" class="h3 text-center hidden"></div>
@@ -224,7 +227,7 @@
 									</div>
 								</div>
 								<?php } else{} ?>
-							</div>
+								</div>
 					</div>
 				</div>
 			</div>
@@ -234,10 +237,12 @@
 	<!-- End Reservation -->
 
 	<!--popup warning -->
+	<?php if (isset($_POST['save']) && empty($_SESSION['user'])) {?>
 	<div class="popup warning">
 		<button type="button" class="close" id="btn_close su">&times;</button>
 		<p>Please <a href="register.php">sign up</a> or <a href="my_acc.php">sign in</a> to make a reservation.</p>
 	</div>
+	<?php } else {}?>
 	<!--popup warning -->
 
 	<!-- Start Customer Reviews -->
