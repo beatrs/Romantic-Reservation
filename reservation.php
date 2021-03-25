@@ -237,12 +237,8 @@
 	<!-- End Reservation -->
 
 	<!--popup warning -->
-	<?php if (isset($_POST['save']) && empty($_SESSION['user'])) {?>
-	<div class="popup warning">
-		<button type="button" class="close" id="btn_close su">&times;</button>
-		<p>Please <a href="register.php">sign up</a> or <a href="my_acc.php">sign in</a> to make a reservation.</p>
-	</div>
-	<?php } else {}?>
+	
+	
 	<!--popup warning -->
 
 	<!-- Start Customer Reviews -->
