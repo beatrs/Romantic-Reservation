@@ -121,7 +121,7 @@
 									<div class="col-md-12">
 										<div class="form-group">
 											<select class="custom-select d-block form-control" id="time" name='time' selected="" data-error="Please select time">
-												<option disabled selected><?php if(isset($_POST['time'])) {echo $_POST['time'];} else {echo "Select Time*";}?></option>
+												<?php if(isset($_POST['time'])) {echo '<option selected>'.$_POST['time'].'</option>';} else {echo '<option disabled selected>Select Time*</option>';}?>
 												<option value="Lunch">Lunch</option>
 												<option value="Dinner">Dinner</option>
 											</select>
