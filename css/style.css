@@ -106,7 +106,7 @@ a {
 a,
 .btn {
     text-decoration: none !important;
-    outline: none !important;
+    outline: none !important;.button
     -webkit-transition: all .3s ease-in-out;
     -moz-transition: all .3s ease-in-out;
     -ms-transition: all .3s ease-in-out;
@@ -256,7 +256,7 @@ button:focus{
 	-moz-user-select: none;
 	-ms-user-select: none;
 	user-select: none;
-	border: 2px solid transparent;
+	border: 2px solid;
 	padding: 12px 30px;
 	font-size: 16px;
 	line-height: 1.5;

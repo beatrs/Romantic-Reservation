@@ -18,8 +18,8 @@ for (var i = 0; i < allSeats.length; i++) {
 }
 //joke only
 var seatbox = document.getElementById('seats');
-document.getElementById("save").addEventListener('click', function() {
-    //var str = seatbox.value + ' '
+
+function book_table() {
     var str = ''
     for (var i = 0; i < allSeats.length; i++) {
         seat = allSeats[i]
@@ -32,7 +32,11 @@ document.getElementById("save").addEventListener('click', function() {
         }
     }
     seatbox.value = str
-})
+}
+/* document.getElementById("save").addEventListener('click', function() {
+    //var str = seatbox.value + ' '
+    
+}) */
 
 /* document.getElementById("see").addEventListener('click', function() {
     
@@ -85,3 +89,41 @@ function getSavedValue  (v){
     }
     return localStorage.getItem(v);
 } */
+
+/** BUTTONS FOR RESERVATIONS */
+
+//see available dates trigger book table
+/* function show_btn_book() {
+    document.getElementById("see").addEventListener("click", function() {
+        document.getElementById("save").style.display = "block";
+    }) 
+} */
+
+
+
+/** FORM CHANGE */
+
+/* var form = document.getElementById("see-tables");
+
+form.addEventListener("input", function () {
+    console.log("Form has changed!");
+    document.getElementById("save").style.display = "none";
+});
+
+$("#date").changedTouches({
+    onSelect: function(dateText) {
+        document.getElementById("save").style.display = "none";
+    }
+}); */
+
+$('#date').change(function() {
+    var date = $(this).val();
+    console.log(date, 'change')
+    document.getElementById("save").style.display = "none";
+});
+
+$('#time').change(function() {
+    //var date = $(this).val();
+    //console.log(date, 'change')
+    document.getElementById("save").style.display = "none";
+});

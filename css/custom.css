@@ -57,8 +57,13 @@
     border: 1px solid gray;
 }
 
-#see.btn.btn-gray {
+.btn.btn-gray {
     color: gray;
     background: transparent;
     border-color: gray;
+}
+
+.btn.btn-gray:hover {
+    color: white;
+    background: gray;
 }

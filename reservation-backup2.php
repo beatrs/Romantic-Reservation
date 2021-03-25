@@ -38,9 +38,7 @@
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-	<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
-	<script src="https://code.jquery.com/color/jquery.color-2.2.0.min.js" integrity="sha256-aSe2ZC5QeunlL/w/7PsVKmV+fa0eDbmybn/ptsKHR6I=" crossorigin="anonymous"></script>
+
 </head>
 
 <body id="override">
@@ -115,29 +113,30 @@
 										<div class="form-group">
 											<!-- <input id="input_date" class="datepicker picker__input form-control" name="res_date" type="date" value="" required data-error="Please enter Date"> -->
 											
-    										<input type='date' id='date' class='form-control' name='res_date' value="<?php if(isset($_POST['res_date'])) {echo $_POST['res_date'];} else {echo "";}?>" required>
+    										<input type='date' id='date' name='res_date' required>
 											<div class="help-block with-errors"></div>
 										</div>
 									</div>
 									<!-- lunch/dinner -->
 									<div class="col-md-12">
 										<div class="form-group">
-											<select class="custom-select d-block form-control" id="time" name='time' selected="" data-error="Please select time">
-												<option disabled selected><?php if(isset($_POST['time'])) {echo $_POST['time'];} else {echo "Select Time*";}?></option>
-												<option value="Lunch">Lunch</option>
-												<option value="Dinner">Dinner</option>
+											<select class="custom-select d-block form-control" id="time" name='time'  data-error="Please select time">
+												<option disabled selected>Select Time*</option>
+												<option value="lunch">Lunch</option>
+												<option value="dinner">Dinner</option>
 											</select>
 											<div class="help-block with-errors"></div>
 										</div>
 									</div>
+
 									<!-- SEE AVAILABLE SEATS -->
 									<div class="submit-button text-center">
-										<button class="btn btn-outline-secondary" id="see" type="submit" name='see'>See Available Tables</button>
+										<button class="btn btn-gray" id="see" type="submit" name='see'>See Available Tables</button>
 										<div id="msgSubmit" class="h3 text-center hidden"></div>
 										<div class="clearfix"></div>
 									</div>
+									</form>
 								</div>
-						</form>
 								<div class="col-md-6">
 									<div style="border:1px solid gray; width:130px;">
 										<table>
@@ -213,18 +212,16 @@
 									<input type='text' id='seats' value='' name='reserved' style="display:none;">
 									<!-- <input type='date' id='date' name='res_date' required>
 									<button type="submit" id="save" name="save">Reserve seats</button> -->
-									
 								</div>
-								<?php if(isset($_POST['see'])) {?>
 								<div class="col-md-12">
 									<div class="submit-button text-center">
-										<button class="btn btn-common" id="save" type="submit" name='save' onclick='book_table()'>Book Table</button>
+										<button class="btn btn-common" id="save" type="submit" name='save'>Book Table</button>
 										<div id="msgSubmit" class="h3 text-center hidden"></div>
 										<div class="clearfix"></div>
 									</div>
 								</div>
-								<?php } else{} ?>
 							</div>
+						</form>
 					</div>
 				</div>
 			</div>
@@ -400,9 +397,10 @@ The place is also neat.</p>
 	<script src="js/form-validator.min.js"></script>
     <script src="js/contact-form-script.js"></script>
     <script src="js/custom.js"></script>
-	<script src="js/main.js"></script>
+    <script src="js/main.js"></script>
 </body>
 <?php
 	include 'php/reserve.php';
+	include 'php/functions.php';
 ?>
 </html>

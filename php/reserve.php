@@ -39,7 +39,7 @@
             "change_color('$arg_table');",
             "</script>";
         }
-        $show = true;
+        //$show = true;
     }
 
     /** submit reservation */
