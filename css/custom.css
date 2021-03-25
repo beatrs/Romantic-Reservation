@@ -16,15 +16,31 @@
 }
 
 /** SEATS PAGE CSS **/
+
+#orangeBox {
+  background: black;
+  color: #fff;
+  font-family: 'Helvetica', 'Arial', sans-serif;
+  font-size: 2em;
+  font-weight: bold;
+  text-align: center;
+  width: 100px;
+  height: 60px;
+  border-radius: 1px;
+}
+
 .seat {
-    height: 20px;
-    width: 20px;
+    height: 60px;
+    width: 100px;
     border: 1px solid gray;
     cursor:pointer;
     background-color:white;
 }
 .walk{
-    padding-left:20px;
+    padding-left:25px;
+}
+.walk2{
+    padding-left:45px;
 }
 #driver {
     background-color:gray;          
@@ -41,6 +57,7 @@
     padding: 10px;
 }
 
+
 /** popup warning **/
 #override .popup {
     display: none;
@@ -55,10 +72,4 @@
     background: white;
     z-index: 5;
     border: 1px solid gray;
-}
-
-#see.btn.btn-gray {
-    color: gray;
-    background: transparent;
-    border-color: gray;
 }
