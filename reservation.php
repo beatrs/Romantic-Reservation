@@ -38,9 +38,7 @@
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-	<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
-	<script src="https://code.jquery.com/color/jquery.color-2.2.0.min.js" integrity="sha256-aSe2ZC5QeunlL/w/7PsVKmV+fa0eDbmybn/ptsKHR6I=" crossorigin="anonymous"></script>
+
 </head>
 
 <body id="override">
@@ -97,7 +95,7 @@
 			<div class="row">
 				<div class="col-lg-12">
 					<div class="heading-title text-center">
-						<!-- <h2>Reservation</h2>-->
+						
 						<p>*Some tables are unavailable due to social distancing.</p>
 					</div>
 				</div>
@@ -115,7 +113,7 @@
 										<div class="form-group">
 											<!-- <input id="input_date" class="datepicker picker__input form-control" name="res_date" type="date" value="" required data-error="Please enter Date"> -->
 											
-    										<input type='date' id='date' class='form-control' name='res_date' value="<?php if(isset($_POST['res_date'])) {echo $_POST['res_date'];} else {echo "";}?>" required>
+    										<input type='date' id='date' name='res_date' value="<?php if(isset($_POST['res_date'])) {echo $_POST['res_date'];} else {echo "";}?>" required>
 											<div class="help-block with-errors"></div>
 										</div>
 									</div>
@@ -123,10 +121,7 @@
 									<div class="col-md-12">
 										<div class="form-group">
 											<select class="custom-select d-block form-control" id="time" name='time' selected="" data-error="Please select time">
-												<?php if(isset($_POST['time'])) {echo "<option selected>".$_POST['time']."</option>";} else { ?>
-												<option disabled selected>Select Time*</option>
-												<?php }?>
-
+												<option disabled selected><?php if(isset($_POST['time'])) {echo $_POST['time'];} else {echo "Select Time*";}?></option>
 												<option value="Lunch">Lunch</option>
 												<option value="Dinner">Dinner</option>
 											</select>
@@ -135,99 +130,102 @@
 									</div>
 									<!-- SEE AVAILABLE SEATS -->
 									<div class="submit-button text-center">
-										<button class="btn btn-outline-secondary" id="see" type="submit" name='see'>See Available Tables</button>
+										<button class="btn btn-gray" id="see" type="submit" name='see'>See Available Tables</button>
 										<div id="msgSubmit" class="h3 text-center hidden"></div>
 										<div class="clearfix"></div>
 									</div>
 								</div>
 						</form>
 								<div class="col-md-6">
-									<div style="border:1px solid gray; width:130px;">
-										<table>
+									<div style="border:2px solid black; width:520px; height:440;">
+										<table> 
 											<!--<tr>
 												#<td colspan="4"></td>
 												<td align="right"> <div id="driver"></div> </td>
 											</tr>*/ -->
+
 											<tr>
-												<td><div class="seat"></div> </td>
+
+												<td><div class="seat">
+                                                    
+                                                    <div id="orangeBox"><span id="x">X</span></div>
+                                                    
+                                                    </div> </td>
+                                                <td class="walk">  <br><br><br> </td>
 												<td><div class="seat"></div></td>
-												<td class="walk">  </td>
+												<td class="walk2">  </td>
 												<td><div class="seat"></div></td>
+                                                <td class="walk">  </td>
 												<td><div class="seat"></div></td>
 											</tr>
 											<tr>
 												<td><div class="seat"></div> </td>
+                                                <td class="walk">  <br><br><br></td>
+												<td><div class="seat"x></div></td>
+												<td class="walk2">  </td>
 												<td><div class="seat"></div></td>
-												<td class="walk">  </td>
-												<td><div class="seat"></div></td>
-												<td><div class="seat"></div></td>
-											</tr>
-											<tr>
-												<td><div class="seat"></div> </td>
-												<td><div class="seat"></div></td>
-												<td class="walk">  </td>
-												<td><div class="seat"></div></td>
+                                                <td class="walk">  </td>
 												<td><div class="seat"></div></td>
 											</tr>
 											<tr>
 												<td><div class="seat"></div> </td>
+                                                <td class="walk">  <br><br><br></td>
 												<td><div class="seat"></div></td>
-												<td class="walk">  </td>
+												<td class="walk2">  </td>
 												<td><div class="seat"></div></td>
-												<td><div class="seat"></div></td>
-											</tr>
-											<tr>
-												<td><div class="seat"></div> </td>
-												<td><div class="seat"></div></td>
-												<td class="walk">  </td>
-												<td><div class="seat"></div></td>
+                                                <td class="walk">  </td>
 												<td><div class="seat"></div></td>
 											</tr>
 											<tr>
 												<td><div class="seat"></div> </td>
+                                                <td class="walk">  <br><br><br></td>
 												<td><div class="seat"></div></td>
-												<td class="walk">  </td>
+												<td class="walk2">  </td>
 												<td><div class="seat"></div></td>
-												<td><div class="seat"></div></td>
-											</tr>
-											<tr>
-												<td><div class="seat"></div> </td>
-												<td><div class="seat"></div></td>
-												<td class="walk">  </td>
-												<td><div class="seat"></div></td>
+                                                <td class="walk">  </td>
 												<td><div class="seat"></div></td>
 											</tr>
 											<tr>
 												<td><div class="seat"></div> </td>
+                                                <td class="walk">  <br><br><br></td>
 												<td><div class="seat"></div></td>
-												<td class="walk">  </td>
+												<td class="walk2">  </td>
 												<td><div class="seat"></div></td>
+                                                <td class="walk">  </td>
+												<td><div class="seat"></div></td>
+											</tr>
+											<tr>
+												<td><div class="seat"></div> </td>
+                                                <td class="walk">  <br><br><br></td>
+												<td><div class="seat"></div></td>
+												<td class="walk2">  </td>
+												<td><div class="seat"></div></td>
+                                                <td class="walk">  </td>
 												<td><div class="seat"></div></td>
 											</tr>
 											<tr>
 												<td><div class="seat" value='b1'></div> </td>
+                                                <td class="walk">  <br><br><br></td>
 												<td><div class="seat" value='b2'></div></td>
-												<td class="walk">  </td>
+												<td class="walk2">  </td>
 												<td><div class="seat" value='b3'></div></td>
+                                                <td class="walk">  </td>
 												<td><div class="seat" value='b4'></div></td>
 											</tr>
 										</table>
 									</div>
+									<input type='text' id='seats' value='' name='reserved' style="display:none;">
 									<!-- <input type='date' id='date' name='res_date' required>
 									<button type="submit" id="save" name="save">Reserve seats</button> -->
-									
 								</div>
-								<?php if(isset($_POST['see'])) {?>
 								<div class="col-md-12">
-									<input type='text' id='seats' value='' name='reserved' style="display:none;">
 									<div class="submit-button text-center">
-										<button class="btn btn-common" id="save" type="submit" name='save' onclick='book_table()'>Book Table</button>
+										<button class="btn btn-common" id="save" type="submit" name='save'>Book Table</button>
 										<div id="msgSubmit" class="h3 text-center hidden"></div>
 										<div class="clearfix"></div>
 									</div>
 								</div>
-								<?php } else{} ?>
-								</div>
+							</div>
 					</div>
 				</div>
 			</div>
@@ -237,12 +235,10 @@
 	<!-- End Reservation -->
 
 	<!--popup warning -->
-	<?php if (isset($_POST['save']) && empty($_SESSION['user'])) {?>
 	<div class="popup warning">
 		<button type="button" class="close" id="btn_close su">&times;</button>
 		<p>Please <a href="register.php">sign up</a> or <a href="my_acc.php">sign in</a> to make a reservation.</p>
 	</div>
-	<?php } else {}?>
 	<!--popup warning -->
 
 
