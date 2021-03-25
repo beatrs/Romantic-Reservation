@@ -113,7 +113,7 @@
 										<div class="form-group">
 											<!-- <input id="input_date" class="datepicker picker__input form-control" name="res_date" type="date" value="" required data-error="Please enter Date"> -->
 											
-    										<input type='date' id='date' name='res_date' value="<?php if(isset($_POST['res_date'])) {echo $_POST['res_date'];} else {echo "";}?>" required>
+    										<input type='date' id='date' name='res_date' class="form-control" value="<?php if(isset($_POST['res_date'])) {echo $_POST['res_date'];} else {echo "";}?>" required>
 											<div class="help-block with-errors"></div>
 										</div>
 									</div>
@@ -136,6 +136,7 @@
 									</div>
 								</div>
 						</form>
+						<form method="post" action="">
 								<div class="col-md-6">
 									<div style="border:2px solid black; width:520px; height:440;">
 										<table> 
@@ -220,12 +221,13 @@
 								</div>
 								<div class="col-md-12">
 									<div class="submit-button text-center">
-										<button class="btn btn-common" id="save" type="submit" name='save'>Book Table</button>
+										<button class="btn btn-common" id="save" type="submit" name='save' onclick="book_table()">Book Table</button>
 										<div id="msgSubmit" class="h3 text-center hidden"></div>
 										<div class="clearfix"></div>
 									</div>
 								</div>
 							</div>
+						</form>
 					</div>
 				</div>
 			</div>

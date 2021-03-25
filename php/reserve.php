@@ -45,6 +45,7 @@
     /** submit reservation */
     if(isset($_POST['save'])) {
         $res = $_POST['reserved'];
+        //echo $res;
         $res = trim($res);
         if (empty($res)) {
             echo "empty";
@@ -79,10 +80,10 @@
                 for ($i = 0; $i < count($arr_tables); $i++) {
                     $table_id = $arr_tables[$i];
                     $sql = "SELECT * FROM users_reservations WHERE table_id = '$table_id' AND reserve_date='$res_date' AND reserve_time='$res_time' AND status=1";
-                    $res = mysqli_query($conn, $sql);
+                    $result = mysqli_query($conn, $sql);
                     //echo mysqli_num_rows($res);
                     //echo $user_id;
-                    if(mysqli_num_rows($res) == 0) {
+                    if(mysqli_num_rows($result) == 0) {
                         $sql = "INSERT INTO users_reservations (user_id, table_id, reserve_date, reserve_time, status) VALUES ('$user_id', '$table_id', '$res_date', '$res_time', 1)";
                         $result = mysqli_query($conn, $sql);
 
@@ -102,7 +103,7 @@
                     } else {
                         echo "seat unavailable";
                     }
-                    #echo $arr_seats[$i];
+                    //echo $arr_seats[$i];
                 }
             } else {
                 echo "<script type='text/javascript'>",
