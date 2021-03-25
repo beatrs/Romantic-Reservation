@@ -153,56 +153,11 @@
                                                     
                                                     </div> </td>
                                                 <td class="walk">  <br><br><br> </td>
-												<td><div class="seat"></div></td>
+												<td><div class="seat" value='a1'></div></td>
 												<td class="walk2">  </td>
-												<td><div class="seat"></div></td>
+												<td><div class="seat" value='a2'></div></td>
                                                 <td class="walk">  </td>
-												<td><div class="seat"></div></td>
-											</tr>
-											<tr>
-												<td><div class="seat"></div> </td>
-                                                <td class="walk">  <br><br><br></td>
-												<td><div class="seat"x></div></td>
-												<td class="walk2">  </td>
-												<td><div class="seat"></div></td>
-                                                <td class="walk">  </td>
-												<td><div class="seat"></div></td>
-											</tr>
-											<tr>
-												<td><div class="seat"></div> </td>
-                                                <td class="walk">  <br><br><br></td>
-												<td><div class="seat"></div></td>
-												<td class="walk2">  </td>
-												<td><div class="seat"></div></td>
-                                                <td class="walk">  </td>
-												<td><div class="seat"></div></td>
-											</tr>
-											<tr>
-												<td><div class="seat"></div> </td>
-                                                <td class="walk">  <br><br><br></td>
-												<td><div class="seat"></div></td>
-												<td class="walk2">  </td>
-												<td><div class="seat"></div></td>
-                                                <td class="walk">  </td>
-												<td><div class="seat"></div></td>
-											</tr>
-											<tr>
-												<td><div class="seat"></div> </td>
-                                                <td class="walk">  <br><br><br></td>
-												<td><div class="seat"></div></td>
-												<td class="walk2">  </td>
-												<td><div class="seat"></div></td>
-                                                <td class="walk">  </td>
-												<td><div class="seat"></div></td>
-											</tr>
-											<tr>
-												<td><div class="seat"></div> </td>
-                                                <td class="walk">  <br><br><br></td>
-												<td><div class="seat"></div></td>
-												<td class="walk2">  </td>
-												<td><div class="seat"></div></td>
-                                                <td class="walk">  </td>
-												<td><div class="seat"></div></td>
+												<td><div class="seat" value='a3'></div></td>
 											</tr>
 											<tr>
 												<td><div class="seat" value='b1'></div> </td>
@@ -212,6 +167,51 @@
 												<td><div class="seat" value='b3'></div></td>
                                                 <td class="walk">  </td>
 												<td><div class="seat" value='b4'></div></td>
+											</tr>
+											<tr>
+												<td><div class="seat" value='c1'></div> </td>
+                                                <td class="walk">  <br><br><br></td>
+												<td><div class="seat" value='c2'></div></td>
+												<td class="walk2">  </td>
+												<td><div class="seat" value='c3'></div></td>
+                                                <td class="walk">  </td>
+												<td><div class="seat" value='c4'></div></td>
+											</tr>
+											<tr>
+												<td><div class="seat" value='d1'></div> </td>
+                                                <td class="walk">  <br><br><br></td>
+												<td><div class="seat" value='d2'></div></td>
+												<td class="walk2">  </td>
+												<td><div class="seat" value='d3'></div></td>
+                                                <td class="walk">  </td>
+												<td><div class="seat" value='d4'></div></td>
+											</tr>
+											<tr>
+												<td><div class="seat" value='e1'></div> </td>
+                                                <td class="walk">  <br><br><br></td>
+												<td><div class="seat" value='e2'></div></td>
+												<td class="walk2">  </td>
+												<td><div class="seat" value='e3'></div></td>
+                                                <td class="walk">  </td>
+												<td><div class="seat" value='e4'></div></td>
+											</tr>
+											<tr>
+												<td><div class="seat" value='f1'></div> </td>
+                                                <td class="walk">  <br><br><br></td>
+												<td><div class="seat" value='f2'></div></td>
+												<td class="walk2">  </td>
+												<td><div class="seat" value='f3'></div></td>
+                                                <td class="walk">  </td>
+												<td><div class="seat" value='f4'></div></td>
+											</tr>
+											<tr>
+												<td><div class="seat" value='g1'></div> </td>
+                                                <td class="walk">  <br><br><br></td>
+												<td><div class="seat" value='g2'></div></td>
+												<td class="walk2">  </td>
+												<td><div class="seat" value='g3'></div></td>
+                                                <td class="walk">  </td>
+												<td><div class="seat" value='g4'></div></td>
 											</tr>
 										</table>
 									</div>
