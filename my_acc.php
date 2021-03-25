@@ -110,14 +110,16 @@
 			<input type="checkbox" name="remember" id="remember">
 			<label for="remember-me">Remember me</label>
             <p>Don't have an account yet? Register <a href="register.php">here</a></p>
-            <button type="submit" class="btn" name="login">Login</button>
+			<div class="submit-button text-center">
+            	<button type="submit" class="btn" name="login">Login</button>
+			</div>
             </fieldset>
         </form>
         <!-- End Login Form -->
     </div>
     <?php }
     else {
-        echo "<br><h2>Welcome! ".$details['first_name']."</h2><br><br><br><br>";
+        echo "<br><div class='text-center'><h2>Welcome! ".$details['first_name']."</h2></div><br><br><br><br>";
 		include 'php/my_reserve.php';
         echo "<br><br><br><br><br><br><br>";
      } ?>

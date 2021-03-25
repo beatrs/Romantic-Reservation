@@ -219,12 +219,15 @@
 									<!-- <input type='date' id='date' name='res_date' required>
 									<button type="submit" id="save" name="save">Reserve seats</button> -->
 								</div>
+								<?php if(isset($_POST['see'])) {?>
 								<div class="col-md-12">
 									<div class="submit-button text-center">
-										<button class="btn btn-common" id="save" type="submit" name='save' onclick="book_table()">Book Table</button>
+										<button class="btn btn-common" id="save" type="submit" name='save' onclick='book_table()'>Book Table</button>
 										<div id="msgSubmit" class="h3 text-center hidden"></div>
 										<div class="clearfix"></div>
 									</div>
+								</div>
+								<?php } else{} ?>
 								</div>
 							</div>
 						</form>

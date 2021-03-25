@@ -11,7 +11,8 @@
         $user_id = $res_det[0];
         $table_id = $res_det[1];
         $res_date = $res_det[2];
-        $sql = "UPDATE users_reservations SET status=0 WHERE user_id='$user_id' AND table_id='$table_id' AND reserve_date='$res_date' AND status=1 ";
+        $res_time = $res_det[3];
+        $sql = "UPDATE users_reservations SET status=0 WHERE user_id='$user_id' AND table_id='$table_id' AND reserve_date='$res_date' AND reserve_time='$res_time' AND status=1 ";
         $res = mysqli_query($conn, $sql);
         echo "successfully cancelled";
         header("location:../my_acc.php");

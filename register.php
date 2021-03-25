@@ -81,7 +81,7 @@
 		<div class="container text-center">
 			<div class="row">
 				<div class="col-lg-12">
-					<h1>Reservation</h1>
+					<h1>Register</h1>
 				</div>
 			</div>
 		</div>
@@ -123,7 +123,9 @@
                 <input type="password" name="password2" required>
             </div>
             <p>Already have an account? Login <a href="my_acc.php">here</a></p>
-            <button type="submit" class="btn" name="reg">Register</button>
+			<div class="submit-button text-center">
+            	<button type="submit" class="btn" name="reg">Register</button>
+			</div>
             </fieldset>
         </form>
         <!-- End Registration Form -->

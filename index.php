@@ -82,7 +82,7 @@
 						<div class="col-md-12">
 							<h1 class="m-b-20"><strong>Welcome To <br> Romantic Reservation</strong></h1>
 							<p class="m-b-40">Make a table reservation now!<br></p>
-							<p><a class="btn btn-lg btn-circle btn-outline-new-white" href="#">Reservation</a></p>
+							<p><a class="btn btn-lg btn-circle btn-outline-new-white" href="reservation.php">Reservation</a></p>
 						</div>
 					</div>
 				</div>
@@ -94,7 +94,7 @@
 						<div class="col-md-12">
 							<h1 class="m-b-20"><strong>Welcome To <br> Romantic Reservation</strong></h1>
 							<p class="m-b-40">Make a table reservation now!<br></p>
-							<p><a class="btn btn-lg btn-circle btn-outline-new-white" href="#">Reservation</a></p>
+							<p><a class="btn btn-lg btn-circle btn-outline-new-white" href="reservation.php">Reservation</a></p>
 						</div>
 					</div>
 				</div>
@@ -106,7 +106,7 @@
 						<div class="col-md-12">
 							<h1 class="m-b-20"><strong>Welcome To <br> Romantic Reservation</strong></h1>
 							<p class="m-b-40">Make a table reservation now!<br></p>
-							<p><a class="btn btn-lg btn-circle btn-outline-new-white" href="#">Reservation</a></p>
+							<p><a class="btn btn-lg btn-circle btn-outline-new-white" href="reservation.php">Reservation</a></p>
 						</div>
 					</div>
 				</div>
@@ -131,7 +131,7 @@
 						<h1>about <span>ROMANTIC BABOY</span></h1>
 						<h4>Little Story</h4>
 						<p>Romantic Baboy opened its doors to the public last January 19, 2018, with its first branch at Tomas Morato. They’re one of the first Korean barbecue restaurants to offer unlimited pork and beef with cheese. This restaurant is different from other Korean BBQ, “We adopted an authentic modern-style Korean barbecue place with our own meat cuts and recipes. We wanted a place that will appeal to Filipino customers so we named it ‘Romantic Baboy’ instead of the usual Korean restaurant names.” In just a few weeks after opening, Romantic Baboy became very famous because of their unlimited pork and beef with cheese for only 499 pesos. Not only that, they also offer a no-time-limit-policy! Sulit na sulit? Definitely!</p>
-						<a class="btn btn-lg btn-circle btn-outline-new-white" href="#">Reservation</a>
+						<a class="btn btn-lg btn-circle btn-outline-new-white" href="reservation.php">Reservation</a>
 					</div>
 				</div>
 			</div>

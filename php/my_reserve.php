@@ -6,7 +6,7 @@
     $res = mysqli_query($conn, $sql);
     #echo mysqli_num_rows($res);
     if (mysqli_num_rows($res) == 0) {
-        echo "no reservations made yet";
+        echo "<div class='text-center'><h3>no reservations made yet</h3></div>";
     } else {
         echo "<table id='res-table' >";
         echo "<tr>",
@@ -20,7 +20,7 @@
             $table_id = $row['table_id'];
             $reserve_date = $row['reserve_date'];
             $reserve_time = $row['reserve_time'];
-            $res_det = $user_id.",".$table_id.",".$reserve_date;
+            $res_det = $user_id.",".$table_id.",".$reserve_date.",".$reserve_time;
             echo "<tr>";
             echo "<td>".$table_id . "</td>"; 
             echo "<td>".$reserve_date . "</td>";
