@@ -4,7 +4,11 @@
         $email = $_POST['email'];
 
         $password = hash("sha512", $_POST['password']);
-
+        if(!empty($_POST["remember"])) 
+    {
+        setcookie( "email", $email, time() + 300);
+        setcookie( "password", $password, time() + 300); 
+    }
         include 'config.php';
 
         $sql = "SELECT * from users where email = '$email' && password = '$password'";

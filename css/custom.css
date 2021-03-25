@@ -73,3 +73,14 @@
     z-index: 5;
     border: 1px solid gray;
 }
+
+.btn.btn-gray {
+    color: gray;
+    background: transparent;
+    border-color: gray;
+}
+
+.btn.btn-gray:hover {
+    color: white;
+    background: gray;
+}

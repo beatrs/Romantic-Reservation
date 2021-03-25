@@ -38,9 +38,7 @@
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-	<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
-	<script src="https://code.jquery.com/color/jquery.color-2.2.0.min.js" integrity="sha256-aSe2ZC5QeunlL/w/7PsVKmV+fa0eDbmybn/ptsKHR6I=" crossorigin="anonymous"></script>
+
 </head>
 
 <body id="override">
@@ -97,8 +95,8 @@
 			<div class="row">
 				<div class="col-lg-12">
 					<div class="heading-title text-center">
-						<!-- <h2>Reservation</h2>-->
-						<p>*Some tables are unavailable due to social distancing.</p>
+						<h2>Reservation</h2>
+						<p>We want to hear from you!</p>
 					</div>
 				</div>
 			</div>
@@ -115,39 +113,37 @@
 										<div class="form-group">
 											<!-- <input id="input_date" class="datepicker picker__input form-control" name="res_date" type="date" value="" required data-error="Please enter Date"> -->
 											
-    										<input type='date' id='date' class='form-control' name='res_date' value="<?php if(isset($_POST['res_date'])) {echo $_POST['res_date'];} else {echo "";}?>" required>
+    										<input type='date' id='date' name='res_date' required>
 											<div class="help-block with-errors"></div>
 										</div>
 									</div>
 									<!-- lunch/dinner -->
 									<div class="col-md-12">
 										<div class="form-group">
-											<select class="custom-select d-block form-control" id="time" name='time' selected="" data-error="Please select time">
-												<?php if(isset($_POST['time'])) {echo "<option selected>".$_POST['time']."</option>";} else { ?>
+											<select class="custom-select d-block form-control" id="time" name='time'  data-error="Please select time">
 												<option disabled selected>Select Time*</option>
-												<?php }?>
-
-												<option value="Lunch">Lunch</option>
-												<option value="Dinner">Dinner</option>
+												<option value="lunch">Lunch</option>
+												<option value="dinner">Dinner</option>
 											</select>
 											<div class="help-block with-errors"></div>
 										</div>
 									</div>
+
 									<!-- SEE AVAILABLE SEATS -->
 									<div class="submit-button text-center">
-										<button class="btn btn-outline-secondary" id="see" type="submit" name='see'>See Available Tables</button>
+										<button class="btn btn-gray" id="see" type="submit" name='see'>See Available Tables</button>
 										<div id="msgSubmit" class="h3 text-center hidden"></div>
 										<div class="clearfix"></div>
 									</div>
+									</form>
 								</div>
-						</form>
 								<div class="col-md-6">
 									<div style="border:1px solid gray; width:130px;">
 										<table>
-											<!--<tr>
-												#<td colspan="4"></td>
+											<tr>
+												<td colspan="4"></td>
 												<td align="right"> <div id="driver"></div> </td>
-											</tr>*/ -->
+											</tr>
 											<tr>
 												<td><div class="seat"></div> </td>
 												<td><div class="seat"></div></td>
@@ -213,21 +209,19 @@
 											</tr>
 										</table>
 									</div>
+									<input type='text' id='seats' value='' name='reserved' style="display:none;">
 									<!-- <input type='date' id='date' name='res_date' required>
 									<button type="submit" id="save" name="save">Reserve seats</button> -->
-									
 								</div>
-								<?php if(isset($_POST['see'])) {?>
 								<div class="col-md-12">
-									<input type='text' id='seats' value='' name='reserved' style="display:none;">
 									<div class="submit-button text-center">
-										<button class="btn btn-common" id="save" type="submit" name='save' onclick='book_table()'>Book Table</button>
+										<button class="btn btn-common" id="save" type="submit" name='save'>Book Table</button>
 										<div id="msgSubmit" class="h3 text-center hidden"></div>
 										<div class="clearfix"></div>
 									</div>
 								</div>
-								<?php } else{} ?>
-								</div>
+							</div>
+						</form>
 					</div>
 				</div>
 			</div>
@@ -237,15 +231,69 @@
 	<!-- End Reservation -->
 
 	<!--popup warning -->
-	<?php if (isset($_POST['save']) && empty($_SESSION['user'])) {?>
 	<div class="popup warning">
 		<button type="button" class="close" id="btn_close su">&times;</button>
 		<p>Please <a href="register.php">sign up</a> or <a href="my_acc.php">sign in</a> to make a reservation.</p>
 	</div>
-	<?php } else {}?>
 	<!--popup warning -->
 
-
+	<!-- Start Customer Reviews -->
+	<div class="customer-reviews-box">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="heading-title text-center">
+						<h2>Customer Reviews</h2>
+						<p>We want to hear from you!</p>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-8 mr-auto ml-auto text-center">
+					<div id="reviews" class="carousel slide" data-ride="carousel">
+						<div class="carousel-inner mt-4">
+							<div class="carousel-item text-center active">
+								<div class="img-box p-1 border rounded-circle m-auto">
+									<img class="d-block w-100 rounded-circle" src="images/profile-1.jpg" alt="">
+								</div>
+								<h5 class="mt-4 mb-0"><strong class="text-warning text-uppercase">Angielyn Morales</strong></h5>
+								<h6 class="text-dark m-0">Customer</h6>
+								<p class="m-0 pt-3">Yaaaay. My first korean bbq experience after quarantine (though it is not really over yet hehe) went here for lunch! Romantic baboy is one of my favorite korean bbq & grill and during our visit, some meats weren’t available but it’s okay, we just tried the other options. My family and I always have korean bbq at home but it really feels different when you’re in a restaurant hehe. Would love to dine again soon!</p>
+							</div>
+							<div class="carousel-item text-center">
+								<div class="img-box p-1 border rounded-circle m-auto">
+									<img class="d-block w-100 rounded-circle" src="images/profile-3.jpg" alt="">
+								</div>
+								<h5 class="mt-4 mb-0"><strong class="text-warning text-uppercase">Rochkirstin Sioco</strong></h5>
+								<h6 class="text-dark m-0">Customer</h6>
+								<p class="m-0 pt-3">Romantic Baboy plies quite an extensive menu of traditional Korean grill barbecue meat (pork and beef) in a no-frills atmosphere. Seats aren’t cramped but rather comfortable for large groups. Rightly so, each table is fitted with an exhaust grill hood. The restaurant looks spacious despite being packed, and the vibe exudes a feel-good facotor where everything feels right. Casual, convenient, and friendly, this is the spot to be.</p>
+							</div>
+							<div class="carousel-item text-center">
+								<div class="img-box p-1 border rounded-circle m-auto">
+									<img class="d-block w-100 rounded-circle" src="images/profile-7.jpg" alt="">
+								</div>
+								<h5 class="mt-4 mb-0"><strong class="text-warning text-uppercase">Symon Chan</strong></h5>
+								<h6 class="text-dark m-0">Customer</h6>
+								<p class="m-0 pt-3">We went there friday lunch time that's why we got seats but when you go there during weekends or dinner time, there are a lot of people.
+Service was good, they were very attentive.
+Meat was good and well prepared.
+The place is also neat.</p>
+							</div>
+						</div>
+						<a class="carousel-control-prev" href="#reviews" role="button" data-slide="prev">
+							<i class="fa fa-angle-left" aria-hidden="true"></i>
+							<span class="sr-only">Previous</span>
+						</a>
+						<a class="carousel-control-next" href="#reviews" role="button" data-slide="next">
+							<i class="fa fa-angle-right" aria-hidden="true"></i>
+							<span class="sr-only">Next</span>
+						</a>
+                    </div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- End Customer Reviews -->
 
 	<!-- Start Contact info -->
 	<div class="contact-imfo-box">
@@ -349,9 +397,10 @@
 	<script src="js/form-validator.min.js"></script>
     <script src="js/contact-form-script.js"></script>
     <script src="js/custom.js"></script>
-	<script src="js/main.js"></script>
+    <script src="js/main.js"></script>
 </body>
 <?php
 	include 'php/reserve.php';
+	include 'php/functions.php';
 ?>
 </html>
