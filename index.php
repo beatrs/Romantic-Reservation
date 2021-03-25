@@ -11,7 +11,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
      <!-- Site Metas -->
-    <title>Romantic Baboy Restaurant</title>
+    <title>Romantic Reservation</title>
+	<link rel="shortcut icon" type="image/png" href="images/favicon.png"/>
     <meta name="keywords" content="">
     <meta name="description" content="">
     <meta name="author" content="">
