@@ -31,7 +31,7 @@
         while(($row =  mysqli_fetch_assoc($res))) {
             $types[] = $row['table_id'];
         }
-        echo var_dump($types);
+        //echo var_dump($types);
         for ($i = 0; $i < count($types); $i++) {
             $arg_table = $types[$i];
             //echo $arg_table;
