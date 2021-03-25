@@ -55,6 +55,8 @@
         if (!empty($_SESSION['user'])) {
             $details = $_SESSION['user'];
             $user_id = $details['id'];
+        } else {
+            //echo "no user";
         }
         //$res_time = $_POST['time'];
         #echo $username;
@@ -68,26 +70,33 @@
         
         $res_date = $_SESSION['set-date'];
         $res_time = $_SESSION['set-time'];
+        //echo $res_date. " ";
+        //echo $res_time;
         #echo count($arr_seats);
 
         if (!empty($_SESSION['user'])) {
             if (!empty($res) && $res != 'null') {
                 for ($i = 0; $i < count($arr_tables); $i++) {
-                    $sql = "SELECT table_id FROM users_reservations WHERE table_id = '$arr_tables[$i]' AND reserve_time='$res_time' AND status=1";
+                    $table_id = $arr_tables[$i];
+                    $sql = "SELECT * FROM users_reservations WHERE table_id = '$table_id' AND reserve_date='$res_date' AND reserve_time='$res_time' AND status=1";
                     $res = mysqli_query($conn, $sql);
-
+                    //echo mysqli_num_rows($res);
+                    //echo $user_id;
                     if(mysqli_num_rows($res) == 0) {
-                        $sql = "INSERT INTO users_reservations (user_id, table_id, reserve_date, reserve_time, status) VALUES ('$user_id', '$arr_tables[$i]', '$res_date', '$res_time', 1)";
-                        $res = mysqli_query($conn, $sql);
-                        if ($res) {
+                        $sql = "INSERT INTO users_reservations (user_id, table_id, reserve_date, reserve_time, status) VALUES ('$user_id', '$table_id', '$res_date', '$res_time', 1)";
+                        $result = mysqli_query($conn, $sql);
+
+                        //echo mysqli_result($res);
+                        if ($result) {
                             //echo "<p>successfully inserted</p>";
                             
                         } else {
-                            $sql = "UPDATE users_reservations SET status=1 WHERE user_id='$user_id' AND table_id='$arr_tables[$i]' AND reserve_date='$res_date' AND status=0 ";
-                            $res = mysqli_query($conn, $sql);
+                            $sql = "UPDATE users_reservations SET status=1 WHERE user_id='$user_id' AND table_id='$arr_tables[$i]' AND reserve_date='$res_date' AND reserve_time='$res_time' AND status=0 ";
+                            $result = mysqli_query($conn, $sql);
                             //echo "<p>".$arr_tables[$i].": error</p>";
                         }
                         echo "<script type='text/javascript'>",
+                            "window.alert('reservation successful');",
                             "reload_page();",
                             "</script>";
                     } else {
@@ -97,8 +106,8 @@
                 }
             } else {
                 echo "<script type='text/javascript'>",
-                            "window.alert('no table chosen');",
-                            "</script>";
+                    "window.alert('no table chosen');",
+                    "</script>";
             }
         } else {
             echo "<script type='text/javascript'>",
