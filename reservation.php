@@ -235,10 +235,6 @@
 	<!-- End Reservation -->
 
 	<!--popup warning -->
-	<div class="popup warning">
-		<button type="button" class="close" id="btn_close su">&times;</button>
-		<p>Please <a href="register.php">sign up</a> or <a href="my_acc.php">sign in</a> to make a reservation.</p>
-	</div>
 	<!--popup warning -->
 
 
