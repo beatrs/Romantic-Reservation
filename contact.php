@@ -229,7 +229,6 @@
 	<script src="js/images-loded.min.js"></script>
 	<script src="js/isotope.min.js"></script>
 	<script src="js/baguetteBox.min.js"></script>
-	<script src="js/jquery.mapify.js"></script>
 	<script src="js/form-validator.min.js"></script>
     <script src="js/contact-form-script.js"></script>
     <script src="js/custom.js"></script>
@@ -241,7 +240,7 @@
 					lng: -74.0059731,
 					marker: true,
 					title: 'Marker title',
-					infoWindow: 'Yamifood Restaurant'
+					infoWindow: 'Romantic Reservation'
 				}
 			]
 		});	
