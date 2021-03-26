@@ -94,14 +94,6 @@
 	<div class="reservation-box">
 		<div class="container">
 			<div class="row">
-				<div class="col-lg-12">
-					<div class="heading-title text-center">
-						
-						<p>*Some tables are unavailable due to social distancing.</p>
-					</div>
-				</div>
-			</div>
-			<div class="row">
 				<div class="col-lg-12 col-sm-12 col-xs-12">
 					<div class="contact-block">
 						<form id="" method='post' action=''>
@@ -135,11 +127,20 @@
 										<div id="msgSubmit" class="h3 text-center hidden"></div>
 										<div class="clearfix"></div>
 									</div>
+									<?php if(isset($_POST['see'])) {?>
+								<div class="col-md-12">
+									<div class="submit-button text-center">
+										<button class="btn btn-common" id="save" type="submit" name='save' onclick='book_table()'>Book Table</button>
+										<div id="msgSubmit" class="h3 text-center hidden"></div>
+										<div class="clearfix"></div>
+									</div>
+								</div>
+								<?php } else{} ?>
 								</div>
 						</form>
 						<form method="post" action="">
 								<div class="col-md-6">
-									<div style="border:2px solid black; width:520px; height:440;">
+									<div style="border:1px solid grey; width:508px; height:400; border-radius: 2%;">
 										<table> 
 											<!--<tr>
 												#<td colspan="4"></td>
@@ -147,72 +148,67 @@
 											</tr>*/ -->
 
 											<tr>
-
-												<td><div class="seat">
-                                                    
-                                                    <div id="orangeBox"><span id="x">X</span></div>
-                                                    
-                                                    </div> </td>
+											<td><div class="seat" value='a1'>A1</div> </td>
                                                 <td class="walk">  <br><br><br> </td>
-												<td><div class="seat" value='a1'></div></td>
+												<td><div class="seat" value='a2'>A2</div></td>
 												<td class="walk2">  </td>
-												<td><div class="seat" value='a2'></div></td>
+												<td><div class="seat" value='a3'>A3</div></td>
                                                 <td class="walk">  </td>
-												<td><div class="seat" value='a3'></div></td>
+												<td><div class="seat" value='a4'>A4</div></td>
 											</tr>
 											<tr>
-												<td><div class="seat" value='b1'></div> </td>
+												<td><div class="seat" value='b1'>B1</div> </td>
                                                 <td class="walk">  <br><br><br></td>
-												<td><div class="seat" value='b2'></div></td>
+												<td><div class="seat" value='b2'>B2</div></td>
 												<td class="walk2">  </td>
-												<td><div class="seat" value='b3'></div></td>
+												<td><div class="seat" value='b3'>B3</div></td>
                                                 <td class="walk">  </td>
-												<td><div class="seat" value='b4'></div></td>
+												<td><div class="seat" value='b4'>B4</div></td>
 											</tr>
 											<tr>
-												<td><div class="seat" value='c1'></div> </td>
+												<td><div class="seat" value='c1'>C1</div> </td>
                                                 <td class="walk">  <br><br><br></td>
-												<td><div class="seat" value='c2'></div></td>
+												<td><div class="seat" value='c2'>C2</div></td>
 												<td class="walk2">  </td>
-												<td><div class="seat" value='c3'></div></td>
+												<td><div class="seat" value='c3'>C3</div></td>
                                                 <td class="walk">  </td>
-												<td><div class="seat" value='c4'></div></td>
+												<td><div class="seat" value='c4'>C4</div></td>
 											</tr>
 											<tr>
-												<td><div class="seat" value='d1'></div> </td>
+												<td><div class="seat" value='d1'>D1</div> </td>
                                                 <td class="walk">  <br><br><br></td>
-												<td><div class="seat" value='d2'></div></td>
+												<td><div class="seat" value='d2'>D2</div></td>
 												<td class="walk2">  </td>
-												<td><div class="seat" value='d3'></div></td>
+												<td><div class="seat" value='d3'>D3</div></td>
                                                 <td class="walk">  </td>
-												<td><div class="seat" value='d4'></div></td>
+												<td><div class="seat" value='d4'>D4</div></td>
 											</tr>
 											<tr>
-												<td><div class="seat" value='e1'></div> </td>
+												<td><div class="seat" value='e1'>E1</div> </td>
                                                 <td class="walk">  <br><br><br></td>
-												<td><div class="seat" value='e2'></div></td>
+												<td><div class="seat" value='e2'>E2</div></td>
 												<td class="walk2">  </td>
-												<td><div class="seat" value='e3'></div></td>
+												<td><div class="seat" value='e3'>E3</div></td>
                                                 <td class="walk">  </td>
-												<td><div class="seat" value='e4'></div></td>
+												<td><div class="seat" value='e4'>E4</div></td>
 											</tr>
 											<tr>
-												<td><div class="seat" value='f1'></div> </td>
+												<td><div class="seat" value='f1'>F1</div> </td>
                                                 <td class="walk">  <br><br><br></td>
-												<td><div class="seat" value='f2'></div></td>
+												<td><div class="seat" value='f2'>F2</div></td>
 												<td class="walk2">  </td>
-												<td><div class="seat" value='f3'></div></td>
+												<td><div class="seat" value='f3'>F3</div></td>
                                                 <td class="walk">  </td>
-												<td><div class="seat" value='f4'></div></td>
+												<td><div class="seat" value='f4'>F4</div></td>
 											</tr>
 											<tr>
-												<td><div class="seat" value='g1'></div> </td>
+												<td><div class="seat" value='g1'>G1</div> </td>
                                                 <td class="walk">  <br><br><br></td>
-												<td><div class="seat" value='g2'></div></td>
+												<td><div class="seat" value='g2'>G2</div></td>
 												<td class="walk2">  </td>
-												<td><div class="seat" value='g3'></div></td>
+												<td><div class="seat" value='g3'>G3</div></td>
                                                 <td class="walk">  </td>
-												<td><div class="seat" value='g4'></div></td>
+												<td><div class="seat" value='g4'>G4</div></td>
 											</tr>
 										</table>
 									</div>
@@ -220,6 +216,7 @@
 									<!-- <input type='date' id='date' name='res_date' required>
 									<button type="submit" id="save" name="save">Reserve seats</button> -->
 								</div>
+								<!--
 								<?php if(isset($_POST['see'])) {?>
 								<div class="col-md-12">
 									<div class="submit-button text-center">
@@ -229,6 +226,7 @@
 									</div>
 								</div>
 								<?php } else{} ?>
+								-->
 								</div>
 							</div>
 						</form>
