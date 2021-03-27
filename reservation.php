@@ -154,7 +154,7 @@
                                                     
                                                     </div> </td>
                                                 <td class="walk">  <br><br><br> </td>
-												<td><div class="seat" value='a1'></div></td>
+												<td><div class="seat" value='a1'>A1</div></td>
 												<td class="walk2">  </td>
 												<td><div class="seat" value='a2'></div></td>
                                                 <td class="walk">  </td>
