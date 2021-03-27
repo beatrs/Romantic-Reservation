@@ -93,3 +93,7 @@
 .form-container {
     margin-bottom: 40px;
 }
+
+#my-res {
+    display: none;
+}

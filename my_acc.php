@@ -126,9 +126,7 @@
 	</div>
 	<?php }
     else {
-        echo "<br><div class='text-center'><h2>Welcome! ".$details['first_name']."</h2></div><br><br><br><br>";
-		include 'php/my_reserve.php';
-        echo "<br><br><br><br><br><br><br>";
+        
      } ?>
 
 

@@ -95,6 +95,20 @@
 		</div>
 	</div>
 	<!-- End All Pages -->
+	
+	<!-- Start My Reservation -->
+	<?php if (!empty($_SESSION['user'])) {?>
+		<button class="btn btn-secondary" onclick="toggleDiv('my-res')">Show/Hide My Reservations</button>
+		<div class="hide" id="my-res">
+		<?php
+			echo "<br><div class='text-center'><h2>Welcome! ".$details['first_name']."</h2></div><br><br><br><br>";
+			include 'php/my_reserve.php';
+			echo "<br><br><br><br><br><br><br>";
+		?>
+		</div>
+	<?php } else {}?>
+
+	<!-- End My Reservations -->
 
 	<!-- Start Reservation -->
 	<div class="reservation-box">
@@ -137,6 +151,7 @@
 											<div id="msgSubmit" class="h3 text-center hidden"></div>
 											<div class="clearfix"></div>
 										</div>
+										<input type='text' id='seats' value='' name='reserved' style="display:none;">
 										<?php if(isset($_POST['see'])) {?>
 										<div class="col-md-12">
 											<div class="submit-button text-center">
@@ -279,12 +294,11 @@
 										</tr>
 									</table>
 								</div>
-								<input type='text' id='seats' value='' name='reserved' style="display:none;">
 								<!-- <input type='date' id='date' name='res_date' required>
 									<button type="submit" id="save" name="save">Reserve seats</button> -->
 							</div>
 							<!--
-								<?php if(isset($_POST['see'])) {?>
+								<?php //if(isset($_POST['see'])) {?>
 								<div class="col-md-12">
 									<div class="submit-button text-center">
 										<button class="btn btn-common" id="save" type="submit" name='save' onclick='book_table()'>Book Table</button>
@@ -292,7 +306,7 @@
 										<div class="clearfix"></div>
 									</div>
 								</div>
-								<?php } else{} ?>
+								<?php //} else{} ?>
 								-->
 					</div>
 				</div>

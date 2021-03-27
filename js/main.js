@@ -45,7 +45,7 @@ function book_table() {
     seatbox.value = see_date + ' ' + see_time
 }) */
 
-function change_color(seat_taken) {
+function change_color(seat_taken, color) {
     console.log(seat_taken);
     for (var i = 0; i < allSeats.length; i++) {
         seat = allSeats[i];
@@ -53,7 +53,7 @@ function change_color(seat_taken) {
         console.log("x value: " + x);
         console.log("seat_taken value: " + seat_taken); 
         if (x == seat_taken) {
-            seat.style.backgroundColor = 'gray'
+            seat.style.backgroundColor = color
         }
     }
 }
@@ -127,3 +127,16 @@ $('#time').change(function() {
     //console.log(date, 'change')
     document.getElementById("save").style.display = "none";
 });
+
+/** hide display */
+console.log(5)
+console.log(document.getElementById("my-res").style.display)
+console.log(document.getElementById("my-res").style)
+function toggleDiv(id) {
+    var x = document.getElementById(id);
+    if (x.style.display == "block") {
+      x.style.display = "none";
+    } else {
+      x.style.display = "block";
+    }
+  } 

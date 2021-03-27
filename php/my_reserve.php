@@ -25,7 +25,7 @@
             echo "<td>".$table_id . "</td>"; 
             echo "<td>".$reserve_date . "</td>";
             echo "<td>".$reserve_time . "</td>";
-            echo "<form method='post' action='php/modify_reserve.php'>";
+            echo "<form method='post' action=''>";
             echo "<input type='text' style='display:none;' value='$res_det' name='reserve_det'>";
             echo "<td><input type='submit' name='edit' value='edit' id='edit'></td>";
             echo "<td><input type='submit' name='cancel' value='cancel' id='cancel'></td>";
