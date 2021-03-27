@@ -75,7 +75,7 @@
 						<?php } else{
 						echo "<li class='nav-item'><a class='nav-link' href='register.php'>Register</a></li>";
 						echo "<li class='nav-item'><a class='nav-link' href='my_acc.php'>My Account</a></li>";
-							echo isset($_SESSION['login']);
+							//echo isset($_SESSION['login']);
 							} ?>
 					</ul>
 				</div>
@@ -98,7 +98,9 @@
 	
 	<!-- Start My Reservation -->
 	<?php if (!empty($_SESSION['user'])) {?>
-		<button class="btn btn-secondary" onclick="toggleDiv('my-res')">Show/Hide My Reservations</button>
+		<div class="submit-button text-center">
+			<button class="btn btn-secondary" onclick="toggleDiv('my-res')">Show/Hide My Reservations</button>
+		</div>
 		<div class="hide" id="my-res">
 		<?php
 			echo "<br><div class='text-center'><h2>Welcome! ".$details['first_name']."</h2></div><br><br><br><br>";

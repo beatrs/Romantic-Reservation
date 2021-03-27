@@ -1,6 +1,7 @@
 <?php
     session_start();
 	include 'php/config.php';
+	include 'php/update.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -124,12 +125,79 @@
 		</form>
 		<!-- End Login Form -->
 	</div>
-	<?php }
-    else {
-        
-     } ?>
+	<?php } else {
+		 $details = $_SESSION['user'];
+		 ?>
+	<!-- start Account Details -->
+	<div id="my-info" class="info-box">
+	<form method="post" action="" id="form-info">
+			<fieldset>
+				<legend>Account Details</legend>
+				<div class="form-group">
+					<label for="fname">First Name</label>
+					<input type="text" name="fname" value="<?php echo $details['first_name']; ?>">
+				</div>
+				<div class="form-group">
+					<label for="lname">Last Name</label>
+					<input type="text" name="lname" value="<?php echo $details['last_name']; ?>">
+				</div>
+				<div class="form-group">
+					<label for="cnum">Contact Number</label>
+					<input type="text" name="cnum" value="<?php echo $details['contact_num']; ?>">
+				</div>
+				<div class="form-group">
+					<label for="email">Email</label>
+					<input type="email" name="email" value="<?php echo $details['email']; ?>"> 
+				</div>
+				
+			</fieldset>
+			<!-- strat popup password -->
+			<div class="popup password">
+			<button type="button" class="close" id="btn_close">&times;</button>
+				<div class="form-group">
+					<label for="verifyPassword">Enter Password to save changes</label>
+					<input type="password" class="form-control" id="verifyPassword" placeholder="Current Password" name="verifyPassword" required>
+				</div>
+				<div class="alert alert-dismissible alert-danger" id="form-alert">
+					<button type="button" class="close" data-dismiss="alert">&times;</button>
+					<strong>Oh snap!</strong> <a href="#" class="alert-link">Change a few things up</a> and try submitting again.
+				</div>
+				<div class="submit-button text-center">
+					<button type="submit" class="btn btn-primary" name="verify">Verify</button>
+				</div>
+			</div>
+			<!-- end password confirm -->
+		</form>
+		<div class="submit-button text-center">
+			<button type="submit" class="btn" name="" id="btn_update">Update</button>
+		</div>
+	</div>
+    <?php } ?>
 
+	<!-- end Account Details -->
 
+	<div class="info-box">
+		<form method="post" action="">
+		<fieldset>
+			<legend>Change Password</legend>
+			<div class="form-group">
+				<label for="old_password">Current Password</label>
+				<input type="password" name="old_password" value="">
+			</div>
+			<div class="form-group">
+				<label for="new_password1">New Password</label>
+				<input type="password" name="new_password1" value="">
+			</div>
+			<div class="form-group">
+				<label for="new_password2">Confirm New Password</label>
+				<input type="password" name="new_password2" value="">
+			</div>
+			<div class="submit-button text-center">
+				<button type="submit" class="btn" name="change_pass" id="">Change Password</button>
+			</div>
+		</fieldset>
+		</form>
+	</div>
 
 	<!-- Start Contact info -->
 	<div class="contact-imfo-box">
@@ -238,6 +306,7 @@
 	<script src="js/form-validator.min.js"></script>
 	<script src="js/contact-form-script.js"></script>
 	<script src="js/custom.js"></script>
+	<script src="js/main.js"></script>
 </body>
 
 </html>

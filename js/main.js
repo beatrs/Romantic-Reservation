@@ -130,8 +130,8 @@ $('#time').change(function() {
 
 /** hide display */
 console.log(5)
-console.log(document.getElementById("my-res").style.display)
-console.log(document.getElementById("my-res").style)
+//console.log(document.getElementById("my-res").style.display)
+//console.log(document.getElementById("my-res").style)
 function toggleDiv(id) {
     var x = document.getElementById(id);
     if (x.style.display == "block") {
@@ -140,3 +140,15 @@ function toggleDiv(id) {
       x.style.display = "block";
     }
   } 
+
+/** my account buttons */
+
+document.getElementById("btn_update").addEventListener("click", function() {
+    document.querySelector(".popup.password").style.display = "block";
+    console.log('js found');
+})
+
+document.getElementById("btn_close").addEventListener("click", function() {
+    document.querySelector(".popup.password").style.display = "none";
+    console.log("x clicked")
+})

@@ -97,3 +97,36 @@
 #my-res {
     display: none;
 }
+
+#dropdown-a {
+    cursor: pointer;
+}
+
+/** my account popup for password verification **/
+.popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 500px;
+    padding: 20px;
+    box-shadow: 0 0 8px rgba(0,0,0,0.1);
+    background: white;
+    z-index: 5;
+}
+
+.alert {
+    display: none;
+}
+
+/** other my account */
+
+.info-box {
+    border: 1px solid gray;
+    width: 700px;
+    margin: auto;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    padding: 20px;
+}
