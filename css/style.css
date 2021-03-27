@@ -191,7 +191,7 @@ button:focus{
 
 .navbar-expand-lg .navbar-nav .dropdown-menu{
 	border: none;
-	 box-shadow: 2px 5px 6px rgba(0,0,0,0.5);
+	box-shadow: 2px 5px 6px rgba(0,0,0,0.5);
 }
 
 .navbar-expand-lg .navbar-nav .dropdown-menu a.dropdown-item:hover{

@@ -16,25 +16,27 @@
 }
 
 /** SEATS PAGE CSS **/
-
+/**
 #orangeBox {
   background: black;
   color: #fff;
   font-family: 'Helvetica', 'Arial', sans-serif;
-  font-size: 2em;
+  
   font-weight: bold;
   text-align: center;
   width: 100px;
   height: 60px;
   border-radius: 1px;
 }
-
+**/
 .seat {
     text-align: center;
+    font-size: xx-large;
+    font-weight: bold;
     height: 60px;
-    line-height: 60px;
     width: 100px;
     border: 1px solid gray;
+    border-radius: 5%;
     cursor:pointer;
     background-color:white;
 }
