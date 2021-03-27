@@ -95,7 +95,7 @@
 		</div>
 	</div>
 	<!-- End All Pages -->
-	
+
 	<!-- Start My Reservation -->
 	<?php if (!empty($_SESSION['user'])) {?>
 		<div class="submit-button text-center">
@@ -123,14 +123,20 @@
 								<div class="col-md-6">
 									<h3>Book a table</h3>
 									<form id='see-tables' method='post' action=''>
+
 										<!-- PICK DATE -->
 										<div class="col-md-12">
 											<div class="form-group">
 												<!-- <input id="input_date" class="datepicker picker__input form-control" name="res_date" type="date" value="" required data-error="Please enter Date"> -->
 
-												<input type='date' id='date' name='res_date' class="form-control"
-													value="<?php if(isset($_POST['res_date'])) {echo $_POST['res_date'];} else {echo "";}?>"
-													required>
+												<input type='date' id='date' name='res_date' class="form-control" <?php if(isset($_POST['edit'])) {echo "disabled";}?>
+													value="<?php if(isset($_POST['res_date'])) {echo $_POST['res_date'];}
+													else if(isset($_POST['reserve_det'])) {
+														$dets = $_POST['reserve_det'];
+														$dets = explode(",", $dets);
+														echo $dets[2];
+													}
+													else {echo "";}?>" required>
 												<div class="help-block with-errors"></div>
 											</div>
 										</div>
@@ -138,27 +144,38 @@
 										<div class="col-md-12">
 											<div class="form-group">
 												<select class="custom-select d-block form-control" id="time" name='time'
-													selected="" data-error="Please select time">
-													<?php if(isset($_POST['time'])) {echo '<option selected>'.$_POST['time'].'</option>';} else {echo '<option disabled selected>Select Time*</option>';}?>
+													selected="" data-error="Please select time" <?php if(isset($_POST['edit'])) {echo "disabled";}?>>
+													<?php 
+													if(isset($_POST['time'])) {echo '<option selected>'.$_POST['time'].'</option>';}
+													else if(isset($_POST['reserve_det'])) {
+														$dets = $_POST['reserve_det'];
+														$dets = explode(",", $dets);
+														echo '<option disabled selected>'.$dets[3].'</option>';
+													}
+													else {echo '<option disabled selected>Select Time*</option>';}?>
 													<option value="Lunch">Lunch</option>
 													<option value="Dinner">Dinner</option>
 												</select>
 												<div class="help-block with-errors"></div>
 											</div>
 										</div>
+
 										<!-- SEE AVAILABLE SEATS -->
-										<div class="submit-button text-center">
-											<button class="btn btn-gray" id="see" type="submit" name='see'>See Available
-												Tables</button>
-											<div id="msgSubmit" class="h3 text-center hidden"></div>
-											<div class="clearfix"></div>
-										</div>
-										<input type='text' id='seats' value='' name='reserved' style="display:none;">
-										<?php if(isset($_POST['see'])) {?>
+										<?php if (!isset($_POST['edit'])) {?>
 										<div class="col-md-12">
 											<div class="submit-button text-center">
-												<button class="btn btn-common" id="save" type="submit" name='save'
-													onclick='book_table()'>Book Table</button>
+												<button class="btn btn-gray" id="see" type="submit" name='see'>See Available Tables</button>
+												<div id="msgSubmit" class="h3 text-center hidden"></div>
+												<div class="clearfix"></div>
+											</div>
+										</div>
+										<?php } else{} ?>
+
+										<input type='text' id='seats' value='' name='reserved' style="display:none;">
+										<?php if(isset($_POST['see']) || isset($_POST['edit'])) {?>
+										<div class="col-md-12">
+											<div class="submit-button text-center">
+												<button class="btn btn-common" id="save" type="submit" name='save' onclick='book_table()'>Book Table</button>
 												<div id="msgSubmit" class="h3 text-center hidden"></div>
 												<div class="clearfix"></div>
 											</div>

@@ -130,7 +130,11 @@
         $table_id = $res_det[1];
         $res_date = $res_det[2];
         $res_time = $res_det[3];
-
+        echo "<script type='text/javascript'>
+                console.log('hello');
+                toggleSeeAvailable();
+                </script>";
+        //turn non-edit to gray
         $sql = "SELECT * FROM users_reservations WHERE reserve_date='$res_date' AND reserve_time='$res_time' AND status=1";
         $res = mysqli_query($conn, $sql);
         $types = array();
@@ -147,6 +151,7 @@
             "</script>";
         }
 
+        //turn selected edit to red
         $sql = "SELECT * FROM users_reservations WHERE user_id='$user_id' AND table_id='$table_id' AND reserve_date='$res_date' AND reserve_time='$res_time' AND status=1";
         $res = mysqli_query($conn, $sql);
         $types = array();
@@ -162,6 +167,18 @@
             "change_color('$arg_table', 'red');",
             "</script>";
         }
+
+        //cancel previous
+        $sql = "UPDATE users_reservations SET status=0 WHERE user_id='$user_id' AND table_id='$table_id' AND reserve_date='$res_date' AND reserve_time='$res_time' AND status=1 ";
+        $res = mysqli_query($conn, $sql);
+        if ($res) {
+           /*  echo "<script type='text/javascript'>",
+                "window.alert('reservation cancelled successfully');",
+                "reload_page();",
+                "</script>"; */
+        } else {
+            echo "something went wrong";
+        }
     }
 
     /**cancel reservation */
@@ -174,6 +191,7 @@
         $table_id = $res_det[1];
         $res_date = $res_det[2];
         $res_time = $res_det[3];
+
         $sql = "UPDATE users_reservations SET status=0 WHERE user_id='$user_id' AND table_id='$table_id' AND reserve_date='$res_date' AND reserve_time='$res_time' AND status=1 ";
         $res = mysqli_query($conn, $sql);
         if ($res) {
