@@ -1,7 +1,6 @@
 <?php
     session_start();
 	include 'php/config.php';
-	include 'php/update.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -99,9 +98,7 @@
 	<?php if(empty($_SESSION['user'])){ ?>
 	<div class='form-container'>
 		<div class='msg'>
-			<?php
-                include 'php/login.php';
-            ?>
+			
 		</div>
 		<!-- Start Login Form -->
 		<form method="post" action="" id="form-info">
@@ -117,6 +114,12 @@
 				</div>
 				<input type="checkbox" name="remember" id="remember">
 				<label for="remember-me">Remember me</label>
+
+				<div class="alert alert-dismissible alert-danger" id="form-alert">
+					<button type="button" class="close" data-dismiss="alert">&times;</button>
+					<strong>Oh snap!</strong> <a href="#" class="alert-link">Change a few things up</a> and try submitting again.
+				</div>
+				
 				<p>Don't have an account yet? Register <a href="register.php">here</a></p>
 				<div class="submit-button text-center">
 					<button type="submit" class="btn" name="login">Login</button>
@@ -189,6 +192,13 @@
 			<div class="form-group">
 				<label for="new_password2">Confirm New Password</label>
 				<input type="password" name="new_password2" value="">
+			</div>
+			<div class="alert alert-dismissible alert-danger" id="form-alert" >
+				<button type="button" class="close" data-dismiss="alert">&times;</button>
+				<strong>Oh snap!</strong> 
+			</div>
+			<div class="alert alert-success" role="alert">
+				Password changed successfully. Click <a href="php/logout.php" class="alert-link">here to logout and sign in again</a>.
 			</div>
 			<div class="submit-button text-center">
 				<button type="submit" class="btn" name="change_pass" id="">Change Password</button>
@@ -309,5 +319,8 @@
 	<script src="js/custom.js"></script>
 	<script src="js/main.js"></script>
 </body>
-
+<?php
+	include 'php/login.php';
+	include 'php/update.php';
+?>
 </html>

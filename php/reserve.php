@@ -116,6 +116,7 @@
         } else {
             echo "<script type='text/javascript'>",
                     "window.alert('please sign in to book a table');",
+                    "window.location.href='register.php';",
                     "</script>";
         }
         

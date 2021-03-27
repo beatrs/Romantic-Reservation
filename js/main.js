@@ -152,3 +152,22 @@ document.getElementById("btn_close").addEventListener("click", function() {
     document.querySelector(".popup.password").style.display = "none";
     console.log("x clicked")
 })
+
+
+/** alert function */
+
+function showAlert(err) {
+    var alert_box = document.querySelector(".alert-danger");
+    //var alert_box = document.getElementById("#form-alert");
+    var msg = "<strong>Oh snap!</strong> " + err;
+    alert_box.innerHTML = msg;
+    alert_box.style.display = "block";
+    console.log('js found');
+}
+
+function showSuccess() {
+    var alert_box = document.querySelector(".alert-success");
+    //var alert_box = document.getElementById("#form-alert");
+    alert_box.style.display = "block";
+    console.log('js found');
+}
