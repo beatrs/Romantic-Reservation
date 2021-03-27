@@ -77,48 +77,56 @@
         //echo $res_date. " ";
         //echo $res_time;
         #echo count($arr_seats);
+        $now = date("Y-m-d");
 
-        if (!empty($_SESSION['user'])) {
-            if (!empty($res) && $res != 'null') {
-                for ($i = 0; $i < count($arr_tables); $i++) {
-                    $table_id = $arr_tables[$i];
-                    $sql = "SELECT * FROM users_reservations WHERE table_id = '$table_id' AND reserve_date='$res_date' AND reserve_time='$res_time' AND status=1";
-                    $result = mysqli_query($conn, $sql);
-                    //echo mysqli_num_rows($res);
-                    //echo $user_id;
-                    if(mysqli_num_rows($result) == 0) {
-                        $sql = "INSERT INTO users_reservations (user_id, table_id, reserve_date, reserve_time, status) VALUES ('$user_id', '$table_id', '$res_date', '$res_time', 1)";
+        if ($res_date >= $now) {
+            if (!empty($_SESSION['user'])) {
+                if (!empty($res) && $res != 'null') {
+                    for ($i = 0; $i < count($arr_tables); $i++) {
+                        $table_id = $arr_tables[$i];
+                        $sql = "SELECT * FROM users_reservations WHERE table_id = '$table_id' AND reserve_date='$res_date' AND reserve_time='$res_time' AND status=1";
                         $result = mysqli_query($conn, $sql);
-
-                        //echo mysqli_result($res);
-                        if ($result) {
-                            //echo "<p>successfully inserted</p>";
-                            
-                        } else {
-                            $sql = "UPDATE users_reservations SET status=1 WHERE user_id='$user_id' AND table_id='$arr_tables[$i]' AND reserve_date='$res_date' AND reserve_time='$res_time' AND status=0 ";
+                        //echo mysqli_num_rows($res);
+                        //echo $user_id;
+                        if(mysqli_num_rows($result) == 0) {
+                            $sql = "INSERT INTO users_reservations (user_id, table_id, reserve_date, reserve_time, status) VALUES ('$user_id', '$table_id', '$res_date', '$res_time', 1)";
                             $result = mysqli_query($conn, $sql);
-                            //echo "<p>".$arr_tables[$i].": error</p>";
+    
+                            //echo mysqli_result($res);
+                            if ($result) {
+                                //echo "<p>successfully inserted</p>";
+                                
+                            } else {
+                                $sql = "UPDATE users_reservations SET status=1 WHERE user_id='$user_id' AND table_id='$arr_tables[$i]' AND reserve_date='$res_date' AND reserve_time='$res_time' AND status=0 ";
+                                $result = mysqli_query($conn, $sql);
+                                //echo "<p>".$arr_tables[$i].": error</p>";
+                            }
+                            echo "<script type='text/javascript'>",
+                                "window.alert('reservation successful');",
+                                "reload_page();",
+                                "</script>";
+                        } else {
+                            echo "seat unavailable";
                         }
-                        echo "<script type='text/javascript'>",
-                            "window.alert('reservation successful');",
-                            "reload_page();",
-                            "</script>";
-                    } else {
-                        echo "seat unavailable";
+                        //echo $arr_seats[$i];
                     }
-                    //echo $arr_seats[$i];
+                } else {
+                    echo "<script type='text/javascript'>",
+                        "window.alert('no table chosen');",
+                        "</script>";
                 }
             } else {
                 echo "<script type='text/javascript'>",
-                    "window.alert('no table chosen');",
-                    "</script>";
+                        "window.alert('please sign in to book a table');",
+                        "window.location.href='register.php';",
+                        "</script>";
             }
         } else {
             echo "<script type='text/javascript'>",
-                    "window.alert('please sign in to book a table');",
-                    "window.location.href='register.php';",
-                    "</script>";
+                        "window.alert('invalid date');",
+                        "</script>";
         }
+        
         
     } else {}
 
