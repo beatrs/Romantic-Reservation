@@ -172,8 +172,6 @@
 			<button type="submit" class="btn" name="" id="btn_update">Update</button>
 		</div>
 	</div>
-    <?php } ?>
-
 	<!-- end Account Details -->
 
 	<div class="info-box">
@@ -198,6 +196,9 @@
 		</fieldset>
 		</form>
 	</div>
+    <?php } ?>
+
+	
 
 	<!-- Start Contact info -->
 	<div class="contact-imfo-box">
