@@ -39,7 +39,11 @@
             }
             //header("location: index.php");
         } else {
-            echo "<h2>Invalid username or password</h2>";
+            $err_msg = "Incorrect password.";
+            echo "<script type='text/javascript'>",
+            "showVerifyPword();",
+            "showAlert('verify-alert','$err_msg');",
+            "</script>";
         }
     }
 
@@ -54,34 +58,33 @@
         $details = $_SESSION['user'];
         function showError($err_msg) {
             echo "<script type='text/javascript'>",
-            "showAlert('$err_msg');",
+            "showAlert('changePword-alert', '$err_msg');",
             "</script>";
         }
         if ($old_pass != $details['password']) {
-            //$err_msg = "Entered old password is incorrect.";
-            //showError($err_msg);
-
-            echo '<script type="text/javascript">
+            $err_msg = "Entered old password is incorrect.";
+            showError($err_msg);
+            /* echo '<script type="text/javascript">
                 alert("Incorrect old password");
                 reload_page();
-                </script>';
+                </script>'; */
         }
         else if ($new_pass1 != $new_pass2) {
-            //$err_msg = "New password and Re-Enter new password should be the same.";
-            //showError($err_msg);
-            echo '<script type="text/javascript">
+            $err_msg = "New password and Re-Enter new password should be the same.";
+            showError($err_msg);
+            /* echo '<script type="text/javascript">
                 alert("passwords do not match");
                 reload_page();
-                </script>';
+                </script>'; */
         } else if(strlen($unhashed_pword1) < 4) {
             // tell the user something went wrong
             //echo $alert_trg;
-            //$err_msg = "Password should be at least 4 characters long.";
-            //showError($err_msg);
-            echo '<script type="text/javascript">
+            $err_msg = "Password should be at least 4 characters long.";
+            showError($err_msg);
+            /* echo '<script type="text/javascript">
             alert("Password should be at least 4 characters");
-            reload_page();
-            </script>';
+            reload_page(); 
+            </script>';*/
         } else {
             $user_id = $details['id'];
             $sql = "UPDATE users SET password='$new_pass1' WHERE id='$user_id'";

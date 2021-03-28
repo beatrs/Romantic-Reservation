@@ -26,7 +26,7 @@
         } else {
             $err_msg = "Invalid username or password";
             echo "<script type='text/javascript'>",
-            "showAlert('$err_msg');",
+            "showAlert('form-alert','$err_msg');",
             "</script>";
             //echo $err_msg;
         }

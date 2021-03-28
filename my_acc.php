@@ -155,13 +155,13 @@
 				
 			</fieldset>
 			<!-- strat popup password -->
-			<div class="popup password">
+			<div class="popup password" style="display:none;">
 			<button type="button" class="close" id="btn_close">&times;</button>
 				<div class="form-group">
 					<label for="verifyPassword">Enter Password to save changes</label>
 					<input type="password" class="form-control" id="verifyPassword" placeholder="Current Password" name="verifyPassword" required>
 				</div>
-				<div class="alert alert-dismissible alert-danger" id="form-alert">
+				<div class="alert alert-dismissible alert-danger" id="verify-alert" style="display:none;">
 					<button type="button" class="close" data-dismiss="alert">&times;</button>
 					<strong>Oh snap!</strong> <a href="#" class="alert-link">Change a few things up</a> and try submitting again.
 				</div>
@@ -172,7 +172,7 @@
 			<!-- end password confirm -->
 		</form>
 		<div class="submit-button text-center">
-			<button type="submit" class="btn" name="" id="btn_update">Update</button>
+			<button type="submit" class="btn" name="" id="btn_update" onclick="showVerifyPword()">Update</button>
 		</div>
 	</div>
 	<!-- end Account Details -->
@@ -193,12 +193,12 @@
 				<label for="new_password2">Confirm New Password</label>
 				<input type="password" name="new_password2" value="">
 			</div>
-			<div class="alert alert-dismissible alert-danger" id="form-alert" >
-				<button type="button" class="close" data-dismiss="alert">&times;</button>
-				<strong>Oh snap!</strong> 
-			</div>
 			<div class="alert alert-success" role="alert">
 				Password changed successfully. Click <a href="php/logout.php" class="alert-link">here to logout and sign in again</a>.
+			</div>
+			<div class="alert alert-dismissible alert-danger" id="changePword-alert" style="display:none;">
+				<button type="button" class="close" data-dismiss="alert" id="changePword-close" style="display:block;">&times;</button>
+				<strong>Oh snap!</strong> <a href="#" class="alert-link">Change a few things up</a> and try submitting again.
 			</div>
 			<div class="submit-button text-center">
 				<button type="submit" class="btn" name="change_pass" id="">Change Password</button>
@@ -320,7 +320,7 @@
 	<script src="js/main.js"></script>
 </body>
 <?php
-	include 'php/login.php';
 	include 'php/update.php';
+	include 'php/login.php';
 ?>
 </html>

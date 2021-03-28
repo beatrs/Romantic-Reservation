@@ -26,7 +26,7 @@
         //$alert_trg = "<script type='text/javascript'>showAlert();</script>";
         function showError($err_msg) {
             echo "<script type='text/javascript'>",
-            "showAlert('$err_msg');",
+            "showAlert('form-alert','$err_msg');",
             "</script>";
         }
         if(mysqli_num_rows($res) != 0) {

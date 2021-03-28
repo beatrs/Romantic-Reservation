@@ -27,8 +27,8 @@
             echo "<td>".$reserve_time . "</td>";
             echo "<form method='post' action=''>";
             echo "<input type='text' style='display:none;' value='$res_det' name='reserve_det'>";
-            echo "<td><input type='submit' name='edit' value='edit' id='edit'></td>";
-            echo "<td><input type='submit' name='cancel' value='cancel' id='cancel'></td>";
+            echo "<td><button type='submit' name='edit' value='' id='edit'>Edit</button></td>";
+            echo "<td><button type='submit' name='cancel' value='' id='cancel' onclick=''>Cancel</button></td>";
             echo "</form>";
         }
         echo "</table>";

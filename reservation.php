@@ -112,6 +112,36 @@
 
 	<!-- End My Reservations -->
 
+
+
+	<!-- Start Alert Messages -->
+	<div class="modal" tabindex="-1" role="dialog" id="success-dialog" style="display: none;">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title">Success!</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="closeSuccessMsg()">
+					<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body" id="sMsg">
+					<p>Modal body text goes here.</p>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="closeSuccessMsg()">Okay</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="alert alert-dismissible alert-danger" id="reserve-alert" style="display:none;">
+		<button type="button" class="close" data-dismiss="alert" id="" style="display:block;">&times;</button>
+		<strong>Oh snap!</strong> <a href="#" class="alert-link">Change a few things up</a> and try submitting again.
+	</div>
+	<!-- End Alert Messages -->
+
+
+
 	<!-- Start Reservation -->
 	<div class="reservation-box">
 		<div class="container">
@@ -339,6 +369,27 @@
 	<!-- End Reservation -->
 
 	<!--popup warning -->
+	<div class="modal" tabindex="-1" role="dialog" id="cancel-confirm">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title">Cancel Reservation</h5>
+					<button type="button" class="close btn-close" data-dismiss="modal" aria-label="Close" onclick="closeCancelConfirm()">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body" id="cancel-confirm-msg">
+					<p>Modal body text goes here.</p>
+				</div>
+				<div class="modal-footer">
+					<form method="post" action="">
+						<button type="submit" name="cancel-confirm" class="btn btn-primary">Save changes</button>
+					</form>
+						<button type="button" class="btn btn-secondary btn-close" data-dismiss="modal" onclick="closeCancelConfirm()">Close</button>
+				</div>
+			</div>
+		</div>
+	</div>
 	<!--popup warning -->
 
 

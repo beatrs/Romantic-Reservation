@@ -143,25 +143,39 @@ function toggleDiv(id) {
 
 /** my account buttons */
 
-document.getElementById("btn_update").addEventListener("click", function() {
+/* document.getElementById("btn_update").addEventListener("click", function() {
     document.querySelector(".popup.password").style.display = "block";
     console.log('js found');
-})
+}) */
+
+function showVerifyPword() {
+    document.querySelector(".popup.password").style.display = "block";
+    console.log('verify block');
+}
+function showCancelConfirm(msg) {
+    document.getElementById('cancel-confirm-msg').innerHTML = msg + ". Are you sure?";
+    document.getElementById('cancel-confirm').style.display = "block";
+    console.log('verify block');
+}
 
 document.getElementById("btn_close").addEventListener("click", function() {
     document.querySelector(".popup.password").style.display = "none";
     console.log("x clicked")
 })
 
-
+function closeCancelConfirm() {
+    document.getElementById('cancel-confirm').style.display = "none";
+}
 /** alert function */
 
-function showAlert(err) {
-    var alert_box = document.querySelector(".alert-danger");
-    //var alert_box = document.getElementById("#form-alert");
+function showAlert(id, err) {
+    //var alert_box = document.querySelector(".alert-danger");
+    var alert_box = document.getElementById(id);
     var msg = "<strong>Oh snap!</strong> " + err;
     alert_box.innerHTML = msg;
     alert_box.style.display = "block";
+    //console.log(document.querySelector(".alert-danger").innerHTML)
+    //console.log(document.querySelector(".alert-danger").style.display)
     console.log('js found');
 }
 
@@ -170,4 +184,25 @@ function showSuccess() {
     //var alert_box = document.getElementById("#form-alert");
     alert_box.style.display = "block";
     console.log('js found');
+}
+
+/* function showSuccessMsg(id, msg) {
+    //var alert_box = document.querySelector(".alert-danger");
+    var alert_box = document.getElementById(id);
+    alert_box.innerHTML = msg;
+    alert_box.style.display = "block";
+    //console.log(document.querySelector(".alert-danger").innerHTML)
+    //console.log(document.querySelector(".alert-danger").style.display)
+    console.log('js found');
+} */
+
+function showSuccessMsg(msg) {
+    document.getElementById('sMsg').innerHTML = msg;
+    document.getElementById('success-dialog').style.display = "block";
+    console.log('verify block');
+}
+
+function closeSuccessMsg() {
+    document.getElementById('success-dialog').style.display = "none";
+    reload_page()
 }

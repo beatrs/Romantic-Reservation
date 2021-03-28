@@ -18,7 +18,11 @@
     
     //$show = false;
 
-    
+    function showError($err_msg) {
+        echo "<script type='text/javascript'>",
+        "showAlert('reserve-alert', '$err_msg');",
+        "</script>";
+    }
 
     //see available tables
     if (isset($_POST['see'])) {
@@ -101,9 +105,12 @@
                                 $result = mysqli_query($conn, $sql);
                                 //echo "<p>".$arr_tables[$i].": error</p>";
                             }
-                            echo "<script type='text/javascript'>",
+                            /* echo "<script type='text/javascript'>",
                                 "window.alert('reservation successful');",
                                 "reload_page();",
+                                "</script>"; */
+                                echo "<script type='text/javascript'>",
+                                "showSuccessMsg('Reservation made successfully');",
                                 "</script>";
                         } else {
                             echo "seat unavailable";
@@ -111,20 +118,26 @@
                         //echo $arr_seats[$i];
                     }
                 } else {
-                    echo "<script type='text/javascript'>",
+                    /* echo "<script type='text/javascript'>",
                         "window.alert('no table chosen');",
-                        "</script>";
+                        "</script>"; */
+                    $err_msg = "No table chosen.";
+                    showError($err_msg);
                 }
             } else {
-                echo "<script type='text/javascript'>",
+                /* echo "<script type='text/javascript'>",
                         "window.alert('please sign in to book a table');",
                         "window.location.href='register.php';",
-                        "</script>";
+                        "</script>"; */
+                    $err_msg = "Please sign up/sign in to book a table.";
+                    showError($err_msg);
             }
         } else {
-            echo "<script type='text/javascript'>",
+            /* echo "<script type='text/javascript'>",
                         "window.alert('invalid date');",
-                        "</script>";
+                        "</script>"; */
+                    $err_msg = "Invalid date entered.";
+                    showError($err_msg);
         }
         
         
@@ -143,6 +156,9 @@
                 console.log('hello');
                 toggleSeeAvailable();
                 </script>";
+
+        $_SESSION['set-date'] = $res_date;
+        $_SESSION['set-time'] = $res_time;
         //turn non-edit to gray
         $sql = "SELECT * FROM users_reservations WHERE reserve_date='$res_date' AND reserve_time='$res_time' AND status=1";
         $res = mysqli_query($conn, $sql);
@@ -200,17 +216,38 @@
         $table_id = $res_det[1];
         $res_date = $res_det[2];
         $res_time = $res_det[3];
+        
+        $msg = "You are cancelling reservation for table ".$table_id." scheduled on ".$res_date." (".$res_time.")";
+        echo "<script type='text/javascript'>",
+        "showCancelConfirm('$msg');",
+        "</script>";
+
+        $_SESSION['cancel-id'] = $user_id;
+        $_SESSION['cancel-tbl'] = $table_id;
+        $_SESSION['cancel-date'] = $res_date;
+        $_SESSION['cancel-time'] = $res_time;
+        
+        //header("location:../my_acc.php");
+    } 
+
+    if (isset($_POST['cancel-confirm'])) {
+        $user_id = $_SESSION['cancel-id'];
+        $table_id = $_SESSION['cancel-tbl'];
+        $res_date = $_SESSION['cancel-date'];
+        $res_time = $_SESSION['cancel-time'];
 
         $sql = "UPDATE users_reservations SET status=0 WHERE user_id='$user_id' AND table_id='$table_id' AND reserve_date='$res_date' AND reserve_time='$res_time' AND status=1 ";
         $res = mysqli_query($conn, $sql);
         if ($res) {
-            echo "<script type='text/javascript'>",
-                "window.alert('reservation cancelled successfully');",
+            /* echo "<script type='text/javascript'>",
+                "window.alert('Reservation cancelled successfully');",
                 "reload_page();",
-                "</script>";
+                "</script>"; */
+            echo "<script type='text/javascript'>",
+            "showSuccessMsg('Reservation cancelled successfully');",
+            "</script>";
         } else {
             echo "something went wrong";
         }
-        //header("location:../my_acc.php");
-    } 
+    }
 ?>
