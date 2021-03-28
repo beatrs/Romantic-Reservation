@@ -106,7 +106,7 @@
 				<legend>Login</legend>
 				<div class="form-group">
 					<label for="email">Email</label>
-					<input type="email" name="email" required>
+					<input type="text" name="email" required>
 				</div>
 				<div class="form-group">
 					<label for="password">Password</label>

@@ -52,11 +52,11 @@
     border-radius: 50%;
 }
 
-#res-table {
+#res-table, .center {
     margin: auto;
 }
 
-#res-table table, #res-table td, #res-table tr, #res-table th {
+#res-table table, #res-table th, #res-table tr, #res-table td {
     border: 1px solid black;
     padding: 10px;
 }

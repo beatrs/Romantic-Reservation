@@ -21,6 +21,7 @@
             echo "<h2>Login Successful</h2>";
             $_SESSION['login'] = true;
             $_SESSION['user'] = $row;
+            $_SESSION['type'] = $row['level'];
             echo "<script type='text/javascript'>window.location.href='index.php';</script>";
             //header("location: index.php");
         } else {

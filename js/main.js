@@ -206,3 +206,15 @@ function closeSuccessMsg() {
     document.getElementById('success-dialog').style.display = "none";
     reload_page()
 }
+
+/** filter */
+
+$(document).ready(function(){
+  $("#myInput").on("keyup", function() {
+    var value = $(this).val().toLowerCase();
+    console.log(value)
+    $("#allRes-table tr").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
+});

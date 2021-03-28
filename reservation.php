@@ -97,7 +97,7 @@
 	<!-- End All Pages -->
 
 	<!-- Start My Reservation -->
-	<?php if (!empty($_SESSION['user'])) {?>
+	<?php if (!empty($_SESSION['user']) && $_SESSION['type'] == 0) {?>
 		<div class="submit-button text-center">
 			<button class="btn btn-secondary" onclick="toggleDiv('my-res')">Show/Hide My Reservations</button>
 		</div>
@@ -108,7 +108,22 @@
 			echo "<br><br><br><br><br><br><br>";
 		?>
 		</div>
-	<?php } else {}?>
+	<?php } else if(!empty($_SESSION['user']) && $_SESSION['type'] == 1) { 
+			echo "<br><div class='text-center'><h2>ACTIVE RESERVATIONS</h2></div><br><br>"; ?>
+		<div>
+			<div class='center text-center'>
+				<p>Type something in the input field to search the table for first names, last names or emails:</p>  
+				<input id="myInput" type="text" placeholder="Search..">
+				<br><br>
+			</div>
+			<div>
+			<?php
+				include 'php/all_reserve.php';
+				echo "<br><br><br><br><br><br><br>";
+			?>
+			</div>
+		</div>
+	<?php } ?>
 
 	<!-- End My Reservations -->
 
@@ -139,7 +154,6 @@
 		<strong>Oh snap!</strong> <a href="#" class="alert-link">Change a few things up</a> and try submitting again.
 	</div>
 	<!-- End Alert Messages -->
-
 
 
 	<!-- Start Reservation -->
@@ -202,7 +216,7 @@
 										<?php } else{} ?>
 
 										<input type='text' id='seats' value='' name='reserved' style="display:none;">
-										<?php if(isset($_POST['see']) || isset($_POST['edit'])) {?>
+										<?php if((empty($_SESSION['user']) || (!empty($_SESSION['user']) && $_SESSION['type'] == 0)) && isset($_POST['see']) || isset($_POST['edit'])) {?>
 										<div class="col-md-12">
 											<div class="submit-button text-center">
 												<button class="btn btn-common" id="save" type="submit" name='save' onclick='book_table()'>Book Table</button>
@@ -487,6 +501,7 @@
 
 	<!-- ALL JS FILES -->
 	<script src="js/jquery-3.2.1.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	<script src="js/popper.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 	<!-- ALL PLUGINS -->
@@ -502,6 +517,16 @@
 	<script src="js/contact-form-script.js"></script>
 	<script src="js/custom.js"></script>
 	<script src="js/main.js"></script>
+	<script>
+	$(document).ready(function(){
+	$("#myInput").on("keyup", function() {
+		var value = $(this).val().toLowerCase();
+		$("#allRes-table tr").filter(function() {
+		$(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+		});
+	});
+	});
+	</script> 
 </body>
 <?php
 	include 'php/reserve.php';

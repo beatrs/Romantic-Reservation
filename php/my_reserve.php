@@ -1,8 +1,9 @@
 <?php
 
+    $now = date("Y-m-d");   
     $details = $_SESSION['user'];
     $user_id = $details['id'];
-    $sql = "SELECT * FROM users_reservations WHERE user_id = '$user_id' AND status=1";
+    $sql = "SELECT * FROM users_reservations WHERE user_id = '$user_id' AND reserve_date >= '$now' AND status=1";
     $res = mysqli_query($conn, $sql);
     #echo mysqli_num_rows($res);
     if (mysqli_num_rows($res) == 0) {

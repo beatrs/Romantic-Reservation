@@ -44,7 +44,7 @@
             $err_msg = "Passwords do not match!";
             showError($err_msg);
         } else {
-            $sql = "INSERT INTO users (first_name, last_name, contact_num, email, password) VALUES('$fname', '$lname', '$cnum', '$email', '$password1')";
+            $sql = "INSERT INTO users (first_name, last_name, contact_num, email, password, level) VALUES('$fname', '$lname', '$cnum', '$email', '$password1', 0)";
 
             $res = mysqli_query($conn, $sql);
 
