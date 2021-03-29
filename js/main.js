@@ -45,7 +45,7 @@ function book_table() {
     seatbox.value = see_date + ' ' + see_time
 }) */
 
-function change_color(seat_taken) {
+function change_color(seat_taken, color) {
     console.log(seat_taken);
     for (var i = 0; i < allSeats.length; i++) {
         seat = allSeats[i];
@@ -53,7 +53,7 @@ function change_color(seat_taken) {
         console.log("x value: " + x);
         console.log("seat_taken value: " + seat_taken); 
         if (x == seat_taken) {
-            seat.style.backgroundColor = 'gray'
+            seat.style.backgroundColor = color
         }
     }
 }
@@ -126,4 +126,95 @@ $('#time').change(function() {
     //var date = $(this).val();
     //console.log(date, 'change')
     document.getElementById("save").style.display = "none";
+});
+
+/** hide display */
+console.log(5)
+//console.log(document.getElementById("my-res").style.display)
+//console.log(document.getElementById("my-res").style)
+function toggleDiv(id) {
+    var x = document.getElementById(id);
+    if (x.style.display == "block") {
+      x.style.display = "none";
+    } else {
+      x.style.display = "block";
+    }
+  } 
+
+/** my account buttons */
+
+/* document.getElementById("btn_update").addEventListener("click", function() {
+    document.querySelector(".popup.password").style.display = "block";
+    console.log('js found');
+}) */
+
+function showVerifyPword() {
+    document.querySelector(".popup.password").style.display = "block";
+    console.log('verify block');
+}
+function showCancelConfirm(msg) {
+    document.getElementById('cancel-confirm-msg').innerHTML = msg + ". Are you sure?";
+    document.getElementById('cancel-confirm').style.display = "block";
+    console.log('verify block');
+}
+
+document.getElementById("btn_close").addEventListener("click", function() {
+    document.querySelector(".popup.password").style.display = "none";
+    console.log("x clicked")
+})
+
+function closeCancelConfirm() {
+    document.getElementById('cancel-confirm').style.display = "none";
+}
+/** alert function */
+
+function showAlert(id, err) {
+    //var alert_box = document.querySelector(".alert-danger");
+    var alert_box = document.getElementById(id);
+    var msg = "<strong>Oh snap!</strong> " + err;
+    alert_box.innerHTML = msg;
+    alert_box.style.display = "block";
+    //console.log(document.querySelector(".alert-danger").innerHTML)
+    //console.log(document.querySelector(".alert-danger").style.display)
+    console.log('js found');
+}
+
+function showSuccess() {
+    var alert_box = document.querySelector(".alert-success");
+    //var alert_box = document.getElementById("#form-alert");
+    alert_box.style.display = "block";
+    console.log('js found');
+}
+
+/* function showSuccessMsg(id, msg) {
+    //var alert_box = document.querySelector(".alert-danger");
+    var alert_box = document.getElementById(id);
+    alert_box.innerHTML = msg;
+    alert_box.style.display = "block";
+    //console.log(document.querySelector(".alert-danger").innerHTML)
+    //console.log(document.querySelector(".alert-danger").style.display)
+    console.log('js found');
+} */
+
+function showSuccessMsg(msg) {
+    document.getElementById('sMsg').innerHTML = msg;
+    document.getElementById('success-dialog').style.display = "block";
+    console.log('verify block');
+}
+
+function closeSuccessMsg() {
+    document.getElementById('success-dialog').style.display = "none";
+    reload_page()
+}
+
+/** filter */
+
+$(document).ready(function(){
+  $("#myInput").on("keyup", function() {
+    var value = $(this).val().toLowerCase();
+    console.log(value)
+    $("#allRes-table tr").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
 });

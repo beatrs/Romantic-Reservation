@@ -97,9 +97,7 @@
 
 	<div class='form-container'>
 		<div class='msg'>
-			<?php
-                include 'php/reg.php';
-            ?>
+			
 		</div>
 		<!-- Start Registration Form -->
 		<form method="post" action="" id="form-info">
@@ -124,10 +122,18 @@
 				<div class="form-group">
 					<label for="password1">Password</label>
 					<input type="password" name="password1" required>
+					<small id="pwordHelp" class="form-text text-muted">Password must be at least 4 characters.</small>
 				</div>
 				<div class="form-group">
 					<label for="password2">Confirm Password</label>
 					<input type="password" name="password2" required>
+				</div>
+				<div class="alert alert-dismissible alert-danger" id="form-alert">
+					<button type="button" class="close" data-dismiss="alert">&times;</button>
+					<strong>Oh snap!</strong> 
+				</div>
+				<div class="alert alert-success" role="alert">
+					Registered successfully. Click <a href="my_acc.php" class="alert-link">here to sign in</a>.
 				</div>
 				<p>Already have an account? Login <a href="my_acc.php">here</a></p>
 				<div class="submit-button text-center">
@@ -319,6 +325,9 @@
 	<script src="js/form-validator.min.js"></script>
 	<script src="js/contact-form-script.js"></script>
 	<script src="js/custom.js"></script>
+	<script src="js/main.js"></script>
 </body>
-
+<?php
+	include 'php/reg.php';
+?>
 </html>

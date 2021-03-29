@@ -98,9 +98,7 @@
 	<?php if(empty($_SESSION['user'])){ ?>
 	<div class='form-container'>
 		<div class='msg'>
-			<?php
-                include 'php/login.php';
-            ?>
+			
 		</div>
 		<!-- Start Login Form -->
 		<form method="post" action="" id="form-info">
@@ -108,7 +106,7 @@
 				<legend>Login</legend>
 				<div class="form-group">
 					<label for="email">Email</label>
-					<input type="email" name="email" required>
+					<input type="text" name="email" required>
 				</div>
 				<div class="form-group">
 					<label for="password">Password</label>
@@ -116,6 +114,12 @@
 				</div>
 				<input type="checkbox" name="remember" id="remember">
 				<label for="remember-me">Remember me</label>
+
+				<div class="alert alert-dismissible alert-danger" id="form-alert">
+					<button type="button" class="close" data-dismiss="alert">&times;</button>
+					<strong>Oh snap!</strong> <a href="#" class="alert-link">Change a few things up</a> and try submitting again.
+				</div>
+				
 				<p>Don't have an account yet? Register <a href="register.php">here</a></p>
 				<div class="submit-button text-center">
 					<button type="submit" class="btn" name="login">Login</button>
@@ -124,14 +128,87 @@
 		</form>
 		<!-- End Login Form -->
 	</div>
-	<?php }
-    else {
-        echo "<br><div class='text-center'><h2>Welcome! ".$details['first_name']."</h2></div><br><br><br><br>";
-		include 'php/my_reserve.php';
-        echo "<br><br><br><br><br><br><br>";
-     } ?>
+	<?php } else {
+		 $details = $_SESSION['user'];
+		 ?>
+	<!-- start Account Details -->
+	<div id="my-info" class="info-box">
+	<form method="post" action="" id="form-info">
+			<fieldset>
+				<legend>Account Details</legend>
+				<div class="form-group">
+					<label for="fname">First Name</label>
+					<input type="text" name="fname" value="<?php echo $details['first_name']; ?>">
+				</div>
+				<div class="form-group">
+					<label for="lname">Last Name</label>
+					<input type="text" name="lname" value="<?php echo $details['last_name']; ?>">
+				</div>
+				<div class="form-group">
+					<label for="cnum">Contact Number</label>
+					<input type="text" name="cnum" value="<?php echo $details['contact_num']; ?>">
+				</div>
+				<div class="form-group">
+					<label for="email">Email</label>
+					<input type="email" name="email" value="<?php echo $details['email']; ?>"> 
+				</div>
+				
+			</fieldset>
+			<!-- strat popup password -->
+			<div class="popup password" style="display:none;">
+			<button type="button" class="close" id="btn_close">&times;</button>
+				<div class="form-group">
+					<label for="verifyPassword">Enter Password to save changes</label>
+					<input type="password" class="form-control" id="verifyPassword" placeholder="Current Password" name="verifyPassword" required>
+				</div>
+				<div class="alert alert-dismissible alert-danger" id="verify-alert" style="display:none;">
+					<button type="button" class="close" data-dismiss="alert">&times;</button>
+					<strong>Oh snap!</strong> <a href="#" class="alert-link">Change a few things up</a> and try submitting again.
+				</div>
+				<div class="submit-button text-center">
+					<button type="submit" class="btn btn-primary" name="verify">Verify</button>
+				</div>
+			</div>
+			<!-- end password confirm -->
+		</form>
+		<div class="submit-button text-center">
+			<button type="submit" class="btn" name="" id="btn_update" onclick="showVerifyPword()">Update</button>
+		</div>
+	</div>
+	<!-- end Account Details -->
 
+	<div class="info-box">
+		<form method="post" action="">
+		<fieldset>
+			<legend>Change Password</legend>
+			<div class="form-group">
+				<label for="old_password">Current Password</label>
+				<input type="password" name="old_password" value="">
+			</div>
+			<div class="form-group">
+				<label for="new_password1">New Password</label>
+				<input type="password" name="new_password1" value="">
+			</div>
+			<div class="form-group">
+				<label for="new_password2">Confirm New Password</label>
+				<input type="password" name="new_password2" value="">
+			</div>
+			<div class="alert alert-success" role="alert">
+				Password changed successfully. Click <a href="php/logout.php" class="alert-link">here to logout and sign in again</a>.
+			</div>
+			<div class="alert alert-dismissible alert-danger" id="changePword-alert" style="display:none;">
+				<button type="button" class="close" data-dismiss="alert" id="changePword-close" style="display:block;">&times;</button>
+				<strong>Oh snap!</strong> <a href="#" class="alert-link">Change a few things up</a> and try submitting again.
+			</div>
+			<div class="submit-button text-center">
+				<button type="submit" class="btn" name="change_pass" id="">Change Password</button>
+			</div>
+		</fieldset>
+		</form>
+	</div>
+    <?php } ?>
 
+	
 
 	<!-- Start Contact info -->
 	<div class="contact-imfo-box">
@@ -240,6 +317,10 @@
 	<script src="js/form-validator.min.js"></script>
 	<script src="js/contact-form-script.js"></script>
 	<script src="js/custom.js"></script>
+	<script src="js/main.js"></script>
 </body>
-
+<?php
+	include 'php/update.php';
+	include 'php/login.php';
+?>
 </html>

@@ -1,8 +1,9 @@
 <?php
 
+    $now = date("Y-m-d");   
     $details = $_SESSION['user'];
     $user_id = $details['id'];
-    $sql = "SELECT * FROM users_reservations WHERE user_id = '$user_id' AND status=1";
+    $sql = "SELECT * FROM users_reservations WHERE user_id = '$user_id' AND reserve_date >= '$now' AND status=1";
     $res = mysqli_query($conn, $sql);
     #echo mysqli_num_rows($res);
     if (mysqli_num_rows($res) == 0) {
@@ -25,10 +26,10 @@
             echo "<td>".$table_id . "</td>"; 
             echo "<td>".$reserve_date . "</td>";
             echo "<td>".$reserve_time . "</td>";
-            echo "<form method='post' action='php/modify_reserve.php'>";
+            echo "<form method='post' action=''>";
             echo "<input type='text' style='display:none;' value='$res_det' name='reserve_det'>";
-            echo "<td><input type='submit' name='edit' value='edit' id='edit'></td>";
-            echo "<td><input type='submit' name='cancel' value='cancel' id='cancel'></td>";
+            echo "<td><button type='submit' name='edit' value='' id='edit'>Edit</button></td>";
+            echo "<td><button type='submit' name='cancel' value='' id='cancel' onclick=''>Cancel</button></td>";
             echo "</form>";
         }
         echo "</table>";

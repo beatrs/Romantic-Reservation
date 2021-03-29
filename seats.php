@@ -1,106 +1,76 @@
-<?php
-    session_start();
-    include 'php/config.php';
-
-    
-?>
 <!DOCTYPE html>
-
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<html>
 <head>
-    <meta charset="utf-8" />
-    <title></title>
-    <link rel='stylesheet' href='css/custom.css'>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="js/main.js"></script>
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
 
-   
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
 
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
 </head>
 <body>
 
-    <form method='post' action=''>
-    <div style="border:1px solid gray; width:130px;">
-        <table>
-            <tr>
-                <td colspan="4"></td>
-                <td align="right"> <div id="driver"></div> </td>
-            </tr>
-            <tr>
-                <td><div class="seat"></div> </td>
-                <td><div class="seat"></div></td>
-                <td class="walk">  </td>
-                <td><div class="seat"></div></td>
-                <td><div class="seat"></div></td>
-            </tr>
-            <tr>
-                <td><div class="seat"></div> </td>
-                <td><div class="seat"></div></td>
-                <td class="walk">  </td>
-                <td><div class="seat"></div></td>
-                <td><div class="seat"></div></td>
-            </tr>
-            <tr>
-                <td><div class="seat"></div> </td>
-                <td><div class="seat"></div></td>
-                <td class="walk">  </td>
-                <td><div class="seat"></div></td>
-                <td><div class="seat"></div></td>
-            </tr>
-            <tr>
-                <td><div class="seat"></div> </td>
-                <td><div class="seat"></div></td>
-                <td class="walk">  </td>
-                <td><div class="seat"></div></td>
-                <td><div class="seat"></div></td>
-            </tr>
-            <tr>
-                <td><div class="seat"></div> </td>
-                <td><div class="seat"></div></td>
-                <td class="walk">  </td>
-                <td><div class="seat"></div></td>
-                <td><div class="seat"></div></td>
-            </tr>
-            <tr>
-                <td><div class="seat"></div> </td>
-                <td><div class="seat"></div></td>
-                <td class="walk">  </td>
-                <td><div class="seat"></div></td>
-                <td><div class="seat"></div></td>
-            </tr>
-            <tr>
-                <td><div class="seat"></div> </td>
-                <td><div class="seat"></div></td>
-                <td class="walk">  </td>
-                <td><div class="seat"></div></td>
-                <td><div class="seat"></div></td>
-            </tr>
-            <tr>
-                <td><div class="seat"></div> </td>
-                <td><div class="seat"></div></td>
-                <td class="walk">  </td>
-                <td><div class="seat"></div></td>
-                <td><div class="seat"></div></td>
-            </tr>
-            <tr>
-                <td><div class="seat" value='b1'></div> </td>
-                <td><div class="seat" value='b2'></div></td>
-                <td class="walk">  </td>
-                <td><div class="seat" value='b3'></div></td>
-                <td><div class="seat" value='b4'></div></td>
-            </tr>
-        </table>
-    </div>
-    <input type='text' id='seats' value='' name='reserved' style="display:none;">
-    <input type='date' id='date' name='res_date' required>
-    <button type="submit" id="save" name="save">Reserve seats</button>
-    </form>
-    
+<h2>Filterable Table</h2>
+<p>Type something in the input field to search the table for first names, last names or emails:</p>  
+<input id="myInput" type="text" placeholder="Search..">
+<br><br>
 
+<table>
+  <thead>
+  <tr>
+    <th>Firstname</th>
+    <th>Lastname</th>
+    <th>Email</th>
+  </tr>
+  </thead>
+  <tbody id="myTable">
+  <tr>
+    <td>John</td>
+    <td>Doe</td>
+    <td>john@example.com</td>
+  </tr>
+  <tr>
+    <td>Mary</td>
+    <td>Moe</td>
+    <td>mary@mail.com</td>
+  </tr>
+  <tr>
+    <td>July</td>
+    <td>Dooley</td>
+    <td>july@greatstuff.com</td>
+  </tr>
+  <tr>
+    <td>Anja</td>
+    <td>Ravendale</td>
+    <td>a_r@test.com</td>
+  </tr>
+  </tbody>
+</table>
+  
+<p>Note that we start the search in tbody, to prevent filtering the table headers.</p>
 
-    <script src="js/main.js"></script>
-</body>
-
-<?php
-    
-    include 'php/reserve.php';
-?>
+</body> 
+<script>
+$(document).ready(function(){
+  $("#myInput").on("keyup", function() {
+    var value = $(this).val().toLowerCase();
+    $("#myTable tr").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
+});
+</script> 
 </html>

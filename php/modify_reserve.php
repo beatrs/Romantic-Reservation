@@ -16,9 +16,7 @@
         $res = mysqli_query($conn, $sql);
         echo "successfully cancelled";
         header("location:../my_acc.php");
-    } else if (isset($_POST['edit'])) {
-        echo "edit";
-    }
+    } 
     /**get from db */
     //$sql = "UPDATE users_reservations SET status=0 WHERE user_id='$user_id' AND status=1";
     /* $sql = "SELECT * FROM users_reservations WHERE user_id='$user_id' ";

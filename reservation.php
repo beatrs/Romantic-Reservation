@@ -74,7 +74,7 @@
 						<?php } else{
 						echo "<li class='nav-item'><a class='nav-link' href='register.php'>Register</a></li>";
 						echo "<li class='nav-item'><a class='nav-link' href='my_acc.php'>My Account</a></li>";
-							echo isset($_SESSION['login']);
+							//echo isset($_SESSION['login']);
 							} ?>
 					</ul>
 				</div>
@@ -95,6 +95,66 @@
 	</div>
 	<!-- End All Pages -->
 
+	<!-- Start My Reservation -->
+	<?php if (!empty($_SESSION['user']) && $_SESSION['type'] == 0) {?>
+		<div class="submit-button text-center">
+			<button class="btn btn-secondary" onclick="toggleDiv('my-res')">Show/Hide My Reservations</button>
+		</div>
+		<div class="hide" id="my-res">
+		<?php
+			echo "<br><div class='text-center'><h2>Welcome! ".$details['first_name']."</h2></div><br><br><br><br>";
+			include 'php/my_reserve.php';
+			echo "<br><br><br><br><br><br><br>";
+		?>
+		</div>
+	<?php } else if(!empty($_SESSION['user']) && $_SESSION['type'] == 1) { 
+			echo "<br><div class='text-center'><h2>ACTIVE RESERVATIONS</h2></div><br><br>"; ?>
+		<div>
+			<div class='center text-center'>
+				<p>Type something in the input field to search the table for first names, last names or emails:</p>  
+				<input id="myInput" type="text" placeholder="Search..">
+				<br><br>
+			</div>
+			<div>
+			<?php
+				include 'php/all_reserve.php';
+				echo "<br><br><br><br><br><br><br>";
+			?>
+			</div>
+		</div>
+	<?php } ?>
+
+	<!-- End My Reservations -->
+
+
+
+	<!-- Start Alert Messages -->
+	<div class="modal" tabindex="-1" role="dialog" id="success-dialog" style="display: none;">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title">Success!</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="closeSuccessMsg()">
+					<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body" id="sMsg">
+					<p>Modal body text goes here.</p>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="closeSuccessMsg()">Okay</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="alert alert-dismissible alert-danger" id="reserve-alert" style="display:none;">
+		<button type="button" class="close" data-dismiss="alert" id="" style="display:block;">&times;</button>
+		<strong>Oh snap!</strong> <a href="#" class="alert-link">Change a few things up</a> and try submitting again.
+	</div>
+	<!-- End Alert Messages -->
+
+
 	<!-- Start Reservation -->
 	<div class="reservation-box">
 		<div class="container">
@@ -106,14 +166,20 @@
 								<div class="col-md-6">
 									<h3>Book a table</h3>
 									<form id='see-tables' method='post' action=''>
+
 										<!-- PICK DATE -->
 										<div class="col-md-12">
 											<div class="form-group">
 												<!-- <input id="input_date" class="datepicker picker__input form-control" name="res_date" type="date" value="" required data-error="Please enter Date"> -->
 
-												<input type='date' id='date' name='res_date' class="form-control"
-													value="<?php if(isset($_POST['res_date'])) {echo $_POST['res_date'];} else {echo "";}?>"
-													required>
+												<input type='date' id='date' name='res_date' class="form-control" <?php if(isset($_POST['edit'])) {echo "disabled";}?>
+													value="<?php if(isset($_POST['res_date'])) {echo $_POST['res_date'];}
+													else if(isset($_POST['reserve_det'])) {
+														$dets = $_POST['reserve_det'];
+														$dets = explode(",", $dets);
+														echo $dets[2];
+													}
+													else {echo "";}?>" required>
 												<div class="help-block with-errors"></div>
 											</div>
 										</div>
@@ -121,26 +187,38 @@
 										<div class="col-md-12">
 											<div class="form-group">
 												<select class="custom-select d-block form-control" id="time" name='time'
-													selected="" data-error="Please select time">
-													<?php if(isset($_POST['time'])) {echo '<option selected>'.$_POST['time'].'</option>';} else {echo '<option disabled selected>Select Time*</option>';}?>
+													selected="" data-error="Please select time" <?php if(isset($_POST['edit'])) {echo "disabled";}?>>
+													<?php 
+													if(isset($_POST['time'])) {echo '<option selected>'.$_POST['time'].'</option>';}
+													else if(isset($_POST['reserve_det'])) {
+														$dets = $_POST['reserve_det'];
+														$dets = explode(",", $dets);
+														echo '<option disabled selected>'.$dets[3].'</option>';
+													}
+													else {echo '<option disabled selected>Select Time*</option>';}?>
 													<option value="Lunch">Lunch</option>
 													<option value="Dinner">Dinner</option>
 												</select>
 												<div class="help-block with-errors"></div>
 											</div>
 										</div>
+
 										<!-- SEE AVAILABLE SEATS -->
-										<div class="submit-button text-center">
-											<button class="btn btn-gray" id="see" type="submit" name='see'>See Available
-												Tables</button>
-											<div id="msgSubmit" class="h3 text-center hidden"></div>
-											<div class="clearfix"></div>
-										</div>
-										<?php if(isset($_POST['see'])) {?>
+										<?php if (!isset($_POST['edit'])) {?>
 										<div class="col-md-12">
 											<div class="submit-button text-center">
-												<button class="btn btn-common" id="save" type="submit" name='save'
-													onclick='book_table()'>Book Table</button>
+												<button class="btn btn-gray" id="see" type="submit" name='see'>See Available Tables</button>
+												<div id="msgSubmit" class="h3 text-center hidden"></div>
+												<div class="clearfix"></div>
+											</div>
+										</div>
+										<?php } else{} ?>
+
+										<input type='text' id='seats' value='' name='reserved' style="display:none;">
+										<?php if((empty($_SESSION['user']) || (!empty($_SESSION['user']) && $_SESSION['type'] == 0)) && isset($_POST['see']) || isset($_POST['edit'])) {?>
+										<div class="col-md-12">
+											<div class="submit-button text-center">
+												<button class="btn btn-common" id="save" type="submit" name='save' onclick='book_table()'>Book Table</button>
 												<div id="msgSubmit" class="h3 text-center hidden"></div>
 												<div class="clearfix"></div>
 											</div>
@@ -278,12 +356,11 @@
 										</tr>
 									</table>
 								</div>
-								<input type='text' id='seats' value='' name='reserved' style="display:none;">
 								<!-- <input type='date' id='date' name='res_date' required>
 									<button type="submit" id="save" name="save">Reserve seats</button> -->
 							</div>
 							<!--
-								<?php if(isset($_POST['see'])) {?>
+								<?php //if(isset($_POST['see'])) {?>
 								<div class="col-md-12">
 									<div class="submit-button text-center">
 										<button class="btn btn-common" id="save" type="submit" name='save' onclick='book_table()'>Book Table</button>
@@ -291,7 +368,7 @@
 										<div class="clearfix"></div>
 									</div>
 								</div>
-								<?php } else{} ?>
+								<?php //} else{} ?>
 								-->
 					</div>
 				</div>
@@ -305,6 +382,27 @@
 	<!-- End Reservation -->
 
 	<!--popup warning -->
+	<div class="modal" tabindex="-1" role="dialog" id="cancel-confirm">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title">Cancel Reservation</h5>
+					<button type="button" class="close btn-close" data-dismiss="modal" aria-label="Close" onclick="closeCancelConfirm()">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body" id="cancel-confirm-msg">
+					<p>Modal body text goes here.</p>
+				</div>
+				<div class="modal-footer">
+					<form method="post" action="">
+						<button type="submit" name="cancel-confirm" class="btn btn-primary">Save changes</button>
+					</form>
+						<button type="button" class="btn btn-secondary btn-close" data-dismiss="modal" onclick="closeCancelConfirm()">Close</button>
+				</div>
+			</div>
+		</div>
+	</div>
 	<!--popup warning -->
 
 
@@ -402,6 +500,7 @@
 
 	<!-- ALL JS FILES -->
 	<script src="js/jquery-3.2.1.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	<script src="js/popper.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 	<!-- ALL PLUGINS -->
@@ -417,6 +516,16 @@
 	<script src="js/contact-form-script.js"></script>
 	<script src="js/custom.js"></script>
 	<script src="js/main.js"></script>
+	<script>
+	$(document).ready(function(){
+	$("#myInput").on("keyup", function() {
+		var value = $(this).val().toLowerCase();
+		$("#allRes-table tr").filter(function() {
+		$(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+		});
+	});
+	});
+	</script> 
 </body>
 <?php
 	include 'php/reserve.php';
