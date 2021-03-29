@@ -38,6 +38,16 @@
             //echo $alert_trg;
             $err_msg = "Password should be at least 4 characters long.";
             showError($err_msg);
+        } else if ((ctype_alnum($unhashed_pword1) || ctype_alnum ($unhashed_pword2)) == false){
+            // tell the user something went wrong
+            //echo $alert_trg;
+            $err_msg = "Password should contain letters and numbers.";
+            showError($err_msg);
+        } else if ((preg_match('/[A-Z]/', $unhashed_pword1) || preg_match('/[A-Z]/', $unhashed_pword2)) == 0){
+            // tell the user something went wrong
+            //echo $alert_trg;
+            $err_msg = "Password should contain at least ONE uppercase letter.";
+            showError($err_msg);
         } else if ($password1 != $password2) {
             //echo "<p>Passwords do not match!</p>";
             //echo $alert_trg;
