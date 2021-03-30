@@ -152,6 +152,10 @@ function showVerifyPword() {
     document.querySelector(".popup.password").style.display = "block";
     console.log('verify block');
 }
+function showVerifyDel() {
+    document.querySelector(".popup.delete").style.display = "block";
+    console.log('verify block');
+}
 function showCancelConfirm(msg) {
     document.getElementById('cancel-confirm-msg').innerHTML = msg + ". Are you sure?";
     document.getElementById('cancel-confirm').style.display = "block";
@@ -160,6 +164,12 @@ function showCancelConfirm(msg) {
 
 document.getElementById("btn_close").addEventListener("click", function() {
     document.querySelector(".popup.password").style.display = "none";
+    document.querySelector(".popup.delete").style.display = "none";
+    console.log("x clicked")
+})
+
+document.getElementById("btn_close_del").addEventListener("click", function() {
+    document.querySelector(".popup.delete").style.display = "none";
     console.log("x clicked")
 })
 

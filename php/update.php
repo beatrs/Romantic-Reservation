@@ -1,5 +1,5 @@
 <?php
-    if (isset($_POST['verify'])) {
+    if (isset($_POST[''])) {
         $details = $_SESSION['user'];
         $verifyPassword = hash("sha512", $_POST['verifyPassword']);
         $user_id = $details['id'];
@@ -96,6 +96,35 @@
                 "</script>";
             } else {
                 echo "<p>Oops! Something went wrong.</p>";
+            }
+        }
+    }
+    
+    if(isset($_POST['del'])) {
+        $confirmPassword = hash("sha512", $_POST['confirmPassword']);
+        $user_id = $details['id'];
+
+        $sql = "SELECT * FROM users where id = '$user_id' AND password = '$confirmPassword'";
+        $result = mysqli_query($conn, $sql);
+        if (mysqli_num_rows($result) == 1) {
+            $sql="DELETE from users where id = '$user_id'";
+
+            if ($result) {
+                $sql = "SELECT * from users where id='$user_id'";
+                $result = mysqli_query($conn, $sql);
+                unset($_SESSION['login']);
+                unset($_SESSION['user']);
+                echo '<script type="text/javascript">
+                alert("Account Deleted!");
+                reload_page();
+                </script>';
+            }
+            else {
+                $err_msg = "Incorrect password.";
+                echo "<script type='text/javascript'>",
+                "showVerifyDel();",
+                "showAlert('verify-alert','$err_msg');",
+                "</script>";
             }
         }
     }
