@@ -59,7 +59,7 @@
 					<ul class="navbar-nav ml-auto">
 						<li class="nav-item"><a class="nav-link" href="menu.php">Menu</a></li>
 						<li class="nav-item active"><a class="nav-link" href="reservation.php">Reservation</a></li>
-						<li class="nav-item"><a class="nav-link" href="contact.php">Contact</a></li>
+						<!-- <li class="nav-item"><a class="nav-link" href="contact.php">Contact</a></li> -->
 						<li class="nav-item"><a class="nav-link" href="about.php">About</a></li>
 						<?php if (!empty($_SESSION['user'])) {?>
 						<li class="nav-item dropdown">
@@ -98,7 +98,7 @@
 	<!-- Start My Reservation -->
 	<?php if (!empty($_SESSION['user']) && $_SESSION['type'] == 0) {?>
 		<div class="submit-button text-center">
-			<button class="btn btn-secondary" onclick="toggleDiv('my-res')">Show/Hide My Reservations</button>
+			<button class="btn btn-secondary" onclick="toggleDiv('my-res')" >Show/Hide My Reservations</button>
 		</div>
 		<div class="hide" id="my-res">
 		<?php
@@ -164,7 +164,11 @@
 						<form id="" method='post' action=''>
 							<div class="row">
 								<div class="col-md-6">
+								<?php if ($_SESSION['type'] == 0){ ?>
 									<h3>Book a table</h3>
+								<?php } else{?>
+									<h3>Check Table Availability</h3>
+								<?php } ?>
 									<form id='see-tables' method='post' action=''>
 
 										<!-- PICK DATE -->
@@ -396,7 +400,7 @@
 				</div>
 				<div class="modal-footer">
 					<form method="post" action="">
-						<button type="submit" name="cancel-confirm" class="btn btn-primary">Save changes</button>
+						<button type="submit" name="cancel-confirm" class="btn btn-primary" style='background-color: #ed1d23; color: white;'>Save changes</button>
 					</form>
 						<button type="button" class="btn btn-secondary btn-close" data-dismiss="modal" onclick="closeCancelConfirm()">Close</button>
 				</div>
@@ -464,15 +468,7 @@
 					<p><a href="contact.php"> romanticbaboy.ph</a></p>
 				</div>
 				<div class="col-lg-3 col-md-6">
-					<h3>Subscribe</h3>
-					<div class="subscribe_form">
-						<form class="subscribe_form">
-							<input name="EMAIL" id="subs-email" class="form_input" placeholder="Email Address..."
-								type="email">
-							<button type="submit" class="submit">SUBSCRIBE</button>
-							<div class="clearfix"></div>
-						</form>
-					</div>
+					<h3>SOCIALS</h3>
 					<ul class="list-inline f-social">
 						<li class="list-inline-item"><a href="https://web.facebook.com/RomanticBaboy/?_rdc=1&_rdr"><i
 									class="fa fa-facebook" aria-hidden="true"></i></a></li>
