@@ -214,29 +214,29 @@
 	</div>
 	<!-- end change password-->
 	<!-- strat popup password -->
-	<div class="popup delete" style="display:none;">
-		<button type="button" class="close" id="btn_close_del">&times;</button>
-		<div class="form-group">
-			<label for="confirmPassword">Enter Password to <strong>permanently delete</strong> account</label>
-			<input type="password" class="form-control" id="verifyPassword" placeholder="Current Password"
-				name="confirmPassword" required>
+	<form method="post" action="">
+		<div class="popup delete" style="display:none;">
+			<button type="button" class="close" id="btn_close_del">&times;</button>
+			<div class="form-group">
+				<label for="confirmPassword">Enter Password to <strong>permanently delete</strong> account</label>
+				<input type="password" class="form-control" id="verifyPassword" placeholder="Current Password"
+					name="confirmPassword" required>
+			</div>
+			<div class="alert alert-dismissible alert-danger" id="verify-alert" style="display:none;">
+				<button type="button" class="close" data-dismiss="alert">&times;</button>
+				<strong>Oh snap!</strong> <a href="#" class="alert-link">Change a few things up</a> and try submitting
+				again.
+			</div>
+			<div class="submit-button text-center">
+				<button type="submit" class="btn btn-primary" name="confirm" style="background-color:#ed1d23; border: solid 1px black;" >Confirm</button>
+			</div>
 		</div>
-		<div class="alert alert-dismissible alert-danger" id="verify-alert" style="display:none;">
-			<button type="button" class="close" data-dismiss="alert">&times;</button>
-			<strong>Oh snap!</strong> <a href="#" class="alert-link">Change a few things up</a> and try submitting
-			again.
-		</div>
-		<div class="submit-button text-center">
-			<button type="submit" class="btn btn-primary" name="confirm" style="background-color:#ed1d23; border: solid 1px black;">Confirm</button>
-		</div>
-	</div>
+	</form>
 	<!-- end password confirm -->
 	<!--delete account-->
-	<form method="post" action="">
 	<div class="submit-button text-center" style="margin-bottom: 35px;">
-		<button style="background-color: #ed1d23; color:white; border: solid 2px black;" type="submit" class="btn" name="del" onclick="showVerifyDel()">Delete Account</button>
+		<button style="background-color: #ed1d23; color:white; border: solid 2px black;" type="submit" class="btn" onclick="showVerifyDel()" >Delete Account</button>
 	</div>
-	</form>
 	<!--end-->
 	<?php } ?>
 

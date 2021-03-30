@@ -152,10 +152,12 @@ function showVerifyPword() {
     document.querySelector(".popup.password").style.display = "block";
     console.log('verify block');
 }
+
 function showVerifyDel() {
     document.querySelector(".popup.delete").style.display = "block";
     console.log('verify block');
 }
+
 function showCancelConfirm(msg) {
     document.getElementById('cancel-confirm-msg').innerHTML = msg + ". Are you sure?";
     document.getElementById('cancel-confirm').style.display = "block";

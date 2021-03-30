@@ -100,7 +100,7 @@
         }
     }
     
-    if(isset($_POST['del'])) {
+    if(isset($_POST['confirm'])) {
         $confirmPassword = hash("sha512", $_POST['confirmPassword']);
         $user_id = $details['id'];
 
@@ -110,7 +110,6 @@
             $sql="DELETE from users where id = '$user_id'";
 
             if ($result) {
-                $sql = "SELECT * from users where id='$user_id'";
                 $result = mysqli_query($conn, $sql);
                 unset($_SESSION['login']);
                 unset($_SESSION['user']);
@@ -129,3 +128,4 @@
         }
     }
 ?>
+<script src="js/main.js"></script>
