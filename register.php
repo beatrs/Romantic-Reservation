@@ -122,7 +122,7 @@
 				<div class="form-group">
 					<label for="password1">Password</label>
 					<input type="password" name="password1" required>
-					<small id="pwordHelp" class="form-text text-muted">Password must be at least 4 characters.</small>
+					<small id="pwordHelp" class="form-text text-muted">Password must be at least 4 characters long, contain at least ONE uppercase letter and numbers.</small>
 				</div>
 				<div class="form-group">
 					<label for="password2">Confirm Password</label>
