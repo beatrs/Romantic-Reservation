@@ -47,7 +47,7 @@
             echo "<form method='post' action=''>";
             echo "<input type='text' style='display:none;' value='$res_det' name='reserve_det'>";
             //echo "<td><button type='submit' name='edit' value='' id='edit'>Edit</button></td>";
-            echo "<td><button type='submit' name='cancel' value='' id='cancel' onclick=''>Cancel</button></td></tr>";
+            echo "<td><button type='submit' name='cancel' value='' id='cancel' onclick='' style='background-color: #ed1d23; color: white;'>Cancel</button></td></tr>";
             echo "</form>";
         }
         echo "</tbody></table>";

@@ -60,7 +60,7 @@
 					<ul class="navbar-nav ml-auto">
 						<li class="nav-item"><a class="nav-link" href="menu.php">Menu</a></li>
 						<li class="nav-item"><a class="nav-link" href="reservation.php">Reservation</a></li>
-						<li class="nav-item"><a class="nav-link" href="contact.php">Contact</a></li>
+						<!-- <li class="nav-item"><a class="nav-link" href="contact.php">Contact</a></li> -->
 						<li class="nav-item"><a class="nav-link" href="about.php">About</a></li>
 						<?php if (!empty($_SESSION['user'])) {?>
 						<li class="nav-item dropdown">
@@ -214,6 +214,8 @@
 	</div>
 	<!-- end change password-->
 	<!-- strat popup password -->
+	<?php 
+	if ($_SESSION['type'] == 0){?>
 	<form method="post" action="">
 		<div class="popup delete" style="display:none;">
 			<button type="button" class="close" id="btn_close_del">&times;</button>
@@ -237,6 +239,7 @@
 	<div class="submit-button text-center" style="margin-bottom: 35px;">
 		<button style="background-color: #ed1d23; color:white; border: solid 2px black;" type="submit" class="btn" onclick="showVerifyDel()" >Delete Account</button>
 	</div>
+	<?php } ?>
 	<!--end-->
 	<?php } ?>
 
@@ -299,15 +302,7 @@
 					<p><a href="contact.php"> romanticbaboy@gmail.ph</a></p>
 				</div>
 				<div class="col-lg-3 col-md-6">
-					<h3>Subscribe</h3>
-					<div class="subscribe_form">
-						<form class="subscribe_form">
-							<input name="EMAIL" id="subs-email" class="form_input" placeholder="Email Address..."
-								type="email">
-							<button type="submit" class="submit">SUBSCRIBE</button>
-							<div class="clearfix"></div>
-						</form>
-					</div>
+					<h3>SOCIALS</h3>
 					<ul class="list-inline f-social">
 						<li class="list-inline-item"><a href="https://web.facebook.com/RomanticBaboy/?_rdc=1&_rdr"><i
 									class="fa fa-facebook" aria-hidden="true"></i></a></li>
