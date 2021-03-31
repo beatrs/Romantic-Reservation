@@ -33,17 +33,6 @@ function book_table() {
     }
     seatbox.value = str
 }
-/* document.getElementById("save").addEventListener('click', function() {
-    //var str = seatbox.value + ' '
-    
-}) */
-
-/* document.getElementById("see").addEventListener('click', function() {
-    
-    var see_date = document.getElementById('date').value;
-    var see_time = document.getElementById('time').value;
-    seatbox.value = see_date + ' ' + see_time
-}) */
 
 function change_color(seat_taken, color) {
     console.log(seat_taken);
@@ -69,27 +58,6 @@ function show_warning() {
     console.log('js found');
 }
 
-/** get last input after refresh */
-
-/* document.getElementById("txt_1").value = getSavedValue("txt_1");    // set the value to this input
-document.getElementById("txt_2").value = getSavedValue("txt_2");   // set the value to this input
-/* Here you can add more inputs to set value. if it's saved */
-/*
-//Save the value function - save it to localStorage as (ID, VALUE)
-function saveValue(e){
-    var id = e.id;  // get the sender's id to save it . 
-    var val = e.value; // get the value. 
-    localStorage.setItem(id, val);// Every time user writing something, the localStorage's value will override . 
-}
-
-//get the saved value function - return the value of "v" from localStorage. 
-function getSavedValue  (v){
-    if (!localStorage.getItem(v)) {
-        return "";// You can change this to your defualt value. 
-    }
-    return localStorage.getItem(v);
-} */
-
 /** BUTTONS FOR RESERVATIONS */
 
 //see available dates trigger book table
@@ -102,19 +70,6 @@ function getSavedValue  (v){
 
 
 /** FORM CHANGE */
-
-/* var form = document.getElementById("see-tables");
-
-form.addEventListener("input", function () {
-    console.log("Form has changed!");
-    document.getElementById("save").style.display = "none";
-});
-
-$("#date").changedTouches({
-    onSelect: function(dateText) {
-        document.getElementById("save").style.display = "none";
-    }
-}); */
 
 $('#date').change(function() {
     var date = $(this).val();
@@ -129,9 +84,7 @@ $('#time').change(function() {
 });
 
 /** hide display */
-console.log(5)
-//console.log(document.getElementById("my-res").style.display)
-//console.log(document.getElementById("my-res").style)
+
 function toggleDiv(id) {
     var x = document.getElementById(id);
     if (x.style.display == "block") {
@@ -142,11 +95,6 @@ function toggleDiv(id) {
   } 
 
 /** my account buttons */
-
-/* document.getElementById("btn_update").addEventListener("click", function() {
-    document.querySelector(".popup.password").style.display = "block";
-    console.log('js found');
-}) */
 
 function showVerifyPword() {
     document.querySelector(".popup.password").style.display = "block";
@@ -186,9 +134,6 @@ function showAlert(id, err) {
     var msg = "<strong>Oh snap!</strong> " + err;
     alert_box.innerHTML = msg;
     alert_box.style.display = "block";
-    //console.log(document.querySelector(".alert-danger").innerHTML)
-    //console.log(document.querySelector(".alert-danger").style.display)
-    console.log('js found');
 }
 
 function showSuccess() {
@@ -215,9 +160,22 @@ function showSuccessMsg(msg) {
 }
 
 function closeSuccessMsg() {
-    document.getElementById('success-dialog').style.display = "none";
+    document.getElementById('success-dialog').style.display = "none"
     reload_page()
 }
+
+function showMsg() {
+    //document.getElementById('sMsg').innerHTML = msg;
+    document.getElementById('login-prompt').style.display = "block";
+    console.log('show block');
+}
+
+function closeMsg() {
+    document.getElementById('login-prompt').style.display = "none";
+    window.location.href='my_acc.php'
+    console.log('close block');
+}
+
 
 /** filter */
 

@@ -148,6 +148,25 @@
 		</div>
 	</div>
 
+	<div class="modal" tabindex="-1" role="dialog" id="login-prompt" style="display: none;">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title">Unable to book a table</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="closeMsg()">
+					<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body" id="">
+					<p>Please sign up/sign in to book a table.</p>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="closeMsg()">Okay</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
 	<div class="alert alert-dismissible alert-danger" id="reserve-alert" style="display:none;">
 		<button type="button" class="close" data-dismiss="alert" id="" style="display:block;">&times;</button>
 		<strong>Oh snap!</strong> <a href="#" class="alert-link">Change a few things up</a> and try submitting again.
@@ -164,7 +183,7 @@
 						<form id="" method='post' action=''>
 							<div class="row">
 								<div class="col-md-6">
-								<?php if ($_SESSION['type'] == 0){ ?>
+								<?php if (empty($_SESSION['type']) || $_SESSION['type'] == 0){ ?>
 									<h3>Book a table</h3>
 								<?php } else{?>
 									<h3>Check Table Availability</h3>
@@ -182,7 +201,7 @@
 														$dets = $_POST['reserve_det'];
 														$dets = explode(",", $dets);
 														echo $dets[2];
-													}
+													} 
 													else {echo "";}?>" required>
 												<div class="help-block with-errors"></div>
 											</div>

@@ -130,7 +130,7 @@
     margin-bottom: 40px;
     padding: 20px;
 }
-#success-dialog {
+#success-dialog, #login-prompt {
     display: none;
     position: fixed;
     top: 50%;

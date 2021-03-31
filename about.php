@@ -112,7 +112,7 @@
 							very famous because of their unlimited pork and beef with cheese for only 499 pesos. Not
 							only that, they also offer a no-time-limit-policy!</p>
 
-						<a class="btn btn-lg btn-circle btn-outline-new-white" href="#">Reservation</a>
+						<a class="btn btn-lg btn-circle btn-outline-new-white" href="reservation.php">Reservation</a>
 					</div>
 				</div>
 			</div>
