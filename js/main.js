@@ -204,12 +204,13 @@ $(document).ready(function(){
 
 /** toggle password visibility */
 
-function togglePword(id) {
+function togglePword(id, i='#togglePassword') {
     var x = document.getElementById(id);
     if (x.type === "password") {
     x.type = "text";
     } else {
     x.type = "password";
     }
-    document.querySelector('#togglePassword').classList.toggle('fa-eye-slash')
+    document.querySelector(i).classList.toggle('fa-eye-slash')
+    //this.classList.toggle('fa-eye-slash')
 }

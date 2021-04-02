@@ -136,7 +136,7 @@
 				<div class="form-group">
 					<label for="password2">Confirm Password</label><div class="pword-container">
 						<input type="password" class="field" id="password2" name="password2" required>
-						<i class="far fa-eye icon" id="togglePassword" onclick="togglePword('password2')"></i>
+						<i class="far fa-eye icon" id="togglePassword2" onclick="togglePword('password2','#togglePassword2')"></i>
 					</div>
 				</div>
 				<div class="alert alert-dismissible alert-danger" id="form-alert">
