@@ -22,6 +22,7 @@
 	<!-- Site Icons -->
 	<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
 	<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
 
 	<!-- Bootstrap CSS -->
 	<link rel="stylesheet" href="css/bootstrap.min.css">
@@ -121,12 +122,22 @@
 				</div>
 				<div class="form-group">
 					<label for="password1">Password</label>
-					<input type="password" name="password1" required>
+					<div class="pword-container">
+						<input type="password" class="field" id="password1" name="password1" required>
+						<i class="far fa-eye icon" id="togglePassword" onclick="togglePword('password1')"></i>
+					</div>
+					<!-- <div>
+						<input type="checkbox" onclick="togglePword('password1')"> Show Password
+					</div> -->
 					<small id="pwordHelp" class="form-text text-muted">Password must be at least 4 characters long, contain at least ONE uppercase letter and numbers.</small>
+					<!-- An element to toggle between password visibility -->
+					
 				</div>
 				<div class="form-group">
-					<label for="password2">Confirm Password</label>
-					<input type="password" name="password2" required>
+					<label for="password2">Confirm Password</label><div class="pword-container">
+						<input type="password" class="field" id="password2" name="password2" required>
+						<i class="far fa-eye icon" id="togglePassword" onclick="togglePword('password2')"></i>
+					</div>
 				</div>
 				<div class="alert alert-dismissible alert-danger" id="form-alert">
 					<button type="button" class="close" data-dismiss="alert">&times;</button>

@@ -18,15 +18,15 @@
 /** SEATS PAGE CSS **/
 /**
 #orangeBox {
-  background: black;
-  color: #fff;
-  font-family: 'Helvetica', 'Arial', sans-serif;
-  
-  font-weight: bold;
-  text-align: center;
-  width: 100px;
-  height: 60px;
-  border-radius: 1px;
+    background: black;
+    color: #fff;
+    font-family: 'Helvetica', 'Arial', sans-serif;
+
+    font-weight: bold;
+    text-align: center;
+    width: 100px;
+    height: 60px;
+    border-radius: 1px;
 }
 **/
 .seat {
@@ -47,7 +47,7 @@
     padding-left:45px;
 }
 #driver {
-    background-color:gray;          
+    background-color:gray;
     height: 20px;
     border-radius: 50%;
 }
@@ -130,7 +130,7 @@
     margin-bottom: 40px;
     padding: 20px;
 }
-#success-dialog, #login-prompt {
+#success-dialog, #login-prompt, #update-smsg {
     display: none;
     position: fixed;
     top: 50%;
@@ -145,4 +145,19 @@
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 10;
+}
+
+/** CONTAINTER FOR PASSWORDS **/
+.pword-container {
+    width: 100%;
+}
+.pword-container i {
+} 
+
+.pword-container .icon {
+    margin: -30px;
+    cursor: pointer;
+}
+.pword-container .field {
+    width: 100%;
 }

@@ -164,6 +164,7 @@ function closeSuccessMsg() {
     reload_page()
 }
 
+
 function showMsg() {
     //document.getElementById('sMsg').innerHTML = msg;
     document.getElementById('login-prompt').style.display = "block";
@@ -173,6 +174,18 @@ function showMsg() {
 function closeMsg() {
     document.getElementById('login-prompt').style.display = "none";
     window.location.href='my_acc.php'
+    console.log('close block');
+}
+
+function showUpdateMsg() {
+    //document.getElementById('sMsg').innerHTML = msg;
+    document.getElementById('update-smsg').style.display = "block";
+    console.log('show block');
+}
+
+function closeUpdateMsg() {
+    document.getElementById('update-smsg').style.display = "none";
+    reload_page();
     console.log('close block');
 }
 
@@ -188,3 +201,15 @@ $(document).ready(function(){
     });
   });
 });
+
+/** toggle password visibility */
+
+function togglePword(id) {
+    var x = document.getElementById(id);
+    if (x.type === "password") {
+    x.type = "text";
+    } else {
+    x.type = "password";
+    }
+    document.querySelector('#togglePassword').classList.toggle('fa-eye-slash')
+}

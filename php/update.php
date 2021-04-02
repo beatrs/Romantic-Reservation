@@ -1,5 +1,5 @@
 <?php
-    if (isset($_POST[''])) {
+    if (isset($_POST['verify'])) {
         $details = $_SESSION['user'];
         $verifyPassword = hash("sha512", $_POST['verifyPassword']);
         $user_id = $details['id'];
@@ -26,11 +26,10 @@
                     unset($_SESSION['user']);
                     $_SESSION['login'] = true;
                     $_SESSION['user'] = $row;
-                    
+
                 } else {}
                 echo '<script type="text/javascript">
-                alert("Update Successful.");
-                reload_page();
+                showUpdateMsg();
                 </script>';
 
             }
@@ -47,6 +46,7 @@
     if(isset($_POST['change_pass'])) {
         $old_pass = hash("sha512", $_POST['old_password']);
         $unhashed_pword1 = $_POST['new_password1'];
+        $unhashed_pword2 = $_POST['new_password2'];
         $new_pass1 = hash("sha512", $_POST['new_password1']);
         $new_pass2 = hash("sha512", $_POST['new_password2']);
 
@@ -59,18 +59,24 @@
         if ($old_pass != $details['password']) {
             $err_msg = "Entered old password is incorrect.";
             showError($err_msg);
-            
         }
         else if ($new_pass1 != $new_pass2) {
             $err_msg = "New password and Re-Enter new password should be the same.";
             showError($err_msg);
-            
-        } else if(strlen($unhashed_pword1) < 4) {
+
+        } else if(strlen($unhashed_pword1) < 4 || strlen($unhashed_pword2) < 4) {
             // tell the user something went wrong
-            //echo $alert_trg;
             $err_msg = "Password should be at least 4 characters long.";
             showError($err_msg);
-            
+        } else if ((ctype_alnum($unhashed_pword1) || ctype_alnum ($unhashed_pword2)) == false){
+            // tell the user something went wrong
+            $err_msg = "Password should contain letters and numbers.";
+            showError($err_msg);
+        } else if ((preg_match('/[A-Z]/', $unhashed_pword1) || preg_match('/[A-Z]/', $unhashed_pword2)) == 0){
+            // tell the user something went wrong
+            $err_msg = "Password should contain at least ONE uppercase letter.";
+            showError($err_msg);
+
         } else {
             $user_id = $details['id'];
             $sql = "UPDATE users SET password='$new_pass1' WHERE id='$user_id'";
@@ -85,7 +91,7 @@
             }
         }
     }
-    
+
     if(isset($_POST['confirm'])) {
         $confirmPassword = hash("sha512", $_POST['confirmPassword']);
         $user_id = $details['id'];

@@ -20,36 +20,31 @@
         while(($row =  mysqli_fetch_assoc($res))) {
             $types[] = $row['table_id'];
         }
-        //echo var_dump($types);
         for ($i = 0; $i < count($types); $i++) {
             $arg_table = $types[$i];
-            //echo $arg_table;
             echo "<script type='text/javascript'>",
             "change_color('$arg_table', 'gray');",
             "</script>";
         }
-        //$show = true;
     }
 
     /** submit reservation */
     if(isset($_POST['save'])) {
         $res = $_POST['reserved'];
-        //echo $res;
+
         $res = trim($res);
         if (empty($res)) {
             echo "empty";
         }
-        
+
         if (!empty($_SESSION['user'])) {
             $details = $_SESSION['user'];
             $user_id = $details['id'];
-        } else {
-            //echo "no user";
         }
-        
+
+
         $arr_tables = explode(" ", $res);
-        
-        
+
         $res_date = $_SESSION['set-date'];
         $res_time = $_SESSION['set-time'];
 
@@ -62,13 +57,13 @@
                         $table_id = $arr_tables[$i];
                         $sql = "SELECT * FROM users_reservations WHERE table_id = '$table_id' AND reserve_date='$res_date' AND reserve_time='$res_time' AND status=1";
                         $result = mysqli_query($conn, $sql);
-                        
+
                         if(mysqli_num_rows($result) == 0) {
                             $sql = "INSERT INTO users_reservations (user_id, table_id, reserve_date, reserve_time, status) VALUES ('$user_id', '$table_id', '$res_date', '$res_time', 1)";
                             $result = mysqli_query($conn, $sql);
-    
+
                             if ($result) {
-                                
+
                             } else {
                                 $sql = "UPDATE users_reservations SET status=1 WHERE user_id='$user_id' AND table_id='$arr_tables[$i]' AND reserve_date='$res_date' AND reserve_time='$res_time' AND status=0 ";
                                 $result = mysqli_query($conn, $sql);
@@ -76,36 +71,23 @@
                                 echo "<script type='text/javascript'>",
                                 "showSuccessMsg('Reservation made successfully');",
                                 "</script>";
-                        } else {
-                            //echo "seat unavailable";
                         }
                     }
                 } else {
-                    /* echo "<script type='text/javascript'>",
-                        "window.alert('no table chosen');",
-                        "</script>"; */
                     $err_msg = "No table chosen.";
                     showError($err_msg);
                 }
             } else {
-                /* echo "<script type='text/javascript'>",
-                        "window.alert('please sign in to book a table');",
-                        "window.location.href='login.php';",
-                        "</script>"; */
-                    #$err_msg = "Please sign up/sign in to book a table.";
                     echo "<script type='text/javascript'>",
                                 "showMsg();",
                                 "</script>";
             }
         } else {
-            /* echo "<script type='text/javascript'>",
-                        "window.alert('invalid date');",
-                        "</script>"; */
                     $err_msg = "Invalid date entered.";
                     showError($err_msg);
         }
-        
-        
+
+
     } else {}
 
     /**edit reservation */
@@ -132,10 +114,8 @@
         while(($row =  mysqli_fetch_assoc($res))) {
             $types[] = $row['table_id'];
         }
-        //echo var_dump($types);
         for ($i = 0; $i < count($types); $i++) {
             $arg_table = $types[$i];
-            //echo $arg_table;
             echo "<script type='text/javascript'>",
             "change_color('$arg_table', 'gray');",
             "</script>";
@@ -149,10 +129,8 @@
         while(($row =  mysqli_fetch_assoc($res))) {
             $types[] = $row['table_id'];
         }
-        //echo var_dump($types);
         for ($i = 0; $i < count($types); $i++) {
             $arg_table = $types[$i];
-            //echo $arg_table;
             echo "<script type='text/javascript'>",
             "change_color('$arg_table', 'red');",
             "</script>";
@@ -167,21 +145,19 @@
                 "reload_page();",
                 "</script>"; */
         } else {
-            echo "something went wrong";
+            //echo "something went wrong";
         }
     }
 
     /**cancel reservation */
     if (isset($_POST['cancel'])) {
-        //$details = $_SESSION['user'];
-        //echo var_dump($details);
         $res_det = $_POST['reserve_det'];
         $res_det = explode(",", $res_det);
         $user_id = $res_det[0];
         $table_id = $res_det[1];
         $res_date = $res_det[2];
         $res_time = $res_det[3];
-        
+
         $msg = "You are cancelling reservation for table ".$table_id." scheduled on ".$res_date." (".$res_time.")";
         echo "<script type='text/javascript'>",
         "showCancelConfirm('$msg');",
@@ -191,9 +167,9 @@
         $_SESSION['cancel-tbl'] = $table_id;
         $_SESSION['cancel-date'] = $res_date;
         $_SESSION['cancel-time'] = $res_time;
-        
+
         //header("location:../my_acc.php");
-    } 
+    }
 
     if (isset($_POST['cancel-confirm'])) {
         $user_id = $_SESSION['cancel-id'];

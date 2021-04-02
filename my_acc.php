@@ -23,6 +23,7 @@
 	<!-- Site Icons -->
 	<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
 	<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
 
 	<!-- Bootstrap CSS -->
 	<link rel="stylesheet" href="css/bootstrap.min.css">
@@ -110,7 +111,10 @@
 				</div>
 				<div class="form-group">
 					<label for="password">Password</label>
-					<input type="password" name="password" required>
+					<div class="pword-container">
+						<input type="password" class="field" id="password" name="password" required>
+						<i class="far fa-eye icon" id="togglePassword" onclick="togglePword('password')"></i>
+					</div>
 				</div>
 				<input type="checkbox" name="remember" id="remember">
 				<label for="remember-me">Remember me</label>
@@ -160,8 +164,10 @@
 				<button type="button" class="close" id="btn_close">&times;</button>
 				<div class="form-group">
 					<label for="verifyPassword">Enter Password to save changes</label>
-					<input type="password" class="form-control" id="verifyPassword" placeholder="Current Password"
-						name="verifyPassword" required>
+					<div class="pword-container">
+						<input type="password" class="field" id="verifyPassword" placeholder="Current Password" name="verifyPassword" required>
+						<i class="far fa-eye icon" id="togglePassword" onclick="togglePword('verifyPassword')"></i>
+					</div>
 				</div>
 				<div class="alert alert-dismissible alert-danger" id="verify-alert" style="display:none;">
 					<button type="button" class="close" data-dismiss="alert">&times;</button>
@@ -186,15 +192,24 @@
 				<legend>Change Password</legend>
 				<div class="form-group">
 					<label for="old_password">Current Password</label>
-					<input type="password" name="old_password" value="">
+					<div class="pword-container">
+						<input type="password" class=" field " id="old_password" placeholder="Current Password" name="old_password" value="" required>
+						<i class="far fa-eye icon" id="togglePassword" onclick="togglePword('old_password')"></i>
+					</div>
 				</div>
 				<div class="form-group">
 					<label for="new_password1">New Password</label>
-					<input type="password" name="new_password1" value="">
+					<div class="pword-container">
+						<input type="password" class=" field" id="new_password1" placeholder="Current Password" name="new_password1" value="" required>
+						<i class="far fa-eye icon" id="togglePassword" onclick="togglePword('new_password1')"></i>
+					</div>
 				</div>
 				<div class="form-group">
 					<label for="new_password2">Confirm New Password</label>
-					<input type="password" name="new_password2" value="">
+					<div class="pword-container">
+						<input type="password" class="field" id="new_password2" placeholder="Current Password" name="new_password2" value="" required>
+						<i class="far fa-eye icon" id="togglePassword" onclick="togglePword('new_password2')"></i>
+					</div>
 				</div>
 				<div class="alert alert-success" role="alert">
 					Password changed successfully. Click <a href="php/logout.php" class="alert-link">here to logout and
@@ -242,6 +257,28 @@
 	<?php } ?>
 	<!--end-->
 	<?php } ?>
+
+
+	<!-- Start update success msg -->
+	<div class="modal" tabindex="-1" role="dialog" id="update-smsg" style="display: none;">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title">Update Successful!</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="closeUpdateMsg()">
+					<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body" id="sMsg">
+					<p>Account details have been changed successfully.</p>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="closeUpdateMsg()">Okay</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- end update success msg -->
 
 
 
