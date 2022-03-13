@@ -10,10 +10,16 @@
 ?>
 
 <?php
-    $host = "remotemysql.com";
-    $db_uname = "ekv21T9b6c";
-    $db_pass = "QtFE1IN5Bs";
-    $dbname = "ekv21T9b6c";
+
+    require '../vendor/autoload.php';
+    $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
+    $dotenv->load();
+
+
+    $host = $_ENV["DB_HOST"];
+    $db_uname = $_ENV["DB_USERNAME"];
+    $db_pass = $_ENV["DB_PASSWORD"];
+    $dbname = $_ENV["DB_NAME"];
 
     $conn = mysqli_connect($host, $db_uname, $db_pass);
 
