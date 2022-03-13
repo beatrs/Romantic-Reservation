@@ -3,7 +3,7 @@
 .php/env
 
 .phpunit.result.cache
-composer.lock
+# composer.lock
 phpstan.neon
 phpstan.tests.neon
 phpunit.xml
