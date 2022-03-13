@@ -19,7 +19,8 @@
         // tell the user something went wrong
         } */
 
-        include 'config.php';
+        //include '../config.php';
+        include __DIR__ . "/../config.php";
         $sql = "SELECT email FROM users WHERE email = '$email'";
         $res = mysqli_query($conn, $sql);
         $err_msg = "";

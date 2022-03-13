@@ -11,15 +11,15 @@
 
 <?php
 
-    require '../vendor/autoload.php';
+    require "vendor/autoload.php";
     $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
-    $dotenv->load();
-
+    $dotenv->safeLoad();
 
     $host = $_ENV["DB_HOST"];
     $db_uname = $_ENV["DB_USERNAME"];
     $db_pass = $_ENV["DB_PASSWORD"];
     $dbname = $_ENV["DB_NAME"];
+
 
     $conn = mysqli_connect($host, $db_uname, $db_pass);
 

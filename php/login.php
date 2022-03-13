@@ -8,7 +8,8 @@
             setcookie( "email", $email, time() + 300);
             setcookie( "password", $password, time() + 300); 
         }
-        include 'config.php';
+        
+        include __DIR__ . "/../config.php";
 
         $sql = "SELECT * from users where email = '$email' && password = '$password'";
 

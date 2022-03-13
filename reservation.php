@@ -1,6 +1,6 @@
 <?php
     session_start();
-	include 'php/config.php';
+	include 'config.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
