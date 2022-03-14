@@ -103,10 +103,9 @@ a {
     outline: none;
 }
 
-a,
-.btn {
+a, .btn {
     text-decoration: none !important;
-    outline: none !important;.button
+    outline: none !important;
     -webkit-transition: all .3s ease-in-out;
     -moz-transition: all .3s ease-in-out;
     -ms-transition: all .3s ease-in-out;
@@ -875,15 +874,6 @@ button:focus{
 }
 
 
-.reservation-box{
-	padding: 70px 0px;
-}
-
-.reservation-box h3{
-	padding: 0px 15px;
-	margin-bottom: 20px;
-	font-weight: 600;
-}
 
 .help-block ul li{
 	color: red;

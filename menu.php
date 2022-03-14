@@ -366,7 +366,7 @@
 				<div class="col-lg-3 col-md-6">
 					<h3>SOCIALS</h3>
 					<ul class="list-inline f-social">
-						<li class="list-inline-item"><a href="https://web.facebook.com/RomanticBaboy/?_rdc=1&_rdr"><i
+						<li class="list-inline-item"><a href=""><i
 									class="fa fa-facebook" aria-hidden="true"></i></a></li>
 
 					</ul>
@@ -379,7 +379,7 @@
 				<div class="row">
 					<div class="col-lg-12">
 						<p class="company-name">All Rights Reserved. &copy; 2018 <a
-								href="https://web.facebook.com/RomanticBaboy/?_rdc=1&_rdr">Romantic Baboy Restaurant</a>
+								href="">Romantic Baboy Restaurant</a>
 						</p>
 					</div>
 				</div>

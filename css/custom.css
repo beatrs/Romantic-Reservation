@@ -1,9 +1,14 @@
 
 /** ADD YOUR AWESOME CODES HERE **/
 
+* {
+    box-sizing: border-box;
+}
+
 .form-container {
-    border: 1x solid black;
+    border: 1x solid gray;
     width: 500px;
+    height: 70vh;
     margin: auto;
     margin-top: 40px;
 }
@@ -13,6 +18,13 @@
 .form-group {
     display: flex;
     flex-direction: column;
+    max-width: 85vw;
+}
+
+.form--input {
+    padding: 5px 10px;
+    border: 1px solid gray;
+    border-radius: 3px;
 }
 
 /** SEATS PAGE CSS **/
@@ -31,17 +43,17 @@
 **/
 .seat {
     text-align: center;
-    font-size: xx-large;
+    font-size: x-large;
     font-weight: bold;
-    height: 60px;
-    width: 100px;
+    height: 54px;
+    width: 80px;
     border: 1px solid gray;
     border-radius: 5%;
     cursor:pointer;
     background-color:white;
 }
 .walk{
-    padding-left:25px;
+    padding-left:45px;
 }
 .walk2{
     padding-left:45px;
@@ -61,6 +73,46 @@
     padding: 10px;
 }
 
+.reservation-box {
+    width: 100%;
+    margin-bottom: 30px;
+    margin-top: 40px;
+}
+
+
+.reservation-box h3{
+	padding: 0px 15px;
+	margin-bottom: 20px;
+	font-weight: 600;
+}
+
+.reservation--table {
+    border: 1px solid grey; 
+    width: 508px; 
+    height: 400;
+    padding: 20px; 
+    border-radius: 2%;
+}
+
+@media only screen and (max-width: 600px) {
+    .reservation-box {
+        display: flex;
+        width: 100%;
+        justify-content: center;
+
+    }
+    .reservation--table {
+        width: 90vw;
+    }
+    .reservation--table table {
+        margin: auto;
+    }
+    .seat {
+        max-width: 55px;
+        max-height: 35px;
+        font-size: medium;
+    }
+  }
 
 /** popup warning **/
 #override .popup {
@@ -124,7 +176,7 @@
 
 .info-box {
     border: 1px solid gray;
-    width: 700px;
+    max-width: 90vw;
     margin: auto;
     margin-top: 40px;
     margin-bottom: 40px;
@@ -148,7 +200,7 @@
 }
 
 /** CONTAINTER FOR PASSWORDS **/
-.pword-container {
+/* .pword-container {
     width: 100%;
 }
 .pword-container i {
@@ -160,4 +212,19 @@
 }
 .pword-container .field {
     width: 100%;
+} */
+
+.pword-container {
+    max-width: 85vw;
+}
+.pword-container .form--input {
+    position: relative;
+    width: 100%;
+}
+.pword-container > i {
+    position: absolute;
+    z-index: 1;
+    transform: translate(-150%, 25%);
+    padding: 5px;
+    cursor: pointer;
 }

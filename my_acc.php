@@ -107,12 +107,12 @@
 				<legend>Login</legend>
 				<div class="form-group">
 					<label for="email">Email</label>
-					<input type="text" name="email" required>
+					<input class="form--input" type="text" name="email" required>
 				</div>
 				<div class="form-group">
 					<label for="password">Password</label>
 					<div class="pword-container">
-						<input type="password" class="field" id="password" name="password" required>
+						<input type="password" class="form--input" id="password" name="password" required>
 						<i class="far fa-eye icon" id="togglePassword" onclick="togglePword('password')"></i>
 					</div>
 				</div>
@@ -125,8 +125,8 @@
 					submitting again.
 				</div>
 
-				<p>Don't have an account yet? Register <a href="register.php">here</a></p>
 				<div class="submit-button text-center">
+                    <p><a href="register.php">Don't have an account yet? Register here</a></p>
 					<button type="submit" class="btn" name="login">Login</button>
 				</div>
 			</fieldset>
@@ -143,19 +143,19 @@
 				<legend>Account Details</legend>
 				<div class="form-group">
 					<label for="fname">First Name</label>
-					<input type="text" name="fname" value="<?php echo $details['first_name']; ?>">
+					<input class="form--input" type="text" name="fname" value="<?php echo $details['first_name']; ?>">
 				</div>
 				<div class="form-group">
 					<label for="lname">Last Name</label>
-					<input type="text" name="lname" value="<?php echo $details['last_name']; ?>">
+					<input class="form--input" type="text" name="lname" value="<?php echo $details['last_name']; ?>">
 				</div>
 				<div class="form-group">
 					<label for="cnum">Contact Number</label>
-					<input type="text" name="cnum" value="<?php echo $details['contact_num']; ?>">
+					<input class="form--input" type="text" name="cnum" value="<?php echo $details['contact_num']; ?>">
 				</div>
 				<div class="form-group">
 					<label for="email">Email</label>
-					<input type="email" name="email" value="<?php echo $details['email']; ?>">
+					<input class="form--input" type="email" name="email" value="<?php echo $details['email']; ?>">
 				</div>
 
 			</fieldset>
@@ -193,21 +193,21 @@
 				<div class="form-group">
 					<label for="old_password">Current Password</label>
 					<div class="pword-container">
-						<input type="password" class=" field " id="old_password" placeholder="Current Password" name="old_password" value="" required>
+						<input type="password" class="form--input" id="old_password" placeholder="Current Password" name="old_password" value="" required>
 						<i class="far fa-eye icon" id="togglePassword" onclick="togglePword('old_password')"></i>
 					</div>
 				</div>
 				<div class="form-group">
 					<label for="new_password1">New Password</label>
 					<div class="pword-container">
-						<input type="password" class=" field" id="new_password1" placeholder="Current Password" name="new_password1" value="" required>
+						<input type="password" class="form--input" id="new_password1" placeholder="Current Password" name="new_password1" value="" required>
 						<i class="far fa-eye icon" id="togglePassword" onclick="togglePword('new_password1')"></i>
 					</div>
 				</div>
 				<div class="form-group">
 					<label for="new_password2">Confirm New Password</label>
 					<div class="pword-container">
-						<input type="password" class="field" id="new_password2" placeholder="Current Password" name="new_password2" value="" required>
+						<input type="password" class="form--input" id="new_password2" placeholder="Current Password" name="new_password2" value="" required>
 						<i class="far fa-eye icon" id="togglePassword" onclick="togglePword('new_password2')"></i>
 					</div>
 				</div>
@@ -341,7 +341,7 @@
 				<div class="col-lg-3 col-md-6">
 					<h3>SOCIALS</h3>
 					<ul class="list-inline f-social">
-						<li class="list-inline-item"><a href="https://web.facebook.com/RomanticBaboy/?_rdc=1&_rdr"><i
+						<li class="list-inline-item"><a href=""><i
 									class="fa fa-facebook" aria-hidden="true"></i></a></li>
 					</ul>
 				</div>
@@ -353,7 +353,7 @@
 				<div class="row">
 					<div class="col-lg-12">
 						<p class="company-name">All Rights Reserved. &copy; 2018 <a
-								href="https://web.facebook.com/RomanticBaboy/?_rdc=1&_rdr">Romantic Baboy Restaurant</a>
+								href="">Romantic Baboy Restaurant</a>
 						</p>
 					</div>
 				</div>

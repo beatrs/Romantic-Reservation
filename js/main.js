@@ -7,12 +7,19 @@ for (var i = 0; i < allSeats.length; i++) {
     var seat = allSeats[i]
     seat.addEventListener('click', function () {
         var bgclr = this.style.backgroundColor;
-        if(bgclr =='red')
+        if(bgclr =='red') {
             this.style.backgroundColor = 'white'
-        else if (bgclr == 'gray')
+            this.style.color = 'gray'
+        }
+        else if (bgclr == 'gray') {
             this.style.backgroundColor = 'gray'
-        else
+            this.style.color = 'white'
+        }
+        else {
+            
             this.style.backgroundColor = 'red'
+            this.style.color = 'white'
+        }
         debugger
     }, false);
 }

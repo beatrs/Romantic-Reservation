@@ -106,24 +106,24 @@
 				<legend>Register</legend>
 				<div class="form-group">
 					<label for="fname">First Name</label>
-					<input type="text" name="fname" required>
+					<input class="form--input" type="text" name="fname" required>
 				</div>
 				<div class="form-group">
 					<label for="lname">Last Name</label>
-					<input type="text" name="lname" required>
+					<input class="form--input" type="text" name="lname" required>
 				</div>
 				<div class="form-group">
 					<label for="cnum">Contact Number</label>
-					<input type="text" name="cnum" required>
+					<input class="form--input" type="text" name="cnum" required>
 				</div>
 				<div class="form-group">
 					<label for="email">Email</label>
-					<input type="email" name="email" required>
+					<input class="form--input" type="email" name="email" required>
 				</div>
 				<div class="form-group">
 					<label for="password1">Password</label>
 					<div class="pword-container">
-						<input type="password" class="field" id="password1" name="password1" required>
+						<input class="form--input" type="password" id="password1" name="password1" required>
 						<i class="far fa-eye icon" id="togglePassword" onclick="togglePword('password1')"></i>
 					</div>
 					<!-- <div>
@@ -134,11 +134,13 @@
 					
 				</div>
 				<div class="form-group">
-					<label for="password2">Confirm Password</label><div class="pword-container">
-						<input type="password" class="field" id="password2" name="password2" required>
-						<i class="far fa-eye icon" id="togglePassword2" onclick="togglePword('password2','#togglePassword2')"></i>
+					<label for="password2">Confirm Password</label>
+                    <div class="pword-container">
+                        <input class="form--input" type="password" id="password2" name="password2" required>
+                        <i class="far fa-eye icon" id="togglePassword2" onclick="togglePword('password2','#togglePassword2')"></i>
 					</div>
 				</div>
+
 				<div class="alert alert-dismissible alert-danger" id="form-alert">
 					<button type="button" class="close" data-dismiss="alert">&times;</button>
 					<strong>Oh snap!</strong> 
@@ -146,8 +148,8 @@
 				<div class="alert alert-success" role="alert">
 					Registered successfully. Click <a href="my_acc.php" class="alert-link">here to sign in</a>.
 				</div>
-				<p>Already have an account? Login <a href="my_acc.php">here</a></p>
 				<div class="submit-button text-center">
+                    <p><a href="my_acc.php">Already have an account? Login here</a></p>
 					<button type="submit" class="btn" name="reg">Register</button>
 				</div>
 			</fieldset>
@@ -287,7 +289,7 @@
 				<div class="col-lg-3 col-md-6">
 					<h3>SOCIALS</h3>
 					<ul class="list-inline f-social">
-						<li class="list-inline-item"><a href="https://web.facebook.com/RomanticBaboy/?_rdc=1&_rdr"><i
+						<li class="list-inline-item"><a href=""><i
 									class="fa fa-facebook" aria-hidden="true"></i></a></li>
 
 					</ul>
@@ -300,7 +302,7 @@
 				<div class="row">
 					<div class="col-lg-12">
 						<p class="company-name">All Rights Reserved. &copy; 2018 <a
-								href="https://web.facebook.com/RomanticBaboy/?_rdc=1&_rdr">Romantic Baboy Restaurant</a>
+								href="">Romantic Baboy Restaurant</a>
 						</p>
 					</div>
 				</div>

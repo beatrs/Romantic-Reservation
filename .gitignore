@@ -9,5 +9,7 @@ phpstan.tests.neon
 phpunit.xml
 vendor
 
-db.md
 .env
+db.md
+
+test.html
