@@ -101,7 +101,7 @@
 			
 		</div>
 		<!-- Start Registration Form -->
-		<form method="post" action="" id="form-info">
+		<form method="post" action=""  id="form-info">
 			<fieldset>
 				<legend>Register</legend>
 				<div class="form-group">
